@@ -1,0 +1,49 @@
+@import ../../../styles
+
+.layout
+    @include layout
+
+section
+    text-align: center
+    float: left
+    width: 50%
+
+.schedule-li
+    @include text
+    color: $color-4
+    list-style-type: none
+
+.schedule-li-header
+    @include text
+    font-weight: bold
+
+iframe
+    border: 0px
+    width: 100%
+    max-width: 350px
+    height: 240px
+
+h1
+    @include title
+
+address
+    @include text
+    color: $color-4
+    font-style: normal
+
+.contact
+    @include text
+    color: $color-4
+    word-wrap: normal
+
+.contact-value
+    @include link
+
+@media screen and (max-width: 600px)
+    section
+        float: none
+        width: 100%
+
+@media screen and ( max-width: 350px )
+    iframe
+        width: 100%

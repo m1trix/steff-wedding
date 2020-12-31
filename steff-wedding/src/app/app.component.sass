@@ -1,0 +1,110 @@
+@import ../styles
+
+$SWOGAN-BAR-PADDING: 1rem
+$SWOGAN-BAR-HEIGHT: 2 * $SWOGAN-BAR-PADDING + 6rem
+$SWOGAN-BAR-BLUR: 1rem
+$SWOGAN-BAR-BRIGHTNESS: 0.7
+
+main
+  height: 100%
+
+header
+  position: sticky
+  top: 0px
+  z-index: 100
+
+.swogan-bar
+  display: block
+  width: 100%
+  height: $SWOGAN-BAR-HEIGHT
+  overflow: hidden
+
+.swogan-bg
+  position: relative
+  left: -$SWOGAN-BAR-BLUR
+  top: -$SWOGAN-BAR-BLUR
+  width: calc(100% + #{$SWOGAN-BAR-BLUR * 2})
+  height: calc(100% + #{$SWOGAN-BAR-BLUR * 2})
+  background-image: url(/images/welcome.jpg)
+  background-position: center
+  background-size: calc(100% + #{$SWOGAN-BAR-BLUR * 2})
+  background-repeat: no-repeat
+  filter: blur($SWOGAN-BAR-BLUR) brightness($SWOGAN-BAR-BRIGHTNESS)
+
+.swogan-logo
+  $height: $SWOGAN-BAR-HEIGHT - 2 * $SWOGAN-BAR-PADDING - 1rem
+  $width: $SWOGAN-BAR-HEIGHT * 2
+  background-image: $logo-url
+  background-repeat: no-repeat
+  background-position: center
+  background-size: contain
+  position: absolute
+  top: $SWOGAN-BAR-PADDING
+  left: calc(50% - #{$width / 2})
+  width: $width
+  height: $height
+  z-index: 100
+  display: inline-block
+
+.swogan-text
+  @include text
+  color: $color-4
+  font-size: 1rem
+  position: absolute
+  top: $SWOGAN-BAR-HEIGHT - 2 * $SWOGAN-BAR-PADDING
+  width: 100%
+  text-align: center
+
+.nav-bar
+  background-color: $color-1
+  display: flex
+  flex-direction: row
+  justify-content: center
+  width: 100%
+
+ul
+  padding: 0px
+  margin: 0px
+
+.nav-bar-link
+  $padding: 1rem
+  $width: 10rem
+  font-size: 1rem
+  background-color: $color-1
+  color: $color-4
+  padding: $padding
+  display: inline-block
+  text-align: center
+  font-family: $font
+  width: 6em
+  transition: all .3s
+
+  &:hover
+    transition: all .3s
+    background-color: $color-1-lt
+    cursor: pointer
+
+  &:active
+    background-color: $color-1-dk
+
+  &:focus
+    outline: none
+
+  @media only screen and (max-width: 600px)
+    width: auto
+    padding: 0.5rem
+
+  @media only screen and (max-width: 400px)
+    font-size: 0.8rem
+
+footer
+  width: calc(100% - 1rem)
+  display: flex
+  justify-content: center
+  background-color: $color-1
+  padding: 0.5rem
+  position: fixed
+  bottom: 0px
+
+.footer
+  @include link
