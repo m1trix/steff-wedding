@@ -13,6 +13,7 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
 import { DressComponent } from './pages/dress/dress.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ImageCollectionComponent } from './image-collection/image-collection.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ImageCollectionComponent } from './image-collection/image-collection.co
     WelcomeComponent,
     ContactsComponent,
     DressComponent,
-    ImageCollectionComponent
+    ImageCollectionComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,

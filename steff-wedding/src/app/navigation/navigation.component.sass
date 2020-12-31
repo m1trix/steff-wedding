@@ -1,60 +1,65 @@
-@import ../styles
+@import ../../styles
 
 $SWOGAN-BAR-PADDING: 1rem
 $SWOGAN-BAR-HEIGHT: 2 * $SWOGAN-BAR-PADDING + 6rem
 $SWOGAN-BAR-BLUR: 1rem
 $SWOGAN-BAR-BRIGHTNESS: 0.7
 
-main
-  height: 100%
-
-header
-  // position: sticky
-  top: 0px
-
 .swogan-bar
   display: block
   width: 100%
-  height: $SWOGAN-BAR-HEIGHT
   overflow: hidden
-
-.swogan-bg
   position: relative
-  left: -$SWOGAN-BAR-BLUR
-  top: -$SWOGAN-BAR-BLUR
-  width: calc(100% + #{$SWOGAN-BAR-BLUR * 2})
-  height: calc(100% + #{$SWOGAN-BAR-BLUR * 2})
+
+.swogan-content
+  position: absolute
+  will-change: height, margin
+
+.swogan-color
+  position: absolute
+  z-index: -1
+  top: 0px
+  width: 100%
+  height: 100%
+  background-color: $color-1
+  opacity: 0
+  will-change: opacity
+
+.swogan-cover
+  position: absolute
+  z-index: -2
+  display: block
+  left: #{-2 * $SWOGAN-BAR-BLUR}
+  top: #{-2 * $SWOGAN-BAR-BLUR}
+  width: calc(100% + #{$SWOGAN-BAR-BLUR * 4})
+  height: calc(100% + #{$SWOGAN-BAR-BLUR * 4})
   background-image: url(/images/welcome.jpg)
   background-position: center
-  background-size: calc(100% + #{$SWOGAN-BAR-BLUR * 2})
+  background-size: cover
   background-repeat: no-repeat
   filter: blur($SWOGAN-BAR-BLUR) brightness($SWOGAN-BAR-BRIGHTNESS)
 
 .swogan-logo
   $height: $SWOGAN-BAR-HEIGHT - 2 * $SWOGAN-BAR-PADDING - 1rem
-  $width: $SWOGAN-BAR-HEIGHT * 2
+  margin-top: $SWOGAN-BAR-PADDING
   background-image: $logo-url
   background-repeat: no-repeat
   background-position: center
   background-size: contain
-  position: absolute
-  top: $SWOGAN-BAR-PADDING
-  left: calc(50% - #{$width / 2})
-  width: $width
+  width: 100%
   height: $height
-  z-index: 100
   display: inline-block
 
 .swogan-text
   @include text
+  margin-top: $SWOGAN-BAR-PADDING
   color: $color-4
   font-size: 1rem
-  position: absolute
-  top: $SWOGAN-BAR-HEIGHT - 2 * $SWOGAN-BAR-PADDING
   width: 100%
   text-align: center
 
 .nav-bar
+  margin-top: $SWOGAN-BAR-PADDING
   display: flex
   flex-direction: row
   justify-content: center
@@ -65,27 +70,46 @@ ul
   margin: 0px
 
 .nav-bar-link
+  $side-margin: 2px
   $padding: 1rem
   $width: 10rem
   font-size: 1rem
   color: $color-4
   padding: $padding
+  margin-left: $side-margin
+  margin-right: $side-margin
   display: inline-block
   text-align: center
   font-family: $font
   width: 6em
   transition: all .3s
+  position: relative
 
-  &:hover
-    transition: all .3s
-    background-color: $color-1-lt
-    cursor: pointer
-
-  &:active
-    background-color: $color-1-dk
+  &::after
+    $thickness: 2px
+    content: ""
+    display: block
+    width: 100%
+    height: 0px
+    bottom: 0px
+    left: 0px
+    position: absolute
+    background-color: $color-4
+    transition: all 0.3s
+    will-change: height
 
   &:focus
     outline: none
+
+  &:hover
+    transition: all .3s
+    cursor: pointer
+    &::after
+      height: 2px
+      transition: all 0.3s
+
+  &:active
+    background-color: $color-1-dk
 
   @media only screen and (max-width: 600px)
     width: auto
@@ -93,15 +117,3 @@ ul
 
   @media only screen and (max-width: 400px)
     font-size: 0.8rem
-
-footer
-  width: calc(100% - 1rem)
-  display: flex
-  justify-content: center
-  background-color: $color-1
-  padding: 0.5rem
-  position: fixed
-  bottom: 0px
-
-.footer
-  @include link
