@@ -112,7 +112,7 @@ export class StickService {
     element.isStuck = true;
     const original = element.original;
 
-    const replacement = this.renderer.createElement('div');
+    const replacement = this.renderer.createElement('div') as HTMLElement;
     this.renderer.setStyle(replacement, 'width', original.offsetWidth + 'px');
     this.renderer.setStyle(replacement, 'height', original.offsetHeight + 'px');
     this.renderer.setStyle(replacement, 'marginTop', window.getComputedStyle(original).marginTop);

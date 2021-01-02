@@ -5,7 +5,7 @@
   flex-direction: row
   width: 100%
   height: 100%
-  @media screen and ( max-width: 600px )
+  @media (max-width: $SCREEN-PHONE)
     flex-direction: column
 
 .display
@@ -19,7 +19,7 @@
   background-size: cover
   cursor: zoom-in
 
-  @media screen and ( max-width: 600px )
+  @media (max-width: $SCREEN-PHONE)
     background-size: cover
 
 .display-zoom
@@ -53,7 +53,7 @@ $PREVIEW-MARGIN: 0.25rem
   &::-webkit-scrollbar
     display: none
 
-  @media (max-width: 600px)
+  @media (max-width: $SCREEN-PHONE)
     height: calc(128px + #{2 * $PREVIEW-MARGIN})
     width: calc(100% - #{2 * $PREVIEW-MARGIN})
     flex-direction: row
@@ -87,13 +87,13 @@ $PREVIEW-MARGIN: 0.25rem
     left: 0px
     width: 128px
     height: 128px
-    outline: 2px dotted $color-3
+    outline: 2px dotted $COLOR-3
     outline-offset: -2px
     transition: all 0.3s
 
 .preview-active
   transition: all 0.3s
-  outline: 4px solid $color-3
+  outline: 4px solid $COLOR-3
 
 .popover
   position: fixed
@@ -133,6 +133,6 @@ $PREVIEW-MARGIN: 0.25rem
     outline: none
 
   &:hover
-    border-color: $color-3
-    color: $color-3
+    border-color: $COLOR-3
+    color: $COLOR-3
     cursor: pointer

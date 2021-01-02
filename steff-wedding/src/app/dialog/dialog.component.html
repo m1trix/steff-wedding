@@ -1,0 +1,17 @@
+<div *ngIf="isOpen" class="dialog" (window:keydown.esc)="close()">
+  <div class="container">
+    <div class="header">
+      <h1>{{title}}</h1>
+    </div>
+
+    <div class="content">
+      <ng-content></ng-content>
+    </div>
+
+    <div class="footer">
+      <button *ngIf="confirm" (click)="onConfirm()">{{confirm}}</button>
+      <button (click)="close()">{{cancel}}</button>
+    </div>
+  </div>
+  <div class="sheet"></div>
+</div>

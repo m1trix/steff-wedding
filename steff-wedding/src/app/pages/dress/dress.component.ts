@@ -43,7 +43,7 @@ export class DressComponent implements AfterViewInit, OnDestroy {
       'images',
       images.first.nativeElement,
       [],
-      '(min-width: 480px)'
+      '(min-width: 481px)'
     );
   }
 

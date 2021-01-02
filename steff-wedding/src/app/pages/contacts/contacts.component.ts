@@ -5,11 +5,6 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.sass']
 })
-export class ContactsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+export class ContactsComponent {
 
 }

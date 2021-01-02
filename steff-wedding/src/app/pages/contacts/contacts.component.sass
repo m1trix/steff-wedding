@@ -1,49 +1,57 @@
 @import ../../../styles
 
 .layout
-    @include layout
+  @include layout
+
+article
+  @include paragraph
+  font-size: 1rem
+  border: 1px solid #{$COLOR-4}
+  margin: 3rem
+  @include animate(margin)
+
+  @include on-tablet
+    margin: 2rem
+    @include animate(margin)
+
+  @include on-phone
+    margin: 1rem
+    @include animate(margin)
 
 section
-    text-align: center
-    float: left
-    width: 50%
+  text-align: center
+  float: left
+  width: 50%
+
+  @media (max-width: $SCREEN-PHONE)
+    float: none
+    width: 100%
 
 .schedule-li
-    @include text
-    color: $color-4
-    list-style-type: none
+  @include text
+  color: $COLOR-4
+  list-style-type: none
 
 .schedule-li-header
-    @include text
-    font-weight: bold
+  @include text
+  font-weight: bold
 
 iframe
-    border: 0px
+  border: 0px
+  width: 100%
+  max-width: 350px
+  height: 240px
+
+  @media ( max-width: 350px )
     width: 100%
-    max-width: 350px
-    height: 240px
 
 h1
-    @include title
-
-address
-    @include text
-    color: $color-4
-    font-style: normal
-
-.contact
-    @include text
-    color: $color-4
-    word-wrap: normal
+  @include title
 
 .contact-value
-    @include link
+  @include link
 
-@media screen and (max-width: 600px)
-    section
-        float: none
-        width: 100%
-
-@media screen and ( max-width: 350px )
-    iframe
-        width: 100%
+.text
+  @include text
+  color: $COLOR-4
+  word-wrap: normal

@@ -47,7 +47,7 @@ header
 
 .swogan-text
   @include text
-  color: $color-4
+  color: $COLOR-4
   font-size: 1rem
   position: absolute
   top: $SWOGAN-BAR-HEIGHT - 2 * $SWOGAN-BAR-PADDING
@@ -68,7 +68,7 @@ ul
   $padding: 1rem
   $width: 10rem
   font-size: 1rem
-  color: $color-4
+  color: $COLOR-4
   padding: $padding
   display: inline-block
   text-align: center
@@ -78,27 +78,27 @@ ul
 
   &:hover
     transition: all .3s
-    background-color: $color-1-lt
+    background-color: $COLOR-1-lt
     cursor: pointer
 
   &:active
-    background-color: $color-1-dk
+    background-color: $COLOR-1-dk
 
   &:focus
     outline: none
 
-  @media only screen and (max-width: 600px)
+  @media only screen and (max-width: $TABLET-WIDTH)
     width: auto
     padding: 0.5rem
 
-  @media only screen and (max-width: 400px)
+  @media only screen and (max-width: $SCREEN-PHONE)
     font-size: 0.8rem
 
 footer
   width: calc(100% - 1rem)
   display: flex
   justify-content: center
-  background-color: $color-1
+  background-color: $COLOR-1
   padding: 0.5rem
   position: fixed
   bottom: 0px

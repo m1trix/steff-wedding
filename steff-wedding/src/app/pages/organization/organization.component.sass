@@ -1,54 +1,54 @@
 @import ../../../styles
 
-.layout
-    @include layout
-    display: flex
-    flex-direction: row-reverse
-
-$picture-width: 300px
+section
+  @include layout
+  display: flex
+  flex-direction: row-reverse
 
 picture
-    display: block
-    width: $picture-width
-    height: 396px
-    background-image: url(/images/owner.jpg)
-    background-repeat: no-repeat
-    background-position: center
-    background-size: contain
+  flex: none
+  display: block
+  width: 300px
+  height: 396px
+  background-image: url(/images/owner.jpg)
+  background-repeat: no-repeat
+  background-position: center
+  background-size: contain
 
 article
-    $padding: 3rem
-    left: 0px
-    width: calc(100% - #{$picture-width})
-    padding: 3rem
+  @include paragraph
 
 .text
-    color: $color-4
-    font-family: $font
-    text-align: justify
+  color: $COLOR-4
+  font-family: $font
+  text-align: justify
 
 a
-    @include link
-    margin-top: 2rem
-    text-align: right
-    display: block
+  @include link
+  margin-top: 2rem
+  text-align: right
+  display: block
 
 h1
-    @include title
-    text-align: center
+  @include title
+  text-align: center
+
+form
+  display: flex
+  flex-direction: column
 
 @media only screen and (max-width: 600px)
-    $picture-width: 100%
+  $picture-width: 100%
 
-    .layout
-        flex-direction: column
+  .layout
+    flex-direction: column
 
-    picture
-        width: $picture-width
-        height: 14rem
-        background-size: cover
+  picture
+    width: $picture-width
+    height: 14rem
+    background-size: cover
 
-    article
-        $padding: 2rem
-        padding: $padding
-        width: calc(100% - #{$padding * 2})
+  article
+    $padding: 2rem
+    padding: $padding
+    width: calc(100% - #{$padding * 2})

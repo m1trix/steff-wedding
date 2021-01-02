@@ -1,0 +1,54 @@
+@import ../../styles
+
+@mixin full-screen
+  top: 0px
+  left: 0px
+  width: 100%
+  height: 100%
+
+.container
+  $padding: 1rem
+  $margin: 2rem
+
+  display: flex
+  flex-direction: column
+  padding: $padding
+  top: $margin
+  left: $margin
+  width: calc(100% - #{2 * ($margin + $padding)})
+  height: calc(100% - #{2 * ($margin + $padding)})
+  position: fixed
+  z-index: 1000
+  background-color: $COLOR-2
+
+  @include animate(top, left, width, height)
+
+  @include on-tablet
+    @include full-screen
+    width: calc(100% - #{2 * $padding})
+    height: calc(100% - #{2 * $padding})
+
+.sheet
+  position: fixed
+  @include full-screen
+  background-color: black
+  z-index: 900
+  opacity: 0.7
+
+.header
+  @include title
+  font-size: 1rem
+  text-align: center
+  flex: none
+
+.content
+  flex: auto
+
+.footer
+  flex: none
+  display: flex
+  flex-direction: row
+  justify-content: flex-end
+
+  & button
+    margin-left: 0.5rem

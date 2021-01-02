@@ -15,30 +15,50 @@
   font-family: Roboto-Light
   src: url(/fonts/roboto-light.ttf)
 
-$color-1: #4b1430
-$color-1-lt: #721e49
-$color-1-dk: #300d1f
-$color-2: #4a6c82
-$color-3: #e5b88c
-$color-4: #e1d6cd
+$COLOR-1: #4b1430
+$COLOR-1-lt: #721e49
+$COLOR-1-dk: #300d1f
+$COLOR-2: #4a6c82
+$COLOR-3: #e5b88c
+$COLOR-3-DARK: #a88057
+$COLOR-4: #e1d6cd
+$COLOR-4-LITE: #eee9e5
 
 $fixed-layout-width: 1280px
 $responsive-layout-width: 100%
 
-$ANIMATION-SPEED: 0.3s
-$SCREEN-TAB: 788px
-$SCREEN-MOB: 480px
+$ANIMATION-SPEED: 0.25s
+$TABLET-WIDTH: 788px
+$SCREEN-PHONE: 480px
 $COLUMN-WIDTH-PC: 50%
 $COLUMN-WIDTH-MOB: 100%
 $TEXT-COLUMN-PADDING-PC: 3rem
 $TEXT-COLUMN-PADDING-TAB: 2rem
 $TEXT-COLUMN-PADDING-MOB: 1rem
 
+@function map($items, $func)
+
+@mixin animate ($styles...)
+  $transitions: []
+  @each $style in $styles
+    $transitions: $transitions, $style $ANIMATION-SPEED
+
+  will-change: $styles
+  transition: $transitions
+
+@mixin on-tablet
+  @media screen and (max-width: $TABLET-WIDTH)
+    @content
+
+@mixin on-phone
+  @media screen and (max-width: $SCREEN-PHONE)
+    @content
+
 @mixin text
   font-family: Roboto-Light
 
 @mixin color-4
-  color: $color-4
+  color: $COLOR-4
 
 $font: Roboto-Light
 $font-light: Roboto-Thin
@@ -50,23 +70,74 @@ html
   width: 100%
 
 body
-  background-color: $color-2
+  background-color: $COLOR-2
   padding: 0px
   margin: 0px
   height: 100%
   min-height: 100%
   min-width: 100%
 
+button
+  @include text
+  border: 0px
+  outline: none
+  border-radius: 8px
+  background-color: $COLOR-3
+  color: black
+  padding: .5rem 2rem .5rem 2rem
+  outline: 0px dotted $COLOR-4
+  @include animate(color, background-color, outline-width)
+
+  &:hover
+    cursor: pointer
+    background-color: $COLOR-4
+    @include animate(color, background-color)
+
+  &:active
+    color: white
+    background-color: $COLOR-3-DARK
+    @include animate(color, background-color)
+
+  &:focus
+    outline-width: 2px
+
+input, textarea
+  @include text
+  border: 0px solid $COLOR-3
+  border-radius: 4px
+  background-color: $COLOR-4
+  padding: 0.2rem
+  color: black
+  outline: 0px dotted $COLOR-3
+  outline-offset: 0px
+  @include animate(background-color, border-width, outline-width)
+
+  &:focus
+    outline-width: 2px
+
+textarea
+  resize: vertical
+
+label
+  @include text
+  margin-top: 0.5rem
+  color: $COLOR-4
+  &::after
+    content: ':'
+
 @mixin link
-  color: $color-4
+  color: $COLOR-4
   font-family: $font-light
   text-decoration: dotted underline
 
   &:hover
-    color: $color-3
+    color: $COLOR-3
+
+  &:active
+    color: $COLOR-1
 
 @mixin title
-  color: $color-4
+  color: $COLOR-4
   font-family: $font
   font-size: 2rem
 
@@ -83,26 +154,21 @@ body
   float: left
   width: $COLUMN-WIDTH-PC
 
-  @media screen and (max-width: $SCREEN-MOB)
+  @media screen and (max-width: $SCREEN-PHONE)
     width: $COLUMN-WIDTH-MOB
     float: none
 
-@mixin text-column
-  @include column
+@mixin paragraph
   @include text
-  color: $color-4
+  @include animate(padding)
+  color: $COLOR-4
   text-align: justify
-  padding: $TEXT-COLUMN-PADDING-PC
-  width: calc(#{$COLUMN-WIDTH-PC} - #{2 * $TEXT-COLUMN-PADDING-PC})
-  transition: padding, width #{$ANIMATION-SPEED}
-  will-change: padding, width
+  padding: 3rem
 
-  @media (max-width: $SCREEN-TAB)
-    padding: $TEXT-COLUMN-PADDING-TAB
-    width: calc(#{$COLUMN-WIDTH-PC} - #{2 * $TEXT-COLUMN-PADDING-TAB})
-    transition: padding, width #{$ANIMATION-SPEED}
+  @include on-tablet
+    @include animate(padding)
+    padding: 2rem
 
-  @media (max-width: $SCREEN-MOB)
-    padding: $TEXT-COLUMN-PADDING-MOB
-    width: calc(#{$COLUMN-WIDTH-MOB} - #{2 * $TEXT-COLUMN-PADDING-MOB})
-    transition: padding, width #{$ANIMATION-SPEED}
+  @include on-phone
+    @include animate(padding)
+    padding: 1rem

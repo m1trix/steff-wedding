@@ -27,21 +27,21 @@ h1
     height: calc(33.3vw - #{2 * $thumbnail-offset} - #{2 * $thumbnail-border})
     background-position: center
     background-size: cover
-    border: $thumbnail-border solid $color-2
+    border: $thumbnail-border solid $COLOR-2
     border-radius: #{4 * $thumbnail-border}
     transition: border-color $animation-speed
     -moz-transition: border-color $animation-speed
 
     &:hover
         cursor: pointer
-        border-color: $color-3
+        border-color: $COLOR-3
         transition: border-color $animation-speed
         -moz-transition: border-color $animation-speed
 
 .dress-name
     $padding: 1rem
     padding: $padding
-    background-color: $color-3
+    background-color: $COLOR-3
     @include text
     color: black
     width: calc(100% - #{2 * $padding})

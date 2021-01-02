@@ -14,6 +14,7 @@ import { DressComponent } from './pages/dress/dress.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ImageCollectionComponent } from './image-collection/image-collection.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NavigationComponent } from './navigation/navigation.component';
     ContactsComponent,
     DressComponent,
     ImageCollectionComponent,
-    NavigationComponent
+    NavigationComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
