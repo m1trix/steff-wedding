@@ -24,8 +24,7 @@ export class NavigationComponent implements AfterViewInit, OnDestroy {
       this.stickService.register(
         'nav',
         this.navRef.nativeElement,
-        (e: HTMLElement) => e.style.backgroundColor = '#4b1430',
-        (e: HTMLElement) => e.style.backgroundColor = 'transparent'
+        ['nav-bar-link-sticky']
       );
     }
   }

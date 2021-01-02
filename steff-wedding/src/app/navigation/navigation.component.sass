@@ -82,8 +82,11 @@ ul
   text-align: center
   font-family: $font
   width: 6em
-  transition: all .3s
+  transition: height #{$ANIMATION-SPEED}
   position: relative
+
+  &-sticky
+    background-color: $color-1
 
   &::after
     $thickness: 2px
@@ -95,18 +98,18 @@ ul
     left: 0px
     position: absolute
     background-color: $color-4
-    transition: all 0.3s
+    transition: height #{$ANIMATION-SPEED}
     will-change: height
 
   &:focus
     outline: none
 
   &:hover
-    transition: all .3s
+    transition: height .3s
     cursor: pointer
     &::after
       height: 2px
-      transition: all 0.3s
+      transition: height #{$ANIMATION-SPEED}
 
   &:active
     background-color: $color-1-dk
