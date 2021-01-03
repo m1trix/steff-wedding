@@ -87,11 +87,11 @@ ul
   &:focus
     outline: none
 
-  @media only screen and (max-width: $TABLET-WIDTH)
+  @include on-tablet
     width: auto
     padding: 0.5rem
 
-  @media only screen and (max-width: $SCREEN-PHONE)
+  @include on-phone
     font-size: 0.8rem
 
 footer

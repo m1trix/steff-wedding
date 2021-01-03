@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ImageCollectionComponent } from './image-collection/image-collection.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { DialogComponent } from './dialog/dialog.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { DialogComponent } from './dialog/dialog.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

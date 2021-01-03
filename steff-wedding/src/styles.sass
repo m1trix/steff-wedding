@@ -23,12 +23,14 @@ $COLOR-3: #e5b88c
 $COLOR-3-DARK: #a88057
 $COLOR-4: #e1d6cd
 $COLOR-4-LITE: #eee9e5
+$COLOR-5: #f87801
 
-$fixed-layout-width: 1280px
-$responsive-layout-width: 100%
+$BACKGROUND-COLOR: $COLOR-2
+$TEXT-COLOR: $COLOR-4
 
 $ANIMATION-SPEED: 0.25s
-$TABLET-WIDTH: 788px
+$SCREEN-PC: 1280px
+$SCREEN-TABLET: 788px
 $SCREEN-PHONE: 480px
 $COLUMN-WIDTH-PC: 50%
 $COLUMN-WIDTH-MOB: 100%
@@ -47,30 +49,77 @@ $TEXT-COLUMN-PADDING-MOB: 1rem
   transition: $transitions
 
 @mixin on-tablet
-  @media screen and (max-width: $TABLET-WIDTH)
+  @media (max-width: $SCREEN-TABLET)
     @content
 
 @mixin on-phone
-  @media screen and (max-width: $SCREEN-PHONE)
+  @media (max-width: $SCREEN-PHONE)
     @content
 
 @mixin text
   font-family: Roboto-Light
-
-@mixin color-4
-  color: $COLOR-4
+  color: $TEXT-COLOR
 
 $font: Roboto-Light
 $font-light: Roboto-Thin
 $logo-url: url(/images/logo.svg)
 $FONT_H: #{56rem / 48}
 
+@mixin link
+  color: $TEXT-COLOR
+  font-family: $font-light
+  text-decoration: dotted underline
+
+  &:hover
+    color: $COLOR-3
+
+  &:active
+    color: $COLOR-1
+
+@mixin title
+  color: $TEXT-COLOR
+  font-family: $font
+  font-size: 2rem
+
+@mixin layout
+  width: 100%
+  max-width: $SCREEN-PC
+  margin-left: calc(50% - #{$SCREEN-PC / 2})
+
+  @media (max-width: $SCREEN-PC)
+    margin: 0px
+
+@mixin column
+  text-align: center
+  float: left
+  width: $COLUMN-WIDTH-PC
+  color: $COLOR-3
+
+  @media screen and (max-width: $SCREEN-PHONE)
+    width: $COLUMN-WIDTH-MOB
+    float: none
+
+@mixin paragraph
+  @include text
+  @include animate(padding)
+  color: $TEXT-COLOR
+  text-align: justify
+  padding: 3rem
+
+  @include on-tablet
+    @include animate(padding)
+    padding: 2rem
+
+  @include on-phone
+    @include animate(padding)
+    padding: 1rem
+
 html
   height: 100%
   width: 100%
 
 body
-  background-color: $COLOR-2
+  background-color: $BACKGROUND-COLOR
   padding: 0px
   margin: 0px
   height: 100%
@@ -125,50 +174,20 @@ label
   &::after
     content: ':'
 
-@mixin link
-  color: $COLOR-4
-  font-family: $font-light
-  text-decoration: dotted underline
+h1
+  @include title
 
-  &:hover
-    color: $COLOR-3
+a
+  @include link
 
-  &:active
-    color: $COLOR-1
-
-@mixin title
-  color: $COLOR-4
-  font-family: $font
-  font-size: 2rem
-
-@mixin layout
-  width: $fixed-layout-width
-  margin-left: calc(50% - #{$fixed-layout-width / 2})
-
-  @media screen and (max-width: $fixed-layout-width)
-    width: $responsive-layout-width
-    margin: 0px
-
-@mixin column
-  text-align: center
-  float: left
-  width: $COLUMN-WIDTH-PC
-
-  @media screen and (max-width: $SCREEN-PHONE)
-    width: $COLUMN-WIDTH-MOB
-    float: none
-
-@mixin paragraph
+p
   @include text
-  @include animate(padding)
-  color: $COLOR-4
-  text-align: justify
-  padding: 3rem
 
-  @include on-tablet
-    @include animate(padding)
-    padding: 2rem
+.layout
+  @include layout
 
-  @include on-phone
-    @include animate(padding)
-    padding: 1rem
+.column
+  @include column
+
+.text
+  @include text

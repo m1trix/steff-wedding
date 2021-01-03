@@ -9,11 +9,11 @@ h1
     text-align: center
 
 .layout
-    margin-left: calc(50% - #{$fixed-layout-width / 2})
-    width: calc(#{$fixed-layout-width} - #{2 * $thumbnail-offset} - #{2 * $thumbnail-border})
+    margin-left: calc(50% - #{$SCREEN-PC / 2})
+    width: calc(#{$SCREEN-PC} - #{2 * $thumbnail-offset} - #{2 * $thumbnail-border})
     padding: $thumbnail-offset
 
-    @media screen and ( max-width: $fixed-layout-width )
+    @media screen and ( max-width: $SCREEN-PC )
         &
             width: calc(100% - #{2 * $thumbnail-offset} - #{2 * $thumbnail-border})
             margin: 0px

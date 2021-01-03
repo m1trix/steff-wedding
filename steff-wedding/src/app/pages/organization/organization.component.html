@@ -59,13 +59,18 @@
 </section>
 
 <app-dialog #dialog title="Поискай Оферта" confirm="Изпрати" cancel="Отказ" (confirmed)="submit.click()">
-  <form action="mailto:{{email}}" method="post">
+  <p class="contact">
+    Пиши ни на <a href="mailto:simona.klimentova@steffwedding.com">simona.klimentova@steffwedding.com</a> или попълни формата за контакт
+  </p>
+  <div *ngIf="errorMessage" class="error-message">{{errorMessage}}</div>
+  <form [formGroup]="group" (submit)="onSubmit($event)">
     <label for="input-name">Име</label>
-    <input id="input-name" type="text" required>
+    <input id="input-name" type="text" formControlName="name">
     <label for="input-email">Имейл Адрес</label>
-    <input id="input-email" type="email" required>
+    <input id="input-email" type="email" formControlName="email">
     <label for="input-text">Текст</label>
-    <textarea id="input-text" rows="5" required></textarea>
+    <textarea id="input-text" rows="5" formControlName="message"></textarea>
     <input #submit type="submit" style="display: none">
   </form>
+  <div *ngIf="successMessage" class="success-message">{{successMessage}}</div>
 </app-dialog>
