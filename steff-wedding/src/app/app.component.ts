@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, HostListener } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 export class AppComponent {
   public showFooter = true;
 
+  @ViewChild('background') backgroundRef: ElementRef<HTMLElement> | undefined;
+
   constructor(private router: Router) {
     this.shouldShowFooter();
     router.events.forEach(() => this.shouldShowFooter());
@@ -17,5 +19,13 @@ export class AppComponent {
 
   private shouldShowFooter() {
     this.showFooter = this.router.url !== '/';
+  }
+
+  public onScroll() {
+    const background = this.backgroundRef?.nativeElement;
+    const y = (window.scrollY / 8);
+    if (background) {
+      background.style.transform = `translateY(-${y}px)`;
+    }
   }
 }

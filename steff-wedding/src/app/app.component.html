@@ -16,8 +16,9 @@
 </header> -->
 <header></header>
 
-<main class="main">
+<main (window:scroll)="onScroll()">
   <router-outlet></router-outlet>
+  <div #background class="background"></div>
 </main>
 
 <!-- <footer *ngIf="showFooter">

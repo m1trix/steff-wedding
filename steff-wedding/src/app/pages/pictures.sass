@@ -1,0 +1,22 @@
+@mixin picture-base
+  display: block
+  flex: none
+  width: 33%
+  height: 100%
+
+  @include on-tablet
+    width: 50%
+
+  @include on-phone
+    width: 100vw
+    height: 56vw
+
+.picture-container
+  @include picture-base
+
+@mixin picture
+  background-repeat: no-repeat
+  background-position: center
+  background-size: cover
+  position: absolute
+  @include picture-base

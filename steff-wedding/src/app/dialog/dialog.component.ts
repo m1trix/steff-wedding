@@ -16,10 +16,12 @@ export class DialogComponent {
 
   public open() {
     this.isOpen = true;
+    document.body.style.overflow = 'hidden';
   }
 
   public close() {
     this.isOpen = false;
+    document.body.style.overflow = '';
   }
 
   public onConfirm() {

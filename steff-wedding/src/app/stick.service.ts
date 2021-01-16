@@ -57,12 +57,15 @@ export class StickService {
 
   public register(id: string, element: HTMLElement, stickClasses: string[] = [], mediaQuery?: string) {
     element.style.willChange = 'position, top';
-    this.elements.splice(
-      this.elements.findIndex(element => element.id === id),
-      0,
-      new StickyElement(id, element, mediaQuery as string, stickClasses || [])
-    );
-    this.sortElements();
+    const index = this.elements.findIndex(element => element.id === id);
+    const sticky = new StickyElement(id, element, mediaQuery as string, stickClasses || []);
+    if (index > -1) {
+      this.elements[index] = sticky;
+    } else {
+      this.elements.push(sticky);
+    }
+
+    element.addEventListener('transitionend', () => this.onChange());
   }
 
   public unregister(id: string) {
@@ -73,11 +76,11 @@ export class StickService {
   }
 
   public onResize() {
-    for (let element of this.elements.reverse()) {
+    for (let element of [...this.elements].reverse()) {
       this.tryRelease(element);
     }
 
-    this.sortElements();
+    // this.sortElements();
     this.onChange();
   }
 
@@ -88,11 +91,15 @@ export class StickService {
     for (let element of this.elements) {
       if (scroll + offsetTop >= element.state.offsetTop) {
         this.tryStick(element, offsetTop);
-        offsetTop += element.state.offsetHeight;
+        if (element.isStuck && offsetTop != element.original.clientTop) {
+          element.original.style.top = offsetTop + 'px';
+        }
+
+        offsetTop += element.original.offsetHeight;
       }
     }
 
-    for (let element of this.elements.reverse()) {
+    for (let element of [...this.elements].reverse()) {
       if (scroll + offsetTop < element.state.offsetTop) {
         this.tryRelease(element);
       }
@@ -101,24 +108,25 @@ export class StickService {
 
   private tryStick(element: StickyElement, offsetTop: number) {
     if (element.isStuck) {
-      return;
+      return false;
     }
 
     if(element.mediaQuery && !window.matchMedia(element.mediaQuery).matches) {
-      return;
+      return false;
     }
 
     element.updateState();
     element.isStuck = true;
     const original = element.original;
+    const rect = original.getBoundingClientRect();
 
     const replacement = this.renderer.createElement('div') as HTMLElement;
-    this.renderer.setStyle(replacement, 'width', original.offsetWidth + 'px');
-    this.renderer.setStyle(replacement, 'height', original.offsetHeight + 'px');
+    this.renderer.setStyle(replacement, 'width', rect.width + 'px');
+    this.renderer.setStyle(replacement, 'height', rect.height + 'px');
     this.renderer.setStyle(replacement, 'marginTop', window.getComputedStyle(original).marginTop);
     this.renderer.setStyle(replacement, 'marginBottom', window.getComputedStyle(original).marginBottom);
 
-    const offsetLeft = original.offsetLeft;
+    const offsetLeft = rect.left;
     this.renderer.setStyle(original, 'position', 'fixed');
     this.renderer.setStyle(original, 'top', offsetTop + 'px');
     this.renderer.setStyle(original, 'left', offsetLeft + 'px');
@@ -129,7 +137,12 @@ export class StickService {
     );
 
     element.replacement = replacement;
-    this.renderer.appendChild(original.parentNode, element.replacement);
+    this.renderer.insertBefore(
+      original.parentNode,
+      element.replacement,
+      original);
+
+    return true;
   }
 
   private tryRelease(element: StickyElement) {

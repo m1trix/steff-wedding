@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, ElementRef, HostListener, Inject, OnChanges, OnDestroy, OnInit, SimpleChange, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, HostListener, Inject, OnChanges, OnDestroy, OnInit, SimpleChange, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { StickService } from '../stick.service';
 
 const SWOGAN_H = 9 * 16;
@@ -7,6 +8,7 @@ const SWOGAN_H = 9 * 16;
   selector: 'header',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.sass'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavigationComponent implements AfterViewInit, OnDestroy {
 
@@ -14,9 +16,17 @@ export class NavigationComponent implements AfterViewInit, OnDestroy {
   @ViewChild('nav') navRef: ElementRef<HTMLElement> | undefined;
   @ViewChild('swogan') swoganRef: ElementRef<HTMLElement> | undefined;
 
+  private page = 'home';
+
   constructor(
-    private stickService: StickService
-  ) { }
+    private stickService: StickService,
+    private detector: ChangeDetectorRef,
+    route: ActivatedRoute
+  ) {
+    route.url.subscribe({
+      next: console.log
+    });
+  }
 
   /** @override */
   public ngAfterViewInit() {

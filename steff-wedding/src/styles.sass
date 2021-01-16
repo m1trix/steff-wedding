@@ -24,9 +24,11 @@ $COLOR-3-DARK: #a88057
 $COLOR-4: #e1d6cd
 $COLOR-4-LITE: #eee9e5
 $COLOR-5: #f87801
+$COLOR-6: #f9f9f9
+$COLOR-7: #db9d5f
 
-$BACKGROUND-COLOR: $COLOR-2
-$TEXT-COLOR: $COLOR-4
+$BACKGROUND-COLOR: $COLOR-6
+$TEXT-COLOR: $COLOR-7
 
 $ANIMATION-SPEED: 0.25s
 $SCREEN-PC: 1280px
@@ -67,7 +69,7 @@ $FONT_H: #{56rem / 48}
 
 @mixin link
   color: $TEXT-COLOR
-  font-family: $font-light
+  font-family: $font
   text-decoration: dotted underline
 
   &:hover
@@ -80,6 +82,7 @@ $FONT_H: #{56rem / 48}
   color: $TEXT-COLOR
   font-family: $font
   font-size: 2rem
+  text-align: center
 
 @mixin layout
   width: 100%
@@ -114,55 +117,64 @@ $FONT_H: #{56rem / 48}
     @include animate(padding)
     padding: 1rem
 
+@mixin fill($z-index: -1)
+  position: absolute
+  top: 0px
+  left: 0px
+  width: 100%
+  height: 100%
+  display: block
+  z-index: $z-index
+
 html
   height: 100%
   width: 100%
 
 body
-  background-color: $BACKGROUND-COLOR
   padding: 0px
   margin: 0px
   height: 100%
   min-height: 100%
   min-width: 100%
 
+  &[dialog]
+    overflow: hidden
+
 button
   @include text
   border: 0px
-  outline: none
-  border-radius: 8px
-  background-color: $COLOR-3
-  color: black
+  background-color: $TEXT-COLOR
+  color: white
+  font-size: 1rem
   padding: .5rem 2rem .5rem 2rem
-  outline: 0px dotted $COLOR-4
+  outline: 0px dotted $TEXT-COLOR
   @include animate(color, background-color, outline-width)
 
   &:hover
     cursor: pointer
-    background-color: $COLOR-4
+    background-color: $COLOR-3
     @include animate(color, background-color)
 
   &:active
     color: white
-    background-color: $COLOR-3-DARK
+    background-color: $COLOR-1
     @include animate(color, background-color)
 
   &:focus
-    outline-width: 2px
+    outline-width: 3px
 
 input, textarea
   @include text
-  border: 0px solid $COLOR-3
-  border-radius: 4px
-  background-color: $COLOR-4
-  padding: 0.2rem
-  color: black
-  outline: 0px dotted $COLOR-3
+  border: 1px solid $TEXT-COLOR
+  background-color: transparent
+  padding: 0.5rem
+  color: $TEXT-COLOR
+  outline: 0px dotted $TEXT-COLOR
   outline-offset: 0px
-  @include animate(background-color, border-width, outline-width)
+  @include animate(background-color, outline-width)
 
   &:focus
-    outline-width: 2px
+    outline-width: 3px
 
 textarea
   resize: vertical
@@ -170,7 +182,7 @@ textarea
 label
   @include text
   margin-top: 0.5rem
-  color: $COLOR-4
+  color: $TEXT-COLOR
   &::after
     content: ':'
 

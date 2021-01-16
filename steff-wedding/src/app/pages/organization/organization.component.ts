@@ -33,7 +33,7 @@ export class OrganizationComponent implements AfterViewInit {
   /** @override */
   public ngAfterViewInit() {
     this.stickService.register(
-      'organize-picture',
+      'picture',
       this.pictureRef.nativeElement,
       [],
       '(min-width: 481px)'
