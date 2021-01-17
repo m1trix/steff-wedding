@@ -2,7 +2,6 @@
 
 $SWOGAN-BAR-PADDING: 1rem
 $SWOGAN-BAR-HEIGHT: 2 * $SWOGAN-BAR-PADDING + 6rem
-$SWOGAN-BAR-BRIGHTNESS: 0.7
 
 .swogan-bar
   display: block
@@ -36,18 +35,18 @@ $SWOGAN-BAR-BRIGHTNESS: 0.7
   @include base
   content: ''
   z-index: -2
-  $blur: 1rem
-  background-image: url(/images/welcome.jpg)
-  background-position: center
+  $blur: 0rem
+  background-image: bgurl('banner')
+  background-position: center 60%
   background-size: cover
   background-repeat: no-repeat
-  filter: blur($blur) brightness($SWOGAN-BAR-BRIGHTNESS)
+  filter: blur($blur)
 
   &-base
     @include base
     content: ''
     z-index: -3
-    background-color: gray
+    background-color: #534b46
 
 .swogan-logo
   $height: $SWOGAN-BAR-HEIGHT - 2 * $SWOGAN-BAR-PADDING - 1rem

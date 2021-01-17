@@ -41,7 +41,10 @@ $TEXT-COLUMN-PADDING-PC: 3rem
 $TEXT-COLUMN-PADDING-TAB: 2rem
 $TEXT-COLUMN-PADDING-MOB: 1rem
 
-@function map($items, $func)
+@function bgurl($name)
+  $url: 'http://steffwedding.com/images/#{$name}'
+  $result: url('#{$url}-640.jpg'), url('#{$url}-1024.jpg'), url('#{$url}-1920.jpg'), url('#{$url}-full.jpg')
+  @return $result
 
 @mixin animate ($styles...)
   $transitions: []
@@ -114,11 +117,11 @@ $FONT_H: #{56rem / 48}
   @include animate(padding)
   color: $TEXT-COLOR
   text-align: justify
-  padding: 3rem
+  padding: 2rem
 
   @include on-tablet
     @include animate(padding)
-    padding: 2rem
+    padding: 1.5rem
 
   @include on-phone
     @include animate(padding)
@@ -132,6 +135,24 @@ $FONT_H: #{56rem / 48}
   height: 100%
   display: block
   z-index: $z-index
+
+@mixin disclaimer
+  @include paragraph
+  margin: 3rem
+  position: relative
+  @include animate(margin)
+
+  @include on-tablet
+    margin: 2rem
+
+  @include on-phone
+    margin: 1rem
+
+  &::after
+    content: ''
+    background-color: $COLOR-6
+    opacity: 0.6
+    @include fill
 
 html
   height: 100%
@@ -214,3 +235,6 @@ p
 
 .text
   @include text
+
+.disclaimer
+  @include disclaimer

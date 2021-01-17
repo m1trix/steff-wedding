@@ -8,12 +8,12 @@
   position: relative
   $margin: 0.5rem
   @include column
-  height: 15rem
   margin: $margin
   display: flex
   justify-content: center
   align-items: center
   width: calc(50% - #{2 * $margin})
+  height: 100%
   overflow: hidden
   outline: 3px dotted transparent
   @include animate(outline-color, outline-color)
@@ -63,13 +63,15 @@
 
   &.organization
     &::after
-      background-image: url('/images/owner.jpg')
+      background-image: bgurl('org')
+      // background-position: center -5rem
     &::before
       content: 'Организация'
 
   &.dresses
     &::after
-      background-image: url('/images/owner.jpg')
+      background-image: bgurl('banner')
+      // background-position: center -5rem
     &::before
       content: 'Рокли'
 
@@ -79,6 +81,7 @@
   width: 100%
   flex-direction: column
   align-items: center
+  padding: 1rem
 
 a
   font-size: 1.25rem

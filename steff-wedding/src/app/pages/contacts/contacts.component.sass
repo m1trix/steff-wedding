@@ -7,25 +7,6 @@ ul
 address
   font-style: normal
 
-.disclaimer
-  @include paragraph
-  border: 1px solid $TEXT-COLOR
-  margin: 3rem
-  position: relative
-  @include animate(margin)
-
-  @include on-tablet
-    margin: 2rem
-
-  @include on-phone
-    margin: 1rem
-
-  &::after
-    content: ''
-    background-color: $COLOR-6
-    opacity: 0.7
-    @include fill
-
 .schedule-li
   @include text
   list-style-type: none
