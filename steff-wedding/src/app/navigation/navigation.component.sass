@@ -94,6 +94,9 @@ ul
   width: 6em
   transition: height #{$ANIMATION-SPEED}
   position: relative
+  outline: 3px dotted transparent
+  outline-color: transparent
+  @include animate(outline-color)
 
   &-sticky
     background-color: $TEXT-COLOR
@@ -111,18 +114,17 @@ ul
     @include animate(height)
 
   &:focus
-    outline: none
+    outline-color: $BACKGROUND-COLOR
 
-  &:hover
-    @include animate(height)
+  &:hover, &[active=true]
     cursor: pointer
     &::after
       height: 3px
 
-  &:active, &[active=true]
-    color: $COLOR-1
+  &:active
+    color: $COLOR-3
     &::after
-      background-color: $COLOR-1
+      background-color: $COLOR-3
 
   @include on-tablet
     width: auto

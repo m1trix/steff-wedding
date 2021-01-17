@@ -1,8 +1,6 @@
 import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, HostListener, Inject, OnChanges, OnDestroy, OnInit, SimpleChange, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { StickService } from '../stick.service';
-
-const SWOGAN_H = 9 * 16;
 
 @Component({
   selector: 'header',
@@ -16,15 +14,18 @@ export class NavigationComponent implements AfterViewInit, OnDestroy {
   @ViewChild('nav') navRef: ElementRef<HTMLElement> | undefined;
   @ViewChild('swogan') swoganRef: ElementRef<HTMLElement> | undefined;
 
-  private page = 'home';
+  public active = '';
 
   constructor(
     private stickService: StickService,
     private detector: ChangeDetectorRef,
-    route: ActivatedRoute
+    router: Router
   ) {
-    route.url.subscribe({
-      next: console.log
+    router.events.forEach(event => {
+      if (event instanceof NavigationStart) {
+        this.active = event.url.split('/')[1];
+        detector.markForCheck();
+      }
     });
   }
 
@@ -44,8 +45,7 @@ export class NavigationComponent implements AfterViewInit, OnDestroy {
     this.stickService.unregister('nav');
   }
 
-  @HostListener('window:scroll', ['$event'])
-  public onScroll(event: MouseEvent) {
+  public onScroll() {
     const color = this.colorRef?.nativeElement;
     const nav = this.navRef?.nativeElement;
     const swogan = this.swoganRef?.nativeElement;

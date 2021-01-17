@@ -11,6 +11,7 @@ export class DialogComponent {
   @Input() public confirm: string | undefined;
   @Input() public cancel: string = 'Затвори';
   @Output() public confirmed = new EventEmitter<void>();
+  @Output() public closed = new EventEmitter<void>();
 
   public isOpen = false;
 
@@ -21,6 +22,7 @@ export class DialogComponent {
 
   public close() {
     this.isOpen = false;
+    this.closed.emit();
     document.body.style.overflow = '';
   }
 

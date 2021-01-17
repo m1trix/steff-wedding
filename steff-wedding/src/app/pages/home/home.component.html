@@ -1,1 +1,19 @@
-<p>home works!</p>
+<section class="layout">
+  <div
+    #dressesLink
+    class="link dresses"
+    role="link"
+    routerLink="/dresses"
+    (keydown.enter)="dressesLink.click()">
+  </div>
+  <div
+    #organizationLink
+    class="link organization"
+    role="link"
+    routerLink="/organization"
+    (keydown.enter)="organizationLink.click()">
+  </div>
+  <div class="link-container">
+    <a routerLink="/contacts">Къде да ни намериш?</a>
+  </div>
+</section>

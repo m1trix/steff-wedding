@@ -1,13 +1,59 @@
-<div #swogan class="swogan-bar">
+<div #swogan class="swogan-bar" (window:scroll)="onScroll()">
   <div ckass="swogan-content">
     <div class="swogan-logo"></div>
     <div class="swogan-text">Осмели се да мечтаеш за нея!</div>
     <nav #nav class="nav-bar">
       <ul>
-        <li tabindex="1" class="nav-bar-link" routerLink="/dresses" aria-selected="true">Рокли</li>
-        <li tabindex="1" class="nav-bar-link" routerLink="/organization">Организация</li>
-        <li tabindex="1" class="nav-bar-link" routerLink="/about">За Нас</li>
-        <li tabindex="1" class="nav-bar-link" routerLink="/contacts">Контакти</li>
+        <li #homeLink
+            tabindex="1"
+            role="button"
+            class="nav-bar-link"
+            routerLink="/home"
+            [attr.active]="active === 'home'"
+            (click)="homeLink.blur()"
+            (keydown.enter)="homeLink.click()">
+          Начало
+        </li>
+        <li #dressesLink
+            tabindex="1"
+            role="button"
+            class="nav-bar-link"
+            routerLink="/dresses"
+            [attr.active]="active === 'dresses'"
+            (click)="dressesLink.blur()"
+            (keydown.enter)="dressesLink.click()">
+          Рокли
+        </li>
+        <li #orgLink
+            tabindex="1"
+            role="button"
+            class="nav-bar-link"
+            routerLink="/organization"
+            [attr.active]="active === 'organization'"
+            (click)="orgLink.blur()"
+            (keydown.enter)="orgLink.click()">
+          Организация
+        </li>
+        <li #aboutLink
+            tabindex="1"
+            role="button"
+            class="nav-bar-link"
+            routerLink="/about"
+            [attr.active]="active === 'about'"
+            (click)="aboutLink.blur()"
+            (keydown.enter)="aboutLink.click()">
+          За Нас
+        </li>
+        <li #contactsLink
+            tabindex="1"
+            role="button"
+            class="nav-bar-link"
+            routerLink="/contacts"
+            [attr.active]="active === 'contacts'"
+            (click)="contactsLink.blur()"
+            (keydown.enter)="contactsLink.click()">
+          Контакти
+        </li>
       </ul>
     </nav>
   </div>

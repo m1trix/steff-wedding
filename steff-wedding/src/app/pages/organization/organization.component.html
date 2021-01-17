@@ -58,7 +58,7 @@
   </article>
 </section>
 
-<app-dialog #dialog title="Поискай Оферта" confirm="Изпрати" cancel="Отказ" (confirmed)="submit.click()">
+<app-dialog #dialog title="Поискай Оферта" confirm="Изпрати" cancel="Отказ" (confirmed)="submit.click()" (closed)="group.reset()">
   <p class="contact">
     Пиши ни на <a href="mailto:simona.klimentova@steffwedding.com">simona.klimentova@steffwedding.com</a> или попълни формата за контакт
   </p>

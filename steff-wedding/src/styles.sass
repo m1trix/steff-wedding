@@ -23,12 +23,13 @@ $COLOR-3: #e5b88c
 $COLOR-3-DARK: #a88057
 $COLOR-4: #e1d6cd
 $COLOR-4-LITE: #eee9e5
-$COLOR-5: #f87801
+$COLOR-5: #d32a00
 $COLOR-6: #f9f9f9
 $COLOR-7: #db9d5f
 
 $BACKGROUND-COLOR: $COLOR-6
 $TEXT-COLOR: $COLOR-7
+$ERROR-COLOR: $COLOR-5
 
 $ANIMATION-SPEED: 0.25s
 $SCREEN-PC: 1280px
@@ -71,6 +72,12 @@ $FONT_H: #{56rem / 48}
   color: $TEXT-COLOR
   font-family: $font
   text-decoration: dotted underline
+  outline: 2px dotted
+  outline-color: transparent
+  @include animate(outline-color)
+
+  &:focus
+    outline-color: $TEXT-COLOR
 
   &:hover
     color: $COLOR-3
@@ -147,8 +154,8 @@ button
   color: white
   font-size: 1rem
   padding: .5rem 2rem .5rem 2rem
-  outline: 0px dotted $TEXT-COLOR
-  @include animate(color, background-color, outline-width)
+  outline: 3px dotted transparent
+  @include animate(color, background-color, outline-color)
 
   &:hover
     cursor: pointer
@@ -161,20 +168,20 @@ button
     @include animate(color, background-color)
 
   &:focus
-    outline-width: 3px
+    outline-color: $TEXT-COLOR
 
 input, textarea
   @include text
   border: 1px solid $TEXT-COLOR
-  background-color: transparent
+  background-color: $COLOR-4
   padding: 0.5rem
-  color: $TEXT-COLOR
-  outline: 0px dotted $TEXT-COLOR
+  color: black  
+  outline: 3px dotted transparent
   outline-offset: 0px
-  @include animate(background-color, outline-width)
+  @include animate(background-color, outline-color)
 
   &:focus
-    outline-width: 3px
+    outline-color: $TEXT-COLOR
 
 textarea
   resize: vertical
@@ -188,6 +195,10 @@ label
 
 h1
   @include title
+
+h2
+  @include title
+  font-size: 1.5rem
 
 a
   @include link

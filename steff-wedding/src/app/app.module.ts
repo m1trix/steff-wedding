@@ -16,6 +16,7 @@ import { ImageCollectionComponent } from './image-collection/image-collection.co
 import { NavigationComponent } from './navigation/navigation.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PlaceholderComponent } from './pages/placeholder/placeholder.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     DressComponent,
     ImageCollectionComponent,
     NavigationComponent,
-    DialogComponent
+    DialogComponent,
+    PlaceholderComponent
   ],
   imports: [
     BrowserModule,

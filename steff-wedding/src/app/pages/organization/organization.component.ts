@@ -20,7 +20,6 @@ export class OrganizationComponent implements AfterViewInit {
     message: new FormControl(null, Validators.required)
   });
 
-  // TODO: scrollIntoView center/nearest depending on window.matchMedia()
   public errorMessage: string | undefined;
   public successMessage: string | undefined;
 
@@ -28,7 +27,11 @@ export class OrganizationComponent implements AfterViewInit {
     private stickService: StickService,
     private httpClient: HttpClient,
     private detector: ChangeDetectorRef
-  ) { }
+  ) {
+    this.group.valueChanges.forEach(() => {
+      this.errorMessage = undefined;
+    });
+  }
 
   /** @override */
   public ngAfterViewInit() {
