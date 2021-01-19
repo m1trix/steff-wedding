@@ -1,24 +1,33 @@
-import { ChangeDetectionStrategy, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'body',
   templateUrl: './app.component.html',
   styleUrls: ['app.component.sass'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [CookieService]
 })
 export class AppComponent {
-  public showFooter = true;
+  public showCookieConsent = false;
 
   @ViewChild('background') backgroundRef: ElementRef<HTMLElement> | undefined;
 
-  constructor(private router: Router) {
-    this.shouldShowFooter();
-    router.events.forEach(() => this.shouldShowFooter());
+  constructor(
+    private detector: ChangeDetectorRef,
+    private cookies: CookieService
+  ) {
+    setTimeout(() => {
+      this.showCookieConsent = cookies.get('cookies_consent') !== 'true';
+      this.detector.markForCheck();
+    }, 2100);
   }
 
-  private shouldShowFooter() {
-    this.showFooter = this.router.url !== '/';
+  public onAcceptCookies() {
+    this.showCookieConsent = false;
+    this.cookies.set('cookies_consent', 'true');
+    this.detector.markForCheck();
   }
 
   public onScroll() {

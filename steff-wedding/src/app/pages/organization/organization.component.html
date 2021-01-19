@@ -54,7 +54,8 @@
       Свържи се с нас, независимо къде планираш сватба!
     </p>
 
-    <button (click)="dialog.open()">Поискай оферта</button>
+    <!-- <button (click)="dialog.open()">Поискай оферта</button> -->
+    <button #contacts routerLink="/contacts" (keydown.enter)="contacts.click()">Контакти</button>
   </article>
 </section>
 

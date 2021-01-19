@@ -17,6 +17,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PlaceholderComponent } from './pages/placeholder/placeholder.component';
+import { CookiesComponent } from './pages/cookies/cookies.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { PlaceholderComponent } from './pages/placeholder/placeholder.component'
     ImageCollectionComponent,
     NavigationComponent,
     DialogComponent,
-    PlaceholderComponent
+    PlaceholderComponent,
+    CookiesComponent
   ],
   imports: [
     BrowserModule,

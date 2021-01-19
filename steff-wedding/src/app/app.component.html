@@ -1,26 +1,13 @@
-<!-- <div class="swogan-bar">
-  <div class="swogan-bg"></div>
-  <div class="swogan-logo"></div>
-  <div class="swogan-text">Осмели се да мечтаеш за нея!</div>
-</div>
-
-<header>
-  <nav class="nav-bar">
-    <ul>
-      <li class="nav-bar-link" routerLink="/dresses">Рокли</li>
-      <li class="nav-bar-link" routerLink="/organization">Организация</li>
-      <li class="nav-bar-link" routerLink="/about">За Нас</li>
-      <li class="nav-bar-link" routerLink="/contacts">Контакти</li>
-    </ul>
-  </nav>
-</header> -->
 <header></header>
 
 <main (window:scroll)="onScroll()">
+  <!-- <div [ngClass]="{
+    'cookies-disclaimer': true,
+    'visible': showCookieConsent
+  }" class="cookies-disclaimer">
+    Този сайт използва бисквитки. Натискайки на "Съгласявам се" се съгласяваш с тези условия. Тук можеш да научиш повече.
+    <button (click)="onAcceptCookies()">Съгласявам се</button>
+  </div> -->
   <router-outlet></router-outlet>
   <div #background class="background"></div>
 </main>
-
-<!-- <footer *ngIf="showFooter">
-  <a class="footer" routerLink="/">Обратно към начало</a>
-</footer> -->
