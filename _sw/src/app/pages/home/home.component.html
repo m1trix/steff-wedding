@@ -1,0 +1,24 @@
+<section class="layout">
+  <article class="disclaimer">
+    Steff Wedding е луксозен сватбен бутик, който носи неподражаемия дух на бохо, винтидж и ръстик елементите за една незабравима сватба с твоя личен почерк!
+  </article>
+
+  <div
+    #dressesLink
+    class="link dresses"
+    role="link"
+    routerLink="/dresses"
+    (keydown.enter)="dressesLink.click()">
+  </div>
+  <div
+    #organizationLink
+    class="link organization"
+    role="link"
+    routerLink="/organization"
+    (keydown.enter)="organizationLink.click()">
+  </div>
+
+  <div class="link-container">
+    <button routerLink="/contacts">Къде да ни намериш?</button>
+  </div>
+</section>

@@ -1,0 +1,138 @@
+// @import ../../styles
+
+// .layout
+//   display: flex
+//   flex-direction: row
+//   width: 100%
+//   height: 100%
+//   @media (max-width: $SCREEN-PHONE)
+//     flex-direction: column
+
+// .display
+//   @include flex-element(auto)
+//   display: flex
+//   width: 100%
+//   height: 100%
+//   background-color: black
+//   background-repeat: no-repeat
+//   background-position: center
+//   background-size: cover
+//   cursor: zoom-in
+
+//   @media (max-width: $SCREEN-PHONE)
+//     background-size: cover
+
+// .display-zoom
+//   background-size: 1125px 2000px
+//   cursor: zoom-out
+
+// .image-link
+//   @include link
+//   background-color: black
+//   opacity: 0.7
+//   width: 100%
+//   display: block
+
+// $PREVIEW-MARGIN: 0.25rem
+
+// .previews-container
+//   display: flex
+//   height: calc(100% - #{2 * $PREVIEW-MARGIN})
+//   width: calc(128px + #{2 * $PREVIEW-MARGIN})
+//   flex-direction: column
+//   overflow-y: auto
+//   flex: none
+//   padding: $PREVIEW-MARGIN
+
+//   background-color: black
+
+//   -ms-overflow-style: none
+//   scrollbar-width: none
+//   scroll-behavior: smooth
+
+//   &::-webkit-scrollbar
+//     display: none
+
+//   @media (max-width: $SCREEN-PHONE)
+//     height: calc(128px + #{2 * $PREVIEW-MARGIN})
+//     width: calc(100% - #{2 * $PREVIEW-MARGIN})
+//     flex-direction: row
+
+// .preview
+//   flex-shrink: 0
+//   background-repeat: no-repeat
+//   background-position: center
+//   background-size: cover
+//   display: inline-block
+//   width: 128px
+//   height: 128px
+//   margin: $PREVIEW-MARGIN
+//   color: white
+//   outline: 0px
+//   outline-offset: -4px
+//   transition: all 0.3s
+//   position: relative
+
+//   &::before
+//     content: ""
+//     transition: all 0.3s
+
+//   &:hover
+//     cursor: pointer
+  
+//   &:focus::before
+//     content: ""
+//     position: absolute
+//     top: 0px
+//     left: 0px
+//     width: 128px
+//     height: 128px
+//     outline: 2px dotted $COLOR-3
+//     outline-offset: -2px
+//     transition: all 0.3s
+
+// .preview-active
+//   transition: all 0.3s
+//   outline: 4px solid $COLOR-3
+
+// .popover
+//   position: fixed
+//   top: 0px
+//   left: 0px
+//   width: 100%
+//   height: 100%
+//   z-index: 1000
+//   display: none
+//   justify-content: center
+
+// .popover-content
+//   width: 100%
+//   height: 100%
+//   background-color: black
+//   position: absolute
+
+// .popover-image
+//   position: absolute
+//   height: 100%
+//   display: block
+
+// .popover-close
+//   position: absolute
+//   top: 0px
+//   left: 0px
+//   display: block
+//   border: 1px solid #666
+//   width: 3rem
+//   height: 3rem
+//   background-color: black
+//   color: #666
+//   font-size: 2rem
+//   font-weight: lighter
+
+//   &:focus
+//     outline: none
+
+//   &:hover
+//     border-color: $COLOR-3
+//     color: $COLOR-3
+//     cursor: pointer

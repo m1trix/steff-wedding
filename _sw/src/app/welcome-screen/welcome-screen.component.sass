@@ -1,0 +1,39 @@
+@import ../../styles
+
+.background
+    background-image: url(/images/welcome.jpg)
+    background-repeat: no-repeat
+    background-size: cover
+    width: 100%
+    height: 100%
+
+.background-blured
+    filter: brightness(0.1)
+    transition: filter 2s
+    -moz-transition: filter 2s
+
+.overlay
+    $side: 20rem
+    position: fixed
+    top: calc(50% - #{$side / 2})
+    left: calc(50% - #{$side / 2})
+    width: $side
+    height: $side
+    z-index: 10
+    justify-content: center
+    text-align: center
+
+.overlay-shown
+    $side: 20rem
+
+.logo
+    background-image: $logo-url
+    background-repeat: no-repeat
+    background-size: contain
+    background-position: center
+    width: 100%
+    height: 50%
+
+.swogan
+    @include text
+    font-size: 2rem

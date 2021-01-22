@@ -1,0 +1,56 @@
+@import ../../../styles
+@import ../pictures
+
+.layout
+  @include layout
+  display: flex
+  flex-direction: row-reverse
+  height: 100%
+
+  @include on-phone
+    flex-direction: column
+
+picture
+  background-image: bgurl('about')
+  @include picture
+
+article
+  @include paragraph
+
+.text
+  color: $TEXT-COLOR
+  font-family: $font
+  text-align: justify
+
+a
+  @include link
+  margin-top: 2rem
+  text-align: right
+  display: block
+
+h1
+  @include title
+  @include animate(all)
+
+.title-stick
+  background-color: $TEXT-COLOR
+  color: white
+  width: 100%
+  font-size: 1.3rem
+  font-weight: normal
+
+// @media only screen and (max-width: 600px)
+//   $picture-width: 100%
+
+//   .layout
+//     flex-direction: column
+
+//   picture
+//     width: $picture-width
+//     height: 14rem
+//     background-size: cover
+
+//   article
+//     $padding: 2rem
+//     padding: $padding
+//     width: calc(100% - #{$padding * 2})

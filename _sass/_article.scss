@@ -1,0 +1,50 @@
+@import "./base.sass";
+
+@mixin picture {
+  width: 33%;
+  height: 100vh;
+  display: block;
+  flex: none;
+
+  @include on-tablet {
+    width: 50vw;
+  }
+
+  @include on-phone {
+    width: 100vw;
+    height: 56vw;
+  }
+}
+
+.article {
+  &.container {
+    @include layout;
+    display: flex;
+    flex-direction: row-reverse;
+
+    @include on-phone {
+      flex-direction: column;
+    }
+  }
+
+  &.image {
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    @include picture;
+
+    @include on-phone {
+      object-position: top center;
+      object-position: top center;
+    }
+  }
+
+  &.image-container {
+    @include picture;
+    float: right;
+  }
+
+  &.text {
+    @include paragraph;
+  }
+}
