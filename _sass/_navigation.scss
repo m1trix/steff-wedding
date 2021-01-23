@@ -3,12 +3,9 @@
 $SWOGAN-BAR-PADDING: 1rem;
 $SWOGAN-BAR-HEIGHT: 2 * $SWOGAN-BAR-PADDING + 6rem;
 
-ul {
-  padding: 0px;
-  margin: 0px;
-}
-
 .swogan {
+  display: block;
+
   &.bar {
     display: block;
     width: 100%;
@@ -17,18 +14,9 @@ ul {
   }
 
   &.logo {
-    $height: $SWOGAN-BAR-HEIGHT - 2 * $SWOGAN-BAR-PADDING - 1rem;
-    margin-top: $SWOGAN-BAR-PADDING;
+    height: 6rem;
     width: 100%;
-    height: $height;
-    display: inline-block;
-    position: relative;
-
-    &::after {
-      content: '';
-      @include fill(-1);
-      background-color: white;
-    }
+    padding-top: 0.5rem;
   }
 
   &.text {
@@ -42,10 +30,11 @@ ul {
 
   &.cover {
     @include fill(-2);
-    background-image: url("../assets/images/banner-full.jpg");
+    background-image: url("../assets/images/banner-640.jpg"), url("../assets/images/banner-1024.jpg"), url("../assets/images/banner-1920.jpg"), url("../assets/images/banner-full.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    background-color: $TEXT-COLOR;
   }
 
   &.color {
@@ -127,12 +116,12 @@ ul {
 
       &:focus {
         outline-color: $BACKGROUND-COLOR;
-        position: absolute;
-        display: block;
-        top: 0px;
-        left: 0px;
-        width: 100%;
-        height: 100%;
+        // position: absolute;
+        // display: block;
+        // top: 0px;
+        // left: 0px;
+        // width: 100%;
+        // height: 100%;
       }
     }
   }

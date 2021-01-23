@@ -22,8 +22,9 @@ $COLOR-3-DARK: #a88057
 $COLOR-4: #e1d6cd
 $COLOR-4-LITE: #eee9e5
 $COLOR-5: #d32a00
-$COLOR-6: #f9f9f9
+$COLOR-6: #eeebe9
 $COLOR-7: #db9d5f
+$COLOR-8: #f9f9f9
 
 $BACKGROUND-COLOR: $COLOR-6
 $TEXT-COLOR: $COLOR-7
@@ -61,6 +62,7 @@ $TEXT-COLUMN-PADDING-MOB: 1rem
     @content
 
 @mixin text
+  text-align: justify
   font-family: Roboto-Light
   color: $TEXT-COLOR
 
@@ -115,15 +117,15 @@ $FONT_H: #{56rem / 48}
   @include animate(padding)
   color: $TEXT-COLOR
   text-align: justify
-  padding: 2rem
+  padding: 1.5rem
 
   @include on-tablet
     @include animate(padding)
-    padding: 1.5rem
+    padding: 1rem
 
   @include on-phone
     @include animate(padding)
-    padding: 1rem
+    padding: 0.5rem
 
 @mixin fill($z-index: -1)
   position: absolute
@@ -136,21 +138,25 @@ $FONT_H: #{56rem / 48}
 
 @mixin disclaimer
   @include paragraph
-  margin: 3rem
+  margin: 2rem
   position: relative
   @include animate(margin)
 
   @include on-tablet
-    margin: 2rem
+    margin: 1.5rem
 
   @include on-phone
     margin: 1rem
 
   &::after
     content: ''
-    background-color: $COLOR-6
+    background-color: white
     opacity: 0.6
     @include fill
+
+*
+  font-family: Roboto-Light
+  font-size: 1.125rem
 
 html
   height: 100%
@@ -165,6 +171,10 @@ body
 
   &[dialog]
     overflow: hidden
+
+main
+  display: flex
+  flex-direction: column
 
 button
   @include text
@@ -225,6 +235,9 @@ a
 p
   @include text
 
+address
+  font-style: normal
+
 .layout
   @include layout
 
@@ -239,3 +252,39 @@ p
 
 .paragraph
   @include paragraph
+
+.text.center
+  text-align: center
+
+.footer
+  &.container
+    background-color: #333333
+    float: bottom
+    padding: 2rem
+    display: flex
+    flex-direction: row
+    align-items: center
+  &.social
+    display: flex
+    flex-direction: row
+    align-items: center
+    & *
+      margin-left: 0.25rem
+
+.page.background
+  display: block
+  position: fixed
+  top: 0px
+  left: 0px
+  z-index: -10
+  background-image: url(../assets/images/background.svg)
+  background-position: top right
+  background-size: cover
+  background-repeat: no-repeat
+  background-color: $COLOR-6
+  width: 100vw
+  height: 200vh
+  will-change: transform
+
+  @include on-tablet
+    background-size: auto 200%
