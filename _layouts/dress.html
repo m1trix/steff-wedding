@@ -1,0 +1,47 @@
+---
+layout: page
+---
+
+<div class="dress container">
+  <article id="dress-text" class="dress text">
+    {{ content }}
+    <p class="text center">
+      <b>Производител</b><br />
+      {{ page.producer }}
+    </p>
+    <p class="text center">
+      <b>Размери</b><br />
+      {{ page.sizes }}
+    </p>
+    <p class="text center">
+      <b>Цветове</b><br />
+      {{ page.colors }}
+    </p>
+    <p class="text center">
+      <b>Модел на снимката</b><br />
+      {{ page.modelSize }}
+    </p>
+  </article>
+  <div class="dress images">
+    <img srcset="{{ site.baseurl}}/assets/images/dresses/{{ page.dress }}-front-640.JPG 640w"
+      src="{{ site.baseurl}}/assets/images/dresses/{{ page.dress }}-front-1280.JPG">
+    <img srcset="{{ site.baseurl}}/assets/images/dresses/{{ page.dress }}-back-640.JPG 640w"
+      src="{{ site.baseurl}}/assets/images/dresses/{{ page.dress }}-back-1280.JPG">
+    <img srcset="{{ site.baseurl}}/assets/images/dresses/{{ page.dress }}-close-640.JPG 640w"
+      src="{{ site.baseurl}}/assets/images/dresses/{{ page.dress }}-close-1280.JPG">
+    {% for image in site.static_files %}
+      {% image.path == '/asserts/images/dresses/{{ page.dress }}-extra.JPG %}
+        <img srcset="{{ site.baseurl}}/assets/images/dresses/{{ page.dress }}-extra-640.JPG"
+            src="{{ site.baseurl}}/assets/images/dresses/{{ page.dress }}-extra-1280.JPG">
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  window.StickService.register(
+    document.getElementById('dress-text'),
+    [],
+    '(min-width: 789px)'
+  );
+</script>

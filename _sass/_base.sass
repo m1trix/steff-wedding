@@ -34,11 +34,14 @@ $ANIMATION-SPEED: 0.25s
 $SCREEN-PC: 1280px
 $SCREEN-TABLET: 788px
 $SCREEN-PHONE: 480px
+$PAGE-W: 'min(#{$SCREEN-PC}, 100%)'
 $COLUMN-WIDTH-PC: 50%
 $COLUMN-WIDTH-MOB: 100%
 $TEXT-COLUMN-PADDING-PC: 3rem
 $TEXT-COLUMN-PADDING-TAB: 2rem
 $TEXT-COLUMN-PADDING-MOB: 1rem
+
+$WIDESCREEN-RATIO: 16 / 9;
 
 @function bgurl($name)
   $url: 'http://steffwedding.com/images/#{$name}'
@@ -53,12 +56,16 @@ $TEXT-COLUMN-PADDING-MOB: 1rem
   will-change: $styles
   transition: $transitions
 
+@mixin on-pc
+  @media screen and (max-width: $SCREEN-PC)
+    @content
+
 @mixin on-tablet
-  @media (max-width: $SCREEN-TABLET)
+  @media screen and (max-width: $SCREEN-TABLET)
     @content
 
 @mixin on-phone
-  @media (max-width: $SCREEN-PHONE)
+  @media screen and (max-width: $SCREEN-PHONE)
     @content
 
 @mixin text
@@ -75,7 +82,7 @@ $FONT_H: #{56rem / 48}
   color: $TEXT-COLOR
   font-family: $font
   text-decoration: dotted underline
-  outline: 2px dotted
+  outline: 3px dotted
   outline-color: transparent
   @include animate(outline-color)
 
@@ -264,6 +271,9 @@ address
     display: flex
     flex-direction: row
     align-items: center
+    z-index: 200
+    position: absolute
+    width: calc(100% - 4rem)
   &.social
     display: flex
     flex-direction: row
@@ -280,10 +290,10 @@ address
   background-image: url(../assets/images/background.svg)
   background-position: top right
   background-size: cover
-  background-repeat: no-repeat
+  background-repeat: repeat-y
   background-color: $COLOR-6
   width: 100vw
-  height: 200vh
+  height: 400vh
   will-change: transform
 
   @include on-tablet
