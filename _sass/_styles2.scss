@@ -1,7 +1,18 @@
 @import "./_base.sass";
 
+@mixin animate($what, $speed: 0.5s) {
+  $transitions: ();
+  @each $style in $what {
+    $transitions: $transitions, $style $speed;
+  }
+
+  will-change: $what;
+  transition: $transitions;
+}
+
 .galery {
   $padding: 0.25rem;
+  $animation-speed: 0.4s;
   &.container {
     width: 100%;
     padding: $padding;
@@ -44,7 +55,7 @@
       outline: 2rem solid black;
       outline-offset: -1rem;
       filter: blur(1rem) opacity(0);
-      @include animate(filter);
+      @include animate($what: filter, $speed: $animation-speed);
     }
 
     &:hover {
@@ -67,7 +78,7 @@
       object-position: center;
       object-fit: cover;
       transform: scale(1.1);
-      @include animate(transform);
+      @include animate($what: transform, $speed: $animation-speed);
     }
 
     & .title {
@@ -81,7 +92,7 @@
       font-size: calc(#{$SCREEN-PC} / 4 * #{$font-coef});
       background-color: #000000aa;
       padding: 0.5rem;
-      @include animate(color);
+      @include animate($what: color, $speed: $animation-speed);
 
       @include on-pc {
         font-size: calc(25vw * #{$font-coef});
@@ -110,12 +121,13 @@
   }
 
   &.text {
-    padding: 0.5rem;
-    width: calc(#{$PAGE-W} / 3 - 1rem);
+    $padding: 1rem;
+    padding: $padding;
+    width: calc(#{$PAGE-W} / 3 - #{2 * $padding});
     display: block;
 
     @include on-tablet {
-      width: 100%;
+      width: calc(100% - #{2 * $padding});
     }
   }
 
