@@ -30,11 +30,9 @@ $SWOGAN-BAR-HEIGHT: 2 * $SWOGAN-BAR-PADDING + 6rem;
 
   &.cover {
     @include fill(-2);
-    background-image: url("../assets/images/banner-640.jpg"), url("../assets/images/banner-1024.jpg"), url("../assets/images/banner-1920.jpg"), url("../assets/images/banner-full.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     background-color: $TEXT-COLOR;
+    object-fit: cover;
+    object-position: center;
   }
 
   &.color {
