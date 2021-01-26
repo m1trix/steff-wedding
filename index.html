@@ -1,0 +1,40 @@
+---
+layout: base
+---
+
+<div class="home intro">
+  <img class="home logo" src="{{ site.baseurl }}/assets/logo.svg">
+  <p class="home swogan">Осмели се да мечтаеш за нея!</p>
+  <img class="home cover" srcset="
+    {{ site.baseurl }}/assets/images/banner-640.jpg 640w,
+    {{ site.baseurl }}/assets/images/banner-1280.jpg 1280w,
+    {{ site.baseurl }}/assets/images/banner-1920.jpg 1920w
+    " src="{{ site.baseurl }}/assets/images/banner.jpg">
+  </img>
+  <a class="home scroll" href="#">Напред</a>
+</div>
+
+<article class="home description">
+  Steff Wedding е луксозен сватбен бутик, който носи неподражаемия дух на бохо, винтидж и ръстик елементите за една незабравима сватба с твоя личен почерк!
+</article>
+
+<main class="layout">
+  <div>
+    <a href="{{ site.baseurl }}/dresses">
+      <img class="home link" srcset="{{ site.baseurl }}/assets/images/dresses/magnificent-front-640.JPG 640w"
+        src="{{ site.baseurl }}/assets/images/dresses/magnificent-front-1280.JPG">
+      </img>
+    </a>
+
+    <a href="{{ site.baseurl }}/organize">
+      <img class="home link" srcset="
+        {{ site.baseurl }}/assets/images/organize-640.jpg 640w,
+        {{ site.baseurl }}/assets/images/organize-1024.jpg 1024w,
+        {{ site.baseurl }}/assets/images/organize-1920.jpg 1920w
+        " src="{{ site.baseurl }}/assets/images/organize.jpg">
+      </img>
+    </a>
+  </div>
+</main>
+{% include footer.html %}
+{% include background.html %}
