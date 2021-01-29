@@ -39,5 +39,5 @@ layout: page
     Телефон: <a href="tel:+359 887 939 599">+359 887 939 599</a>
   </p>
 
-<img class="box borders content" style="margin-bottom: 2rem" src="{{ site.baseurl }}/assets/map.png">
+  <img class="box borders content" style="margin-bottom: 2rem" src="{{ site.baseurl }}/assets/map.png">
 </article>

@@ -33,6 +33,7 @@ $SWOGAN-BAR-HEIGHT: 2 * $SWOGAN-BAR-PADDING + 6rem;
     background-color: $TEXT-COLOR;
     object-fit: cover;
     object-position: center;
+    -webkit-transform: translate3d(0, 0, 0); // Bug on Safari
   }
 
   &.color {
