@@ -1,0 +1,72 @@
+---
+layout: base
+navStuck: true
+---
+
+
+<div id="home-intro" class="home intro">
+  <img class="home logo" src="{{ site.baseurl }}/assets/logo.svg">
+  <p class="home swogan">Осмели се да мечтаеш за нея!</p>
+  <img class="home cover" srcset="
+    {{ site.baseurl }}/assets/images/banner-640.jpg 640w,
+    {{ site.baseurl }}/assets/images/banner-1280.jpg 1280w,
+    {{ site.baseurl }}/assets/images/banner-1920.jpg 1920w
+    " src="{{ site.baseurl }}/assets/images/banner.jpg">
+  </img>
+  <button id="scroll-button">Напред</button>
+</div>
+
+{% include navigation.html %}
+
+<script>
+  const intro = document.getElementById('home-intro');
+  const button = document.getElementById('scroll-button');
+  button.addEventListener('click', () => {
+    window.scrollTo({
+      top: intro.clientTop + intro.clientHeight,
+      behavior: "smooth"
+    });
+  })
+</script>
+
+<div class="divider"></div>
+
+<p class="home description">
+  Steff Wedding е луксозен сватбен бутик, който носи неподражаемия дух на бохо, винтидж и ръстик елементите за една
+  незабравима сватба с твоя личен почерк!
+</p>
+
+<div class="divider"></div>
+
+<main class="layout">
+  <div>
+    <a class="home link" href="{{ site.baseurl }}/dresses">
+      <img srcset="{{ site.baseurl }}/assets/images/dresses/magnificent-front-640.JPG 640w"
+        src="{{ site.baseurl }}/assets/images/dresses/magnificent-front-1280.JPG">
+      </img>
+      <div class="home link text">Рокли</div>
+    </a>
+
+    <a class="home link" href="{{ site.baseurl }}/organize">
+      <img srcset="
+        {{ site.baseurl }}/assets/images/organize-640.jpg 640w,
+        {{ site.baseurl }}/assets/images/organize-1024.jpg 1024w,
+        {{ site.baseurl }}/assets/images/organize-1920.jpg 1920w
+        " src="{{ site.baseurl }}/assets/images/organize.jpg">
+      </img>
+      <div class="home link text">Организация</div>
+    </a>
+  </div>
+</main>
+
+<div class="content center margin">
+  <button id="contacts-link">Къде да ни намериш?</button>
+</div>
+
+{% include footer.html %}
+{% include background.html %}
+<script>
+  document.getElementById('contacts-link').addEventListener('click', () => {
+    window.location.href="{{ site.baseurl }}/contacts";
+  });
+</script>

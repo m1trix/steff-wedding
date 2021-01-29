@@ -1,0 +1,17 @@
+---
+layout: base
+---
+
+<header>
+  {% include swogan-bar.html %}
+</header>
+<main>
+  {% if page.title %}
+    <h1>{{ page.title }}</h1>
+  {% endif %}
+  <section class="layout">
+    {{ content }}
+  </section>
+</main>
+{% include footer.html %}
+{% include background.html %}

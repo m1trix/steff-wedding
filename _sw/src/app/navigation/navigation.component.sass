@@ -1,0 +1,126 @@
+@import ../../styles
+
+$SWOGAN-BAR-PADDING: 1rem
+$SWOGAN-BAR-HEIGHT: 2 * $SWOGAN-BAR-PADDING + 6rem
+
+.swogan-bar
+  display: block
+  width: 100%
+  overflow: hidden
+  position: relative
+
+.swogan-content
+  position: absolute
+  will-change: height, margin
+
+.swogan-color
+  position: absolute
+  z-index: -1
+  top: 0px
+  width: 100%
+  height: 100%
+  background-color: $TEXT-COLOR
+  opacity: 0
+  will-change: opacity
+
+.swogan-cover
+  @mixin base
+    position: absolute
+    display: block
+    top: 0px
+    left: 0px
+    width: 100%
+    height: 100%
+
+  @include base
+  content: ''
+  z-index: -2
+  background-image: bgurl('banner')
+  background-position: center 60%
+  background-size: cover
+  background-repeat: no-repeat
+  -webkit-transform: translate3d(0, 0, 0)
+
+.swogan-logo
+  $height: $SWOGAN-BAR-HEIGHT - 2 * $SWOGAN-BAR-PADDING - 1rem
+  margin-top: $SWOGAN-BAR-PADDING
+  background-image: $logo-url
+  background-repeat: no-repeat
+  background-position: center
+  background-size: contain
+  width: 100%
+  height: $height
+  display: inline-block
+
+.swogan-text
+  @include text
+  margin-top: $SWOGAN-BAR-PADDING
+  color: white
+  font-size: 1rem
+  width: 100%
+  text-align: center
+
+.nav-bar
+  margin-top: $SWOGAN-BAR-PADDING
+  display: flex
+  flex-direction: row
+  justify-content: center
+  width: 100%
+
+ul
+  padding: 0px
+  margin: 0px
+
+.nav-bar-link
+  $side-margin: 2px
+  $padding: 1rem
+  $width: 10rem
+  font-size: 1rem
+  color: white
+  padding: $padding
+  margin-left: $side-margin
+  margin-right: $side-margin
+  display: inline-block
+  text-align: center
+  font-family: $font
+  width: 6em
+  transition: height #{$ANIMATION-SPEED}
+  position: relative
+  outline: 3px dotted transparent
+  outline-color: transparent
+  @include animate(outline-color)
+
+  &-sticky
+    background-color: $TEXT-COLOR
+
+  &::after
+    $thickness: 2px
+    content: ""
+    display: block
+    width: 100%
+    height: 0px
+    bottom: 0px
+    left: 0px
+    position: absolute
+    background-color: white
+    @include animate(height)
+
+  &:focus
+    outline-color: $BACKGROUND-COLOR
+
+  &:hover, &[active=true]
+    cursor: pointer
+    &::after
+      height: 3px
+
+  &:active
+    color: $COLOR-3
+    &::after
+      background-color: $COLOR-3
+
+  @include on-tablet
+    width: auto
+    padding: 0.5rem
+
+  @include on-phone
+    font-size: 0.8rem

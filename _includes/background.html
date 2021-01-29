@@ -1,0 +1,8 @@
+<div id="background" class="page background"></div>
+<script>
+  const background = document.getElementById('background');
+  window.addEventListener('scroll', () => {
+    const y = (window.scrollY / 8);
+    background.style.transform = `translateY(-${y}px)`;
+  });
+</script>

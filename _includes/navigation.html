@@ -1,0 +1,25 @@
+{% if page.navStuck %}
+  {% assign stuck = 'color' %}
+{% endif %}
+<nav id="nav-bar" class="nav bar {{ stuck }}">
+  <li class="nav link">
+    <a href="{{ site.baseurl }}/">Начало</a>
+  </li>
+  <li class="nav link">
+    <a href="{{ site.baseurl }}/dresses">Рокли</a>
+  </li>
+  <li class="nav link">
+    <a href="{{ site.baseurl }}/organize">Организация</a>
+  </li>
+  <li class="nav link">
+    <a href="{{ site.baseurl }}/about">За Нас</a>
+  </li>
+  <li class="nav link">
+    <a href="{{ site.baseurl }}/contacts">Контакти</a>
+  </li>
+</nav>
+
+<script>
+  const navBar = document.getElementById('nav-bar');
+  window.StickService.register(navBar, ['stuck']);
+</script>
