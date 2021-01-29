@@ -1,41 +1,25 @@
-<div class="swogan">
-  <!-- <div class="swogan transition"></div> -->
-  <div class="swogan bar">
-    <img class="swogan logo" src="{{ site.baseurl }}/assets/images/logo-white.svg">
-    <div class="swogan content">
-      <p class="swogan text">Осмели се да мечтаеш за нея!</p>
-      <nav id="nav-bar" class="nav bar">
-        <li class="nav link">
-          <a href="{{ site.baseurl }}/">Начало</a>
-        </li>
-        <li class="nav link">
-          <a href="{{ site.baseurl }}/dresses">Рокли</a>
-        </li>
-        <li class="nav link">
-          <a href="{{ site.baseurl }}/organize">Организация</a>
-        </li>
-        <li class="nav link">
-          <a href="{{ site.baseurl }}/about">За Нас</a>
-        </li>
-        <li class="nav link">
-          <a href="{{ site.baseurl }}/contacts">Контакти</a>
-        </li>
-      </nav>
-    </div>
-    <div id="nav-color" class="swogan color"></div>
-    <img class="swogan cover" srcset="
-      {{ site.baseurl }}/assets/images/banner-640.jpg 640w,
-      {{ site.baseurl }}/assets/images/banner-1280.jpg 1280w,
-      {{ site.baseurl }}/assets/images/banner-1920.jpg 1920w" src="{{ site.baseurl }}/assets/images/banner.jpg"></img>
-  </div>
-</div>
+{% if page.navStuck %}
+  {% assign stuck = 'color' %}
+{% endif %}
+<nav id="nav-bar" class="nav bar {{ stuck }}">
+  <li class="nav link">
+    <a href="{{ site.baseurl }}/">Начало</a>
+  </li>
+  <li class="nav link">
+    <a href="{{ site.baseurl }}/dresses">Рокли</a>
+  </li>
+  <li class="nav link">
+    <a href="{{ site.baseurl }}/organize">Организация</a>
+  </li>
+  <li class="nav link">
+    <a href="{{ site.baseurl }}/about">За Нас</a>
+  </li>
+  <li class="nav link">
+    <a href="{{ site.baseurl }}/contacts">Контакти</a>
+  </li>
+</nav>
 
 <script>
-  const color = document.getElementById('nav-color');
   const navBar = document.getElementById('nav-bar');
-
   window.StickService.register(navBar, ['stuck']);
-  window.addEventListener('scroll', event => {
-    color.style.opacity = Math.min(window.pageYOffset / navBar.offsetTop, 1).toString();
-  });
 </script>

@@ -2,6 +2,7 @@
 
 @mixin picture {
   width: calc(#{$PAGE-W} / 3);
+  min-width: calc(#{$PAGE-W} / 3);
   height: 100vh;
   display: block;
 

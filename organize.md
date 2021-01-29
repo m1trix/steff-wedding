@@ -21,3 +21,13 @@ image-alt: Собственик
 Ще се постараем всеки елемент от сватбата да бъде такъв, какъвто си го представяш, за да останат спомените за вълнение, хармония и любов!
 
 Свържи се с нас, независимо къде планираш сватба!
+
+<div class="content center margin">
+  <button id="contacts-link">Контакти</button>
+</div>
+
+<script>
+  document.getElementById('contacts-link').addEventListener('click', () => {
+    window.location.href="{{ site.baseurl }}/contacts";
+  });
+</script>

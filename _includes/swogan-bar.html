@@ -1,0 +1,21 @@
+<div class="swogan">
+  <div class="swogan bar">
+    <img class="swogan logo" src="{{ site.baseurl }}/assets/images/logo-white.svg">
+    <div class="swogan content">
+      <p class="swogan text">Осмели се да мечтаеш за нея!</p>
+      {% include navigation.html %}
+    </div>
+    <div id="nav-color" class="swogan color"></div>
+    <img class="swogan cover" srcset="
+      {{ site.baseurl }}/assets/images/banner-640.jpg 640w,
+      {{ site.baseurl }}/assets/images/banner-1280.jpg 1280w,
+      {{ site.baseurl }}/assets/images/banner-1920.jpg 1920w" src="{{ site.baseurl }}/assets/images/banner.jpg"></img>
+  </div>
+</div>
+
+<script>
+  const color = document.getElementById('nav-color');
+  window.addEventListener('scroll', event => {
+    color.style.opacity = Math.min(window.pageYOffset / navBar.offsetTop, 1).toString();
+  });
+</script>

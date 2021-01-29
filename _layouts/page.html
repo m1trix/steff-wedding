@@ -3,10 +3,12 @@ layout: base
 ---
 
 <header>
-  {% include navigation.html %}
+  {% include swogan-bar.html %}
 </header>
 <main>
-  <h1>{{ page.title }}</h1>
+  {% if page.title %}
+    <h1>{{ page.title }}</h1>
+  {% endif %}
   <section class="layout">
     {{ content }}
   </section>

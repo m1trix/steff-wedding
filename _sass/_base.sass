@@ -113,7 +113,7 @@ $FONT_H: #{56rem / 48}
   text-align: center
   float: left
   width: $COLUMN-WIDTH-PC
-  color: $COLOR-3
+  color: $TEXT-COLOR
 
   @media screen and (max-width: $SCREEN-PHONE)
     width: $COLUMN-WIDTH-MOB
@@ -191,11 +191,13 @@ button
   font-size: 1rem
   padding: .5rem 2rem .5rem 2rem
   outline: 3px dotted transparent
+  text-decoration: none
   @include animate(color, background-color, outline-color)
 
   &:hover
     cursor: pointer
     background-color: $COLOR-3
+    color: black
     @include animate(color, background-color)
 
   &:active
@@ -278,6 +280,7 @@ address
     display: flex
     flex-direction: row
     align-items: center
+    color: white
     & *
       margin-left: 0.25rem
 
