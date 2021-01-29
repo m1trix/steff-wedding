@@ -99,6 +99,7 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
+    -webkit-transform: translate3d(0, 0, 0); // Bug on Safari
   }
 
   &.link {
