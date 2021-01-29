@@ -1,6 +1,7 @@
 ---
 title: Рокли
 layout: page
+permalink: /dresses
 ---
 
 <div class="galery container">
