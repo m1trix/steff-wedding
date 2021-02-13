@@ -23,7 +23,7 @@ image-alt: Собственик
 Свържи се с нас, независимо къде планираш сватба!
 
 <div class="content center margin">
-  <button id="contacts-link">Контакти</button>
+  <button id="contacts-link" class="button">Контакти</button>
 </div>
 
 <script>

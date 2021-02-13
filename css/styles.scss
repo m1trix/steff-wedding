@@ -32,16 +32,18 @@
 
 @mixin animate($what, $speed: 0.5s) {
   $transitions: ();
+  $will-change: ();
   @each $style in $what {
     $transitions: $transitions, $style $speed;
+    $will-change: $will-change, $style;
   }
 
-  will-change: $what;
+  will-change: $will-change;
   transition: $transitions;
 }
 
 .divider {
-  background-image: url('{{ site.baseurl }}/assets/divider.svg');
+  background-image: url("{{ site.baseurl }}/assets/divider.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -169,11 +171,11 @@
     color: $TEXT-COLOR;
 
     @include on-tablet {
-      font-size: 1.5rem;
+      font-size: 1.75rem;
     }
 
     @include on-phone {
-      font-size: 1.25rem;
+      font-size: 1.5rem;
       font-family: Roboto-Light;
     }
   }
@@ -342,5 +344,209 @@
 .box {
   &.borders {
     border: 1px solid $TEXT-COLOR;
+  }
+}
+
+.cookie {
+  &.dialog {
+    display: block;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: #{$COLOR-6}ee;
+    padding: 2rem;
+    z-index: 300;
+    width: 32rem;
+
+    & p {
+      color: black;
+    }
+
+    @include on-tablet {
+      width: calc(100% - 2rem);
+      padding: 1rem;
+      bottom: 0px;
+      right: 0px;
+    }
+  }
+
+  & .buttons {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    @include on-phone {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &.manage {
+    background-color: transparent;
+    color: black;
+    margin-left: 1rem;
+    @include on-phone {
+      margin-left: 0px;
+      margin-top: 1rem;
+    }
+  }
+}
+
+@mixin button {
+  @include text;
+  border: 0px;
+  font-size: 1rem;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  outline: 3px dotted transparent;
+  text-decoration: none;
+  text-align: center;
+  @include animate($what: color background-color outline-color);
+
+  &:hover {
+    cursor: pointer;
+    background-color: $COLOR-3;
+    color: black;
+  }
+
+  &:active {
+    color: white;
+    background-color: $COLOR-1;
+  }
+
+  &:focus {
+    outline-color: $TEXT-COLOR;
+  }
+}
+
+.button {
+  @include button;
+  background-color: $TEXT-COLOR;
+  color: white;
+
+  &.light {
+    color: black;
+  }
+}
+
+.contacts-form {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  width: calc(100% - 4rem);
+
+  & form {
+    display: flex;
+    flex-direction: column;
+
+    & label {
+      margin-top: 1rem;
+    }
+
+    & button {
+      margin-top: 1rem;
+      width: fit-content;
+      align-self: flex-end;
+    }
+  }
+
+  @mixin message($color, $icon-path) {
+    font-family: Roboto-Light;
+    padding: 1rem;
+    width: calc(100% - 2rem);
+    background-color: #{$color}66;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &::before {
+      content: '';
+      background-image: url('{{ site.baseurl }}#{$icon-path}');
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 1.5rem;
+      min-height: 1.5rem;
+      width: 1.5rem;
+      min-width: 1.5rem;
+      display: block;
+      margin-right: 0.5rem;
+    }
+  }
+
+  &.error {
+    @include message($color: $COLOR-5, $icon-path: '/assets/images/warning.svg');
+  }
+
+  &.success {
+    @include message($color: $COLOR-9, $icon-path: '/assets/images/success.svg');
+  }
+}
+
+.toggle {
+  border: 1px solid gray;
+  padding: 0px;
+  margin: 0px;
+  width: 2.75rem;
+  height: 1.5rem;
+  min-width: 2.75rem;
+  min-height: 1.5rem;
+  border-radius: 1rem;
+  outline: 3px dotted transparent;
+  outline-offset: 0px;
+  background-color: lightgray;
+  @include animate($what: outline-color background-color border-color, $speed: 0.25s);
+
+  &:focus {
+    outline-color: $TEXT-COLOR;
+  }
+
+  &[data-active='t'] {
+    border-color: $COLOR-2;
+    background-color: lighten($COLOR-2, 25%);
+  }
+
+  &::before {
+    content: '';
+    position: relative;
+    left: 1px;
+    display: block;
+    width: calc(1.5rem - 4px);
+    height: calc(1.5rem - 4px);
+    border-radius: 50%;
+    background-color: gray;
+    @include animate($what: transform background-color, $speed: 0.25s);
+  }
+
+  &[data-active='t']::before {
+    transform: translateX(1.25rem);
+    background-color: $COLOR-2;
+  }
+}
+
+.hbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  & *:not(:first-child) {
+    margin-left: 0.5rem;
+  }
+
+  &.center {
+    justify-content: center;
+  }
+}
+
+.vbox {
+  display: flex;
+  flex-direction: column;
+
+  & *:not(:first-child) {
+    margin-top: 0.5rem;
+  }
+
+  &.center {
+    align-items: center;
   }
 }

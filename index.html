@@ -13,7 +13,7 @@ navStuck: true
     {{ site.baseurl }}/assets/images/banner-1920.jpg 1920w
     " src="{{ site.baseurl }}/assets/images/banner.jpg">
   </img>
-  <button id="scroll-button">Напред</button>
+  <button id="scroll-button" class="button">Напред</button>
 </div>
 
 {% include navigation.html %}
@@ -60,9 +60,10 @@ navStuck: true
 </main>
 
 <div class="content center margin">
-  <button id="contacts-link">Къде да ни намериш?</button>
+  <button id="contacts-link" class="button">Къде да ни намериш?</button>
 </div>
 
+{% include cookies.html %}
 {% include footer.html %}
 {% include background.html %}
 <script>

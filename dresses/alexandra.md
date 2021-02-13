@@ -1,7 +1,7 @@
 ---
-title: Aleksandra
+title: Alexandra
 layout: dress
-dress: aleksandra
+dress: alexandra
 producer: Aria Bride
 colors: слонова кост
 sizes: от XS до 5XL
