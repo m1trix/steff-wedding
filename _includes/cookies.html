@@ -1,0 +1,42 @@
+<div id="cookie-disclaimer" class="cookie dialog" style="display: none;">
+  <p>
+    За да можем да следим посещенията в нашата уеб страница, ние използваме бисквитки. За повече информация, може да
+    прочетеш нашата политика за поверителност.
+  </p>
+  <div class="cookie buttons">
+    <button id="accept-cookies" class="button">Приемам Всички</button>
+    <button id="manage-cookies" class="cookie manage button light">Управление на Бисквите</button>
+  </div>
+</div>
+
+<script>
+  setTimeout(() => {
+    const disclaimer = document.getElementById('cookie-disclaimer');
+    const acceptCookiesButton = document.getElementById('accept-cookies');
+    const manageCookiesButton = document.getElementById('manage-cookies');
+
+    hide(disclaimer);
+
+    const handleCookies = () => {
+      if (getCookieOptions().size === 0) {
+        show(disclaimer);
+      } else {
+        hide(disclaimer);
+      }
+
+      updateCookies();
+    };
+
+    acceptCookiesButton.addEventListener('click', () => {
+      allowFacebookPixel(true);
+      allowGoogleAnalytics(true);
+      handleCookies();
+    });
+
+    manageCookiesButton.addEventListener('click', () => {
+      window.location.href = '{{ site.baseurl }}/cookie-policy'
+    });
+
+    handleCookies();
+  }, 5000);
+</script>
