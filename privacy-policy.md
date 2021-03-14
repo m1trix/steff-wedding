@@ -2,6 +2,7 @@
 layout: page
 permalink: /privacy-policy
 pageClass: paragraph
+tab: Политика за Поверителност
 ---
 
 Задължителна информация за правата на лицата по защита на личните данни (Privacy notice)

@@ -1,10 +1,10 @@
 <head>
-  <title>{{ site.title }}</title>
+  <title>{% if page.tab or page.title %}{{ page.tab | default: page.title }} – {% endif %}{% if layout.tab %}{{ layout.tab }} – {% endif %}{{ site.title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
   <meta name="description" content="Steff Wedding е сватбен бутик">
   <meta name="keywords"
-    content="Steff Wedding,wedding dresses,organizing wedding,wedding management,wedding,dress,organize,manage,shop,boutique,Vratsa,сватбени рокли,организиране на сватби,сватба,рокли,организиране,магазин,бутик,Враца">
+    content="Steff Wedding,wedding dresses,organizing wedding,wedding management,wedding,dress,organize,manage,shop,boutique,Vratsa,сватбени рокли,организиране на сватби,сватба,рокли,организиране,магазин,бутик,Враца{% if page.tab or page.title %},{{ page.tab | default: page.title }}{% endif %}{% if layout.tab %},{{ layout.tab }}{% endif %}">
   <meta name="og:title" content="Steff Wedding">
   <meta name="og:description" content="Steff Wedding е сватбен бутик">
   <meta name="og:type" content="website">

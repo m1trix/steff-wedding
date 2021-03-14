@@ -1,5 +1,5 @@
 ---
-# title: Контакти
+tab: Контакти
 permalink: /contacts
 layout: page
 ---
