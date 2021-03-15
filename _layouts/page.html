@@ -6,7 +6,7 @@ layout: base
   {% include swogan-bar.html %}
 </header>
 <main class="{{ page.pageClass }}">
-  {% if page.title %}
+  {% if page.hideTitle != true %}
     <h1>{{ page.title }}</h1>
   {% endif %}
   <section class="layout">

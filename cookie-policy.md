@@ -3,7 +3,8 @@ layout: page
 permalink: /cookie-policy
 disableCookieDisclaimer: true
 pageClass: paragraph
-tab: Политика за Бисквитки
+title: Политика за Бисквитки
+hideTitle: true
 ---
 
 # Какво представляват бисквитките?

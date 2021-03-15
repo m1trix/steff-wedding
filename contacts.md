@@ -1,5 +1,6 @@
 ---
-tab: Контакти
+title: Контакти
+hideTitle: true
 permalink: /contacts
 layout: page
 ---
