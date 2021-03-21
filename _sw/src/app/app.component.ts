@@ -10,7 +10,7 @@ import { CookieService } from 'ngx-cookie-service';
   providers: [CookieService]
 })
 export class AppComponent {
-  public showCookieConsent = false;
+  public showCookiesConsent = false;
 
   @ViewChild('background') backgroundRef: ElementRef<HTMLElement> | undefined;
 
@@ -19,13 +19,13 @@ export class AppComponent {
     private cookies: CookieService
   ) {
     setTimeout(() => {
-      this.showCookieConsent = cookies.get('cookies_consent') !== 'true';
+      this.showCookiesConsent = cookies.get('cookies_consent') !== 'true';
       this.detector.markForCheck();
     }, 2100);
   }
 
   public onAcceptCookies() {
-    this.showCookieConsent = false;
+    this.showCookiesConsent = false;
     this.cookies.set('cookies_consent', 'true');
     this.detector.markForCheck();
   }
