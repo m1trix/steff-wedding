@@ -24,7 +24,7 @@
     window.location.href = '{{ site.baseurl }}/cookie-policy'
   });
 
-  if (!hasCookiesConsent()) {
+  if (!hasConsentSettings()) {
     setTimeout(() => show(disclaimer), 5000);
   }
 </script>
