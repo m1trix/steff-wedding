@@ -20,18 +20,11 @@
   <script src="{{ site.baseurl }}/assets/js/http.js"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ET036R6Y9G"></script>
   <script>
-    // Google Analytics
+    // Init Google Analytics
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
-    gtag('consent', 'default', {
-      'ad_storage': isGoogleAnalyticsAllowed() ? 'granted' : 'denied',
-      'analytics_storage': isGoogleAnalyticsAllowed() ? 'granted' : 'denied'
-    });
-    gtag('js', new Date());
-    gtag('config', 'G-ET036R6Y9G');
-  </script>
-  <script>
-    // Facebook Pixel Code
+
+    // Init Facebook Pixel
     !function (f, b, e, v, n, t, s) {
       if (f.fbq) return; n = f.fbq = function () {
         n.callMethod ?
@@ -43,7 +36,10 @@
       s.parentNode.insertBefore(t, s)
     }(window, document, 'script',
       'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('consent', isFacebookPixelAllowed() ? 'grant' : 'revoke');
+
+    updateCookieConsnetSettings();
+    gtag('js', new Date());
+    gtag('config', 'G-ET036R6Y9G');
     fbq('init', '436439281054357');
     fbq('track', 'PageView');
   </script>

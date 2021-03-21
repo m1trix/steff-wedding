@@ -10,33 +10,21 @@
 </div>
 
 <script>
-  setTimeout(() => {
-    const disclaimer = document.getElementById('cookie-disclaimer');
-    const acceptCookiesButton = document.getElementById('accept-cookies');
-    const manageCookiesButton = document.getElementById('manage-cookies');
+  const disclaimer = document.getElementById('cookie-disclaimer');
+  const acceptCookiesButton = document.getElementById('accept-cookies');
+  const manageCookiesButton = document.getElementById('manage-cookies');
 
+  acceptCookiesButton.addEventListener('click', () => {
+    allowFacebookPixel(true);
+    allowGoogleAnalytics(true);
     hide(disclaimer);
+  });
 
-    const handleCookies = () => {
-      if (getCookieOptions().size === 0) {
-        show(disclaimer);
-      } else {
-        hide(disclaimer);
-      }
+  manageCookiesButton.addEventListener('click', () => {
+    window.location.href = '{{ site.baseurl }}/cookie-policy'
+  });
 
-      updateCookies();
-    };
-
-    acceptCookiesButton.addEventListener('click', () => {
-      allowFacebookPixel(true);
-      allowGoogleAnalytics(true);
-      handleCookies();
-    });
-
-    manageCookiesButton.addEventListener('click', () => {
-      window.location.href = '{{ site.baseurl }}/cookie-policy'
-    });
-
-    handleCookies();
-  }, 5000);
+  if (!hasCookiesConsent()) {
+    setTimeout(() => show(disclaimer), 5000);
+  }
 </script>

@@ -41,6 +41,6 @@ SteffWedding.com използва бисквитки за да разбере к
   saveCookiesButton.addEventListener('click', () => {
     allowFacebookPixel(fbpCookiesButton.dataset.active === 't');
     allowGoogleAnalytics(gaCookiesButton.dataset.active === 't');
-    updateCookies();
+    updateCookieConsnetSettings();
   });
 </script>
