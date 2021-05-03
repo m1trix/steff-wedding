@@ -107,7 +107,7 @@
   &.link {
     margin: 1rem;
     width: calc(#{$PAGE-W} / 2 - 2rem);
-    height: 100vh;
+    height: calc(100vh - 3rem);
     float: left;
     overflow: hidden;
     display: flex;
@@ -117,7 +117,7 @@
 
     @include on-phone {
       width: calc(100% - 2rem);
-      height: 40vh;
+      height: calc((100vh - 3rem) / 2 - 1rem);
     }
 
     & img {
@@ -144,6 +144,8 @@
       padding: 1rem 2rem 1rem 2rem;
       width: fit-content;
       height: fit-content;
+      width: -moz-fit-content;
+      height: -moz-fit-content;
       background-color: #00000088;
       @include animate($what: background-color);
     }
@@ -194,6 +196,7 @@
   $animation-speed: 0.4s;
 
   &.container {
+    display: inline-block;
     width: calc(100% - #{2 * $padding});
     padding: $padding;
   }
@@ -204,7 +207,7 @@
     }
 
     @function height($parts) {
-      @return calc(min(100vw, #{$SCREEN-PC}) / #{$parts} * #{$WIDESCREEN-RATIO});
+      @return calc(min(100vh - 3rem, min(100vw, #{$SCREEN-PC}) / #{$parts} * #{$WIDESCREEN-RATIO}));
     }
 
     float: left;
@@ -338,6 +341,10 @@
     &.center {
       width: calc(100% - 4rem);
     }
+  }
+
+  &.padding-top {
+    padding-top:2rem;
   }
 }
 

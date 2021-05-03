@@ -3,66 +3,53 @@ layout: page
 title: Рокли
 ---
 
+{% assign collection = site.collections | find: 'sw-collection-id', page.sw-dress-collection-id %}
+
 <div class="dress container">
   <article id="dress-text" class="dress text">
-    {{ content }}
+    {{ page.sw-dress-description | newline_to_br }}
+    <p class="text center">
+      <b>Колекция</b><br />
+      <a class="link" href="{{ collection.url }}">{{ collection.sw-collection-name }}</a>
+    </p>
+    {% if page.sw-dress-designer %}
+    <p class="text center">
+      <b>Дизайнер</b><br />
+      {{ page.sw-dress-designer }}
+    </p>
+    {% endif %}
+    {% if page.sw-dress-producer %}
     <p class="text center">
       <b>Производител</b><br />
-      {{ page.producer }}
+      {{ page.sw-dress-producer }}
     </p>
+    {% endif %}
     <p class="text center">
       <b>Размери</b><br />
-      {{ page.sizes }}
+      {{ page.sw-dress-sizes }}
     </p>
     <p class="text center">
       <b>Цветове</b><br />
-      {{ page.colors }}
+      {{ page.sw-dress-colors | join: ', '}}
     </p>
     <p class="text center">
-      <b>Модел на снимката</b><br />
-      {{ page.modelSize }}
+      <b>Модел на снимките</b><br />
+      {{ page.sw-dress-modelSize }}
+    </p>
+    <p class="text center">
+      <b>Цена</b><br />
+      {{ page.sw-dress-price }} лв
     </p>
   </article>
   <div class="dress images">
-    <img srcset="
-        {{ site.baseurl }}/assets/images/dresses/{{ page.dress }}-front-640.JPG 640w,
-        {{ site.baseurl }}/assets/images/dresses/{{ page.dress }}-front-1280.JPG 1280w
-      "
-      sizes="
-        (max-width: 788px) 100vw,
-        66vw
-      "
-      src="{{ site.baseurl }}/assets/images/dresses/{{ page.dress }}-front-640.JPG">
-    <img srcset="
-        {{ site.baseurl }}/assets/images/dresses/{{ page.dress }}-back-640.JPG 640w,
-        {{ site.baseurl }}/assets/images/dresses/{{ page.dress }}-back-1280.JPG 1280w
-      "
-      sizes="
-        (max-width: 788px) 100vw,
-        66vw
-      "
-      src="{{ site.baseurl }}/assets/images/dresses/{{ page.dress }}-back-640.JPG">
-    <img srcset="
-        {{ site.baseurl }}/assets/images/dresses/{{ page.dress }}-close-640.JPG 640w,
-        {{ site.baseurl }}/assets/images/dresses/{{ page.dress }}-close-1280.JPG 1280w
-      "
-      sizes="
-        (max-width: 788px) 100vw,
-        66vw
-      "
-      src="{{ site.baseurl }}/assets/images/dresses/{{ page.dress }}-close-640.JPG">
-    {% for image in site.static_files %}
-      {% if image.path contains '/assets/images/dresses/' and image.path contains page.dress and image.path contains 'extra-640' %}
-        <img srcset="
-            {{ site.baseurl }}/assets/images/dresses/{{ page.dress }}-extra-640.JPG 640w,
-            {{ site.baseurl }}/assets/images/dresses/{{ page.dress }}-extra-1280.JPG 1280w
-          "
-          sizes="
-            (max-width: 788px) 100vw,
-            66vw
-          "
-          src="{{ site.baseurl }}/assets/images/dresses/{{ page.dress }}-extra-640.JPG">
-      {% endif %}
+    {% for photo in page.sw-dress-photos %}
+    <picture>
+      <source media="(max-width: 640px)"
+        srcset="{{ site.baseurl }}/assets/images/dresses/{{ page.sw-dress-id }}-{{ photo }}-640.JPG">
+      <source media="(min-width: 788px) and (max-width: 960px)"
+        srcset="{{ site.baseurl }}/assets/images/dresses/{{ page.sw-dress-id }}-{{ photo }}-640.JPG">
+      <img src="{{ site.baseurl }}/assets/images/dresses/{{ page.sw-dress-id }}-{{ photo }}-1280.JPG">
+    </picture>
     {% endfor %}
   </div>
 </div>

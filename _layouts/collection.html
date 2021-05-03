@@ -1,0 +1,46 @@
+---
+layout: page
+title: Колекции
+hideTitle: true
+---
+
+{% assign dresses = site.dresses | where: 'sw-dress-collection-id', page.sw-collection-id %}
+
+{% if page.sw-collection-swogan %}
+<article class="home description">
+  {{ page.sw-collection-swogan | newline_to_br | smartify }}
+</article>
+
+<div class="divider"></div>
+{% endif %}
+
+<div class="galery container">
+  {% for dress in dresses %}
+  <a class="galery image" href="{{ dress.url }}">
+    <img src="{% link /assets/images/dresses/{{ dress.sw-dress-id }}-{{ dress.sw-dress-photos | first }}-640.JPG %}">
+    <span class="title">{{ dress.sw-dress-name }}</span>
+  </a>
+  {% endfor %}
+</div>
+
+{% if page.sw-collection-description %}
+<div class="divider"></div>
+
+<div class="article container">
+  <div class="article image-container">
+    <img id="article-image" class="article image" srcset="
+      {{ site.baseurl}}/assets/images/{{ page.sw-collection-designer-photo }}-640.JPG 640w,
+      {{ site.baseurl}}/assets/images/{{ page.sw-collection-designer-photo }}-1280.JPG 1280w,
+    "
+    sizes="
+      (max-width: 480px) 100vw,
+      33vw
+    "
+    src="{{ site.baseurl}}/assets/images/{{ page.sw-collection-designer-photo }}-1920.JPG" alt="{{ page.image-alt }}">
+  </div>
+
+  <article class="article text">
+    {{ page.sw-collection-description | newline_to_br }}
+  </article>
+</div>
+{% endif %}

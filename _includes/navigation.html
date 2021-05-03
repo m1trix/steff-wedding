@@ -3,19 +3,19 @@
 {% endif %}
 <nav id="nav-bar" class="nav bar {{ stuck }}">
   <li class="nav link">
-    <a href="{{ site.baseurl }}/">Начало</a>
+    <a href="{{ '/' | relative_url }}">Начало</a>
   </li>
   <li class="nav link">
-    <a href="{{ site.baseurl }}/dresses">Рокли</a>
+    <a href="{{ '/collections' | relative_url }}">Колекции</a>
   </li>
   <li class="nav link">
-    <a href="{{ site.baseurl }}/organize">Организация</a>
+    <a href="{{ '/organize' | relative_url }}">Организация</a>
   </li>
   <li class="nav link">
-    <a href="{{ site.baseurl }}/about">За Нас</a>
+    <a href="{{ '/about' | relative_url }}">За Нас</a>
   </li>
   <li class="nav link">
-    <a href="{{ site.baseurl }}/contacts">Контакти</a>
+    <a href="{{ '/contacts' | relative_url }}">Контакти</a>
   </li>
 </nav>
 

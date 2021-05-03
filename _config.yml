@@ -1,11 +1,17 @@
 title: Steff Wedding – Сватбени Рокли и Организация
-baseurl: ''
-url: 'https://www.steffwedding.com'
 
 # Build settings
 plugins:
+  - jekyll-redirect-from
   - jekyll-sitemap
 
 sass:
   sass_dir: _sass
   style: compact
+
+collections:
+  collections:
+    output: true
+
+  dresses:
+    output: true
