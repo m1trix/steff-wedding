@@ -43,7 +43,9 @@ layout: page
     Телефон: <a href="tel:+359 887 939 599">+359 887 939 599</a>
   </p>
 
-  <img class="box borders content" style="margin-bottom: 2rem" src="{{ site.baseurl }}/assets/map.png">
+  <div class="paragraph">
+    <div id="map" class="box borders" style="margin-bottom: 2rem;"></div>
+  </div>
 </article>
 
 <article class="contacts-form">
@@ -84,5 +86,46 @@ layout: page
         show(errorMessage);
       });
   });
-
 </script>
+
+<script>
+  const mapElement = document.getElementById('map');
+  mapElement.style.height = mapElement.getBoundingClientRect().width * 0.56 + 'px';
+  window.addEventListener('resize', () => {
+    mapElement.style.height = mapElement.getBoundingClientRect().width * 0.56 + 'px';
+  });
+
+  function initMap() {
+    const location = new google.maps.LatLng(43.2022412, 23.5498295);
+    const map = new google.maps.Map(mapElement, {
+      zoom: 19,
+      center: location,
+      mapId: '9a197784dccf2ff4'
+    });
+
+    const request = {
+      query: 'Steff Wedding',
+      fields: ['name', 'geometry'],
+    };
+
+    const service = new google.maps.places.PlacesService(map);
+    service.findPlaceFromQuery(request, (results, status) => {
+      if (status === google.maps.places.PlacesServiceStatus.OK && results) {
+        const place = results[0];
+        const marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location,
+          title: 'Steff Wedding',
+          optimized: true 
+        });
+
+        map.setCenter(place.geometry.location);
+      }
+    });
+  }
+</script>
+
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOmmTkZozzae0K7agwdttb6_eofxsklt8&callback=initMap&map_ids=9a197784dccf2ff4&libraries=places"
+  async
+></script>
