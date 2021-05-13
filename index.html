@@ -8,10 +8,12 @@ navStuck: true
   <img class="home logo" src="{{ site.baseurl }}/assets/logo.svg">
   <p class="home swogan">Осмели се да мечтаеш за нея!</p>
   <img class="home cover" srcset="
-    {{ site.baseurl }}/assets/images/banner-640.jpg 640w,
-    {{ site.baseurl }}/assets/images/banner-1280.jpg 1280w,
-    {{ site.baseurl }}/assets/images/banner-1920.jpg 1920w
-    " src="{{ site.baseurl }}/assets/images/banner.jpg">
+      {{ site.baseurl }}/assets/images/banner-640.jpg 640w,
+      {{ site.baseurl }}/assets/images/banner-1280.jpg 1280w,
+      {{ site.baseurl }}/assets/images/banner-1920.jpg 1920w,
+      {{ site.baseurl }}/assets/images/banner.jpg 4968w
+    "
+    src="{{ site.baseurl }}/assets/images/banner.jpg">
   </img>
   <button id="scroll-button" class="button">Напред</button>
 </div>
@@ -41,7 +43,14 @@ navStuck: true
 <main class="layout">
   <div>
     <a class="home link" href="{{ site.baseurl }}/dresses">
-      <img srcset="{{ site.baseurl }}/assets/images/dresses/magnificent-front-640.JPG 640w"
+      <img srcset="
+          {{ site.baseurl }}/assets/images/dresses/magnificent-front-640.JPG 640w,
+          {{ site.baseurl }}/assets/images/dresses/magnificent-front-1280.JPG 1280w
+        "
+        sizes="
+          (max-width 480px) 100vw,
+          50vw
+        "
         src="{{ site.baseurl }}/assets/images/dresses/magnificent-front-1280.JPG">
       </img>
       <div class="home link text">Рокли</div>
@@ -49,10 +58,15 @@ navStuck: true
 
     <a class="home link" href="{{ site.baseurl }}/organize">
       <img srcset="
-        {{ site.baseurl }}/assets/images/organize-640.jpg 640w,
-        {{ site.baseurl }}/assets/images/organize-1024.jpg 1024w,
-        {{ site.baseurl }}/assets/images/organize-1920.jpg 1920w
-        " src="{{ site.baseurl }}/assets/images/organize.jpg">
+          {{ site.baseurl }}/assets/images/organize-640.jpg 640w,
+          {{ site.baseurl }}/assets/images/organize-1024.jpg 1024w,
+          {{ site.baseurl }}/assets/images/organize-1920.jpg 1920w
+        "
+        sizes="
+          (max-width 480px) 100vw,
+          50vw
+        "
+        src="{{ site.baseurl }}/assets/images/organize-1920.jpg">
       </img>
       <div class="home link text">Организация</div>
     </a>
