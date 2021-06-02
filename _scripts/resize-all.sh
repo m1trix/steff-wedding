@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cd ${1}
 for file in $(ls .) ; do
     echo "Resing ${file}"
     if ! gimp -d -i -b "(sw-resize-image \"${file}\")" ; then
@@ -7,3 +8,5 @@ for file in $(ls .) ; do
         exit 1
     fi
 done
+
+cd -
