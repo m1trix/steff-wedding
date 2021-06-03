@@ -4,16 +4,14 @@ layout: page
 
 <div class="article container">
   <div class="article image-container">
-    <img id="article-image" class="article image" srcset="
-      {{ site.baseurl}}/assets/images/{{ page.image }}-640.jpg 640w,
-      {{ site.baseurl}}/assets/images/{{ page.image }}-1024.jpg 1024w,
-      {{ site.baseurl}}/assets/images/{{ page.image }}-1920.jpg 1920w
-    "
-    sizes="
-      (max-width: 480px) 100vw,
-      33vw
-    "
-    src="{{ site.baseurl}}/assets/images/{{ page.image }}-1920.jpg" alt="{{ page.image-alt }}">
+    <picture>
+      <source media="(max-width: 1920px) and (max-height: 753px)"
+        srcset="{{ site.baseurl}}/assets/images/{{ page.image }}-640.jpg">
+      <source media="(max-width: 3840px) and (max-height: 1507px)"
+        srcset="{{ site.baseurl}}/assets/images/{{ page.image }}-1280.jpg">
+      <img id="article-image" class="article image" src="{{ site.baseurl}}/assets/images/{{ page.image }}-1920.jpg"
+        alt="{{ page.image-alt }}" title="{{ page.image-alt }}">
+    </picture>
   </div>
 
   <article class="article text">

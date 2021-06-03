@@ -6,13 +6,12 @@
       {% include navigation.html %}
     </div>
     <div id="nav-color" class="swogan color"></div>
-    <img class="swogan cover" srcset="
-        {{ site.baseurl }}/assets/images/banner-640.jpg 640w,
-        {{ site.baseurl }}/assets/images/banner-1280.jpg 1280w,
-        {{ site.baseurl }}/assets/images/banner-1920.jpg 1920w,
-        {{ site.baseurl }}/assets/images/banner.jpg 4968w
-      "
-      src="{{ site.baseurl }}/assets/images/banner.jpg"></img>
+    <picture>
+      <source media="(max-width: 640px)" srcset="{{ site.baseurl }}/assets/images/banner-640.jpg">
+      <source media="(max-width: 1280px)" srcset="{{ site.baseurl }}/assets/images/banner-1280.jpg">
+      <source media="(max-width: 1920px)" srcset="{{ site.baseurl }}/assets/images/banner-1920.jpg">
+      <img class="swogan cover" src="{{ site.baseurl }}/assets/images/banner.jpg"></img>
+    </picture>
   </div>
 </div>
 
