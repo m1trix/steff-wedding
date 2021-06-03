@@ -28,15 +28,15 @@ hideTitle: true
 
 <div class="article container">
   <div class="article image-container">
-    <img id="article-image" class="article image" srcset="
-      {{ site.baseurl}}/assets/images/{{ page.sw-collection-designer-photo }}-640.JPG 640w,
-      {{ site.baseurl}}/assets/images/{{ page.sw-collection-designer-photo }}-1280.JPG 1280w,
-    "
-    sizes="
-      (max-width: 480px) 100vw,
-      33vw
-    "
-    src="{{ site.baseurl}}/assets/images/{{ page.sw-collection-designer-photo }}-1920.JPG" alt="{{ page.image-alt }}">
+    <picture>
+      <source media="(max-width: 1920px) and (max-height: 982px)"
+        srcset="{{ site.baseurl}}/assets/images/{{ page.sw-collection-designer-photo }}-640.JPG">
+      <source media="(max-width: 2560px) and (max-height: 1964px)"
+        srcset="{{ site.baseurl}}/assets/images/{{ page.sw-collection-designer-photo }}-1280.JPG">
+      <img id="article-image" class="article image"
+        src="{{ site.baseurl}}/assets/images/{{ page.sw-collection-designer-photo }}-1920.JPG"
+        alt="{{ page.sw-collection-designer }}">
+    </picture>
   </div>
 
   <article class="article text">
