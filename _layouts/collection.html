@@ -17,7 +17,7 @@ hideTitle: true
 <div class="galery container">
   {% for dress in dresses %}
   <a class="galery image" href="{{ dress.url }}">
-    <img src="{% link /assets/images/dresses/{{ dress.sw-dress-id }}-{{ dress.sw-dress-photos | first }}-640.JPG %}">
+    <img src="{{ site.baseurl }}/assets/images/dresses/{{ dress.sw-dress-id }}-{{ dress.sw-dress-photos | first }}-640.JPG">
     <span class="title">{{ dress.sw-dress-name }}</span>
   </a>
   {% endfor %}
