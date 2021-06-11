@@ -35,12 +35,14 @@ SteffWedding.com използва бисквитки за да разбере к
   const fbpCookiesButton = document.getElementById('manage-fbp-cookies');
   const saveCookiesButton = document.getElementById('save-cookies');
 
-  gaCookiesButton.dataset.active = isGoogleAnalyticsAllowed() ? 't' : 'f';
-  fbpCookiesButton.dataset.active = isFacebookPixelAllowed() ? 't' : 'f';
+  const settings = getCookieSettings();
+  gaCookiesButton.dataset.active = settings.gtag ? 't' : 'f';
+  fbpCookiesButton.dataset.active = settings.fbp ? 't' : 'f';
 
   saveCookiesButton.addEventListener('click', () => {
-    allowFacebookPixel(fbpCookiesButton.dataset.active === 't');
-    allowGoogleAnalytics(gaCookiesButton.dataset.active === 't');
-    applyConsentSettings();
+    setAnalyticsSettings(
+      fbpCookiesButton.dataset.active === 't',
+      gaCookiesButton.dataset.active === 't'
+    );
   });
 </script>
