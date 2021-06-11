@@ -5,30 +5,14 @@ permalink: /contacts
 layout: page
 ---
 
-<article class="home description">
+<!-- <article class="home description">
   За нас е важно всяка бъдеща булка да усети онзи магичен момент на влюбването от пръв поглед в правилната рокля. Затова пробите при нас не се заплащат и нямат ограничения. Но препоръчваме да си запазиш час, за да можем да ти обърнем максимално внимание и да не чакаш.
-</article>
+</article> -->
 
-<div class="divider"></div>
+<!-- <div class="divider"></div> -->
 
 <article class="column">
-  <h2>Работно Време</h2>
-
-  <p class="text center">
-    <b>Понеделник – Вторник</b><br/>
-    почивни дни<br /><br />
-    <b>Сряда – Събота</b><br />
-    09:30 – 13:00 и 14:15 – 18:00<br /><br />
-    <b>Неделя</b><br/>
-    11:00 – 16:00
-  </p>
-
-  <p class="paragraph">
-    Ако никой от тези диапазони не ти е удобен, обади ни се или ни пиши и при възможност ще ти запишем час в удобно за теб време.
-  </p>
-</article>
-<article class="column">
-  <h2>Адрес</h2>
+  <h1>Адрес</h1>
   <p class="text center">
     <address>гр. Враца, ул. Димитраки Хаджитошев 5А</address>
     (в близост до ул. Търговска и пл. Христо Ботев)
@@ -44,8 +28,27 @@ layout: page
   </div>
 </article>
 
+<article class="column">
+  <h1>Работно Време</h1>
+  <p class="home description">
+  Физическият ни бутик е с плаващо работно време поради ангажиментите ни като агенция за твоето събитие. Затова препоръчваме преди да ни посетиш да запишеш своя час в удобно за теб време. Пробите при нас не се заплащат и нямат ограничение.
+  </p>
+  <!--
+  <p class="text center">
+    <b>Понеделник – Вторник</b><br/>
+    почивни дни<br /><br />
+    <b>Сряда – Събота</b><br />
+    09:30 – 13:00 и 14:15 – 18:00<br /><br />
+    <b>Неделя</b><br/>
+    11:00 – 16:00
+  </p>
+  <p class="paragraph">
+    Ако никой от тези диапазони не ти е удобен, обади ни се или ни пиши и при възможност ще ти запишем час в удобно за теб време.
+  </p> -->
+</article>
+
 <article class="contacts-form">
-  <h2>Форма за Контакти</h2>
+  <h1>Форма за Контакти</h1>
   <span id="contacts-form-error-message" class="contacts-form error">edno gre6ki imam az</span>
   <span id="contacts-form-success-message" class="contacts-form success"></span>
   <form id="contacts-form">
