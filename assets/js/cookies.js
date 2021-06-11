@@ -23,7 +23,7 @@ function itob(i) {
 }
 
 function getCookieSettings() {
-  const settings = Cookies.get(CONSENT_COOKIE, COOKIE_OPTIONS)
+  const settings = Cookies.get(CONSENT_COOKIE);
   if (!settings) {
     return new CookieSettings(false, false, false);
   }
