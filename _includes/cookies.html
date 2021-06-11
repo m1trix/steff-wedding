@@ -15,8 +15,7 @@
   const manageCookiesButton = document.getElementById('manage-cookies');
 
   acceptCookiesButton.addEventListener('click', () => {
-    allowFacebookPixel(true);
-    allowGoogleAnalytics(true);
+    setAnalyticsSettings(true, true);
     hide(disclaimer);
   });
 
@@ -24,7 +23,7 @@
     window.location.href = '{{ site.baseurl }}/cookie-policy'
   });
 
-  if (!hasConsentSettings()) {
+  if (!getCookieSettings().confirmed) {
     setTimeout(() => show(disclaimer), 5000);
   }
 </script>
