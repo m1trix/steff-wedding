@@ -10,8 +10,10 @@ sass:
   style: compact
 
 collections:
-  collections:
+  sw-collections:
     output: true
+    permalink: /collections/:name
 
-  dresses:
+  sw-dresses:
     output: true
+    permalink: /dresses/:name

@@ -3,7 +3,9 @@ layout: page
 title: Рокли
 ---
 
-{% assign collection = site.collections | find: 'sw-collection-id', page.sw-dress-collection-id %}
+{% assign collection = site.sw-collections | find: 'sw-collection-id', page.sw-dress-collection-id %}
+
+{{ collection.docs }}
 
 <div class="dress container">
   <article id="dress-text" class="dress text">
