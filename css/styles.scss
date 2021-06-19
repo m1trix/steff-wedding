@@ -430,6 +430,8 @@
   @include button;
   background-color: $TEXT-COLOR;
   color: white;
+  width: fit-content;
+  width: -moz-fit-content;
 
   &.light {
     color: black;
@@ -453,6 +455,7 @@
     & button {
       margin-top: 1rem;
       width: fit-content;
+      width: -moz-fit-content;
       align-self: flex-end;
     }
   }

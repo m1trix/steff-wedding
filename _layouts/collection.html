@@ -4,7 +4,7 @@ title: Колекции
 hideTitle: true
 ---
 
-{% assign dresses = site.dresses | where: 'sw-dress-collection-id', page.sw-collection-id %}
+{% assign dresses = site.sw-dresses | where: 'sw-dress-collection-id', page.sw-collection-id %}
 
 {% if page.sw-collection-swogan %}
 <article class="home description">

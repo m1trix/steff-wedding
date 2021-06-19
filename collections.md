@@ -8,8 +8,8 @@ redirect_from:
 
 <main class="layout">
   <div>
-  {% for col in site.collections %}
-    {% assign dress = site.dresses | where: 'sw-dress-id', col.sw-collection-cover | first %}
+  {% for col in site.sw-collections %}
+    {% assign dress = site.sw-dresses | find: 'sw-dress-id', col.sw-collection-cover %}
     <a class="home link" href="{{ col.url }}">
       <picture>
         <source media="(max-height: 899px)" srcset="{{ site.baseurl }}/assets/images/dresses/{{ dress.sw-dress-id }}-{{ dress.sw-dress-photos | first }}-640.JPG">
