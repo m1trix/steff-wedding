@@ -38,12 +38,21 @@ navStuck: true
 
 <main class="layout">
   <div>
+    {%
+      assign discount = site.data.dis.discounts
+      | sort: "amount"
+      | map: "amount"
+      | last
+    %}
     <a class="home link" href="{{ site.baseurl }}/collections">
       <picture>
         <source media="(max-with: 1280px)" srcset="{{ site.baseurl }}/assets/images/dresses/obsession-cover-640.JPG">
         <img src="{{ site.baseurl }}/assets/images/dresses/obsession-cover-1280.JPG">
       </picture>
       <div class="home link text">Колекции</div>
+      {% if discount %}
+      <div class="discount-tag">Отстъпки до {{discount}}%</div>
+      {% endif %}
     </a>
 
     <a class="home link" href="{{ site.baseurl }}/organize">

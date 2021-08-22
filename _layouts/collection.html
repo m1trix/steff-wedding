@@ -4,7 +4,10 @@ title: Колекции
 hideTitle: true
 ---
 
-{% assign dresses = site.sw-dresses | where: 'sw-dress-collection-id', page.sw-collection-id %}
+{%
+  assign dresses = site.sw-dresses
+  | where: 'sw-dress-collection-id', page.sw-collection-id
+%}
 
 {% if page.sw-collection-swogan %}
 <article class="home description">
@@ -16,9 +19,30 @@ hideTitle: true
 
 <div class="galery container">
   {% for dress in dresses %}
+  {%
+    assign discount = site.data.dis.discounts
+    | where_exp: "item",
+      "
+        item.collections == '*'
+        or item.collections == page.sw-collection-id
+        or item.collections contains page.sw-collection-id
+      "
+    | where_exp: "item",
+      "
+        item.dresses == '*'
+        or item.dresses == dress.sw-dress-id
+        or item.dresses contains dress.sw-dress-id
+      "
+    | sort: "amount"
+    | map: "amount"
+    | last
+  %}
   <a class="galery image" href="{{ dress.url }}">
     <img src="{{ site.baseurl }}/assets/images/dresses/{{ dress.sw-dress-id }}-{{ dress.sw-dress-photos | first }}-640.JPG">
     <span class="title">{{ dress.sw-dress-name }}</span>
+    {% if discount %}
+    <div class="discount-tag">Отстъпки до {{discount}}%</div>
+    {% endif %}
   </a>
   {% endfor %}
 </div>

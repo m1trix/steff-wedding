@@ -17,6 +17,10 @@ function httpRequest(method, url, data) {
   return promise;
 }
 
+function httpGet(url) {
+  return httpRequest('GET', url, null);
+}
+
 function httpPost(url, data) {
   return httpRequest('POST', url, data);
 }

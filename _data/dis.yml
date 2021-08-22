@@ -1,0 +1,18 @@
+end: 2021-09-18
+discounts:
+- amount: 5
+  types: new
+  collections: '*'
+  dresses: '*'
+
+- amount: 25
+  types: sample
+  collections: dream-away
+  dresses:
+    - adela
+    - roberta
+    - nika
+    - vanilla
+    - thalia
+    - dementer
+    - magnificent
