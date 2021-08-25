@@ -4,6 +4,7 @@ layout: page
 permalink: /collections
 redirect_from:
   - /dresses
+sw-hide-discount: true
 ---
 
 <main class="layout">
