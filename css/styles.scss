@@ -142,6 +142,7 @@
       @include text;
       color: white;
       padding: 1rem 2rem 1rem 2rem;
+      text-align: center;
       width: fit-content;
       height: fit-content;
       width: -moz-fit-content;
@@ -544,7 +545,7 @@
   }
 
   &.center {
-    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -558,5 +559,62 @@
 
   &.center {
     align-items: center;
+  }
+}
+
+@mixin discount-tag($padding) {
+  background-color: $COLOR-5;
+  color: white;
+  text-decoration: none;
+  padding: $padding;
+  padding-right: #{$padding * 3};
+  margin-left: $padding;
+  margin-right: $padding;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  overflow: visible;
+  box-shadow: 2px 2px 4px #00000044;
+
+  &::before {
+    content: '●';
+    padding-right: $padding;
+  }
+}
+
+.discount-tag-compact {
+  @include discount-tag($padding: 0.25rem);
+  display: inline-flex;
+}
+
+.discount-tag {
+  @include discount-tag($padding: 0.5rem);
+  position: absolute;
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 0.5rem;
+  right: -0.5rem;
+}
+
+.discount-banner {
+  padding: 1rem;
+  text-align: center;
+  color: white;
+  background-color: $COLOR-5;
+
+  @include on-tablet() {
+    padding: 0.75rem;
+  }
+
+  @include on-phone() {
+    padding: 0.5rem;
+  }
+
+  @media screen and (max-width: 400px) {
+    font-size: 4vw;
+  }
+
+  & a {
+    color: white;
   }
 }
