@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Рокли
-sw-hide-discount: true
 ---
 
 {% assign collection = site.sw-collections | find: 'sw-collection-id', page.sw-dress-collection-id %}
@@ -40,7 +39,7 @@ sw-hide-discount: true
     <p class="text center">
       <b>Цена</b><br />
       {%
-        assign allDiscounts = site.data.dis.discounts
+        assign allDiscounts = site.data.offer.discounts
         | where_exp: "item",
           "
             item.collections == '*'
@@ -143,14 +142,3 @@ sw-hide-discount: true
     {% endfor %}
   </div>
 </div>
-
-<script>
-  (async function setDiscounts() {
-    const aOffers = await getActiveOffers();
-    const aCollectionIds = [];
-    aCollectionIds.forEach(sCollectionId => {
-      const discount = getBestDiscount(sCollectionId, aOffers);
-      document.getElementById(sCollectionId + '-discount').innerHTML = discount;
-    });
-  })();
-</script>

@@ -4,7 +4,6 @@ layout: page
 permalink: /collections
 redirect_from:
   - /dresses
-sw-hide-discount: true
 ---
 
 <main class="layout">
@@ -15,7 +14,7 @@ sw-hide-discount: true
       | find: 'sw-dress-id', col.sw-collection-cover
     %}
     {%
-      assign discount = site.data.dis.discounts
+      assign discount = site.data.offer.discounts
       | where_exp: "item",
         "
           item.collections == '*'

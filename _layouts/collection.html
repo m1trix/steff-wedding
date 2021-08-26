@@ -2,7 +2,6 @@
 layout: page
 title: Колекции
 hideTitle: true
-sw-hide-discount: true
 ---
 
 {%
@@ -21,7 +20,7 @@ sw-hide-discount: true
 <div class="galery container">
   {% for dress in dresses %}
   {%
-    assign discount = site.data.dis.discounts
+    assign discount = site.data.offer.discounts
     | where_exp: "item",
       "
         item.collections == '*'

@@ -39,7 +39,7 @@ navStuck: true
 <main class="layout">
   <div>
     {%
-      assign discount = site.data.dis.discounts
+      assign discount = site.data.offer.discounts
       | sort: "amount"
       | map: "amount"
       | last
