@@ -539,6 +539,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 
   & *:not(:first-child) {
     margin-left: 0.5rem;
@@ -553,7 +555,7 @@
   display: flex;
   flex-direction: column;
 
-  & *:not(:first-child) {
+  & > *:not(:first-child) {
     margin-top: 0.5rem;
   }
 
@@ -567,7 +569,7 @@
   color: white;
   text-decoration: none;
   padding: $padding;
-  padding-right: #{$padding * 3};
+  padding-right: #{$padding * 2};
   margin-left: $padding;
   margin-right: $padding;
   border-top-left-radius: 1rem;
@@ -594,6 +596,11 @@
   z-index: 1;
   top: 0.5rem;
   right: -0.5rem;
+  font-size: 0.75rem;
+
+  @media screen and (max-width: 400px) {
+    font-size: 4vw;
+  }
 }
 
 .discount-banner {
@@ -616,5 +623,8 @@
 
   & a {
     color: white;
+    @media screen and (max-width: 400px) {
+      font-size: 4vw;
+    }
   }
 }
