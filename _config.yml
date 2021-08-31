@@ -1,9 +1,21 @@
-title: Steff Wedding – Сватбени Рокли и Организация
+title: Steff Wedding
+tagline: Сватбени Рокли и Организация
+description: Steff Wedding е луксозен сватбен бутик, който носи неподражаемия дух на бохо, винтидж и ръстик елементите за една
+  незабравима сватба с твоя личен почерк!
+url: https://steffwedding.com
+logo: /assets/logo.svg
+social:
+  name: Steff Wedding – Сватбени Рокли и Организация
+  links:
+    - https://facebook.com/Steff.Wedding
+    - https://instagram.com/steff.wedding
+locale: bg_BG
 
 # Build settings
 plugins:
   - jekyll-redirect-from
   - jekyll-sitemap
+  - jekyll-seo-tag
 
 sass:
   sass_dir: _sass
