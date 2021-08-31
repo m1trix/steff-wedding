@@ -1,22 +1,13 @@
 <head>
   <title>
-    {% if page.title %}{{ page.title }} – {% endif %}
-    {% if layout.title %}{{ layout.title }} – {% endif %}
-    {{ site.title }}
+    {% if page.title %}{{ page.title }} | {% endif %}{% if layout.title %}{{ layout.title }} | {% endif %}{{ site.title }}
   </title>
+  {% seo title=false %}
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
-  <meta name="description" content="Steff Wedding е сватбен бутик">
-  <meta name="keywords"
-    content="Steff Wedding,wedding dresses,organizing wedding,wedding management,wedding,dress,organize,manage,shop,boutique,Vratsa,сватбени рокли,организиране на сватби,сватба,рокли,организиране,магазин,бутик,Враца{% if page.tab or page.title %},{{ page.tab | default: page.title }}{% endif %}{% if layout.tab %},{{ layout.tab }}{% endif %}">
-  <meta name="og:title" content="Steff Wedding">
-  <meta name="og:description" content="Steff Wedding е сватбен бутик">
-  <meta name="og:type" content="website">
-  <meta name="og:url" content="http://www.steffwedding.com/">
-  <meta name="og:image" content="/images/logo.svg">
   <link rel="icon" href="{{ site.baseurl}}/assets/favicon.png">
-  <link rel="stylesheet" href="{{ '/css/styles.css' | relative_url }}">
-  </link>
+  <link rel="stylesheet" href="{{ '/css/styles.css' | relative_url }}"></link>
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
   <script src="{{ site.baseurl }}/assets/js/utils.js"></script>
   <script src="{{ site.baseurl }}/assets/js/sticky.js"></script>
