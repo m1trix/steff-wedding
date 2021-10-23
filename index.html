@@ -38,12 +38,14 @@ navStuck: true
 
 <main class="layout">
   <div>
+    {% if site.data.offer %}
     {%
       assign discount = site.data.offer.discounts
       | sort: "amount"
       | map: "amount"
       | last
     %}
+    {% endif %}
     <a class="home link" href="{{ site.baseurl }}/collections">
       <picture>
         <source media="(max-with: 1280px)" srcset="{{ site.baseurl }}/assets/images/dresses/obsession-cover-640.JPG">

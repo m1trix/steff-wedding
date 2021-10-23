@@ -13,6 +13,7 @@ redirect_from:
       assign dress = site.sw-dresses
       | find: 'sw-dress-id', col.sw-collection-cover
     %}
+    {% if site.data.offer %}
     {%
       assign discount = site.data.offer.discounts
       | where_exp: "item",
@@ -25,6 +26,7 @@ redirect_from:
       | map: 'amount'
       | last
     %}
+    {% endif %}
     <a class="home link" href="{{ col.url }}">
       <picture>
         <source media="(max-height: 899px)" srcset="{{ site.baseurl }}/assets/images/dresses/{{ dress.sw-dress-id }}-{{ dress.sw-dress-photos | first }}-640.JPG">

@@ -19,6 +19,7 @@ hideTitle: true
 
 <div class="galery container">
   {% for dress in dresses %}
+  {% if side.data.offer %}
   {%
     assign discount = site.data.offer.discounts
     | where_exp: "item",
@@ -37,6 +38,7 @@ hideTitle: true
     | map: "amount"
     | last
   %}
+  {% endif %}
   <a class="galery image" href="{{ dress.url }}">
     <img src="{{ site.baseurl }}/assets/images/dresses/{{ dress.sw-dress-id }}-{{ dress.sw-dress-photos | first }}-640.JPG">
     <span class="title">{{ dress.sw-dress-name }}</span>
