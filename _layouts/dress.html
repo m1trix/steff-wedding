@@ -38,6 +38,7 @@ title: Рокли
     </p>
     <p class="text center">
       <b>Цена</b><br />
+      {% if site.data.offer %}
       {%
         assign allDiscounts = site.data.offer.discounts
         | where_exp: "item",
@@ -79,6 +80,7 @@ title: Рокли
         | map: "amount"
         | last
       %}
+      {% endif %}
 
       {% if newDiscount or sampleDiscount %}
       <span><s>{{ page.sw-dress-price }} лв</s></span>
