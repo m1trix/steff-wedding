@@ -4,7 +4,18 @@ layout: article
 permalink: /organize
 image: organize
 image-alt: Организация
+dependencies:
+  - type: css
+    url: https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css
+    checksum: sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==
+  - type: js
+    url: https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js
+    checksum: sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=
+  - type: js
+    url: https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js
+    checksum: sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==
 ---
+
 Сватбеният ден е изпълнен с хиляди емоции, а в много случаи и с множество ангажименти, които чакат младоженците. Именно за тях можеш да се довериш на нас - можем да се погрижим за всичко - от поканите, през декорацията, та чак до планирането и организирането на целия ден с всички поддоставчици на услуги като фотографи, DJ, място и др.
 
 Искаме да те вдъхновим да мечтаеш смело дори когато това означава щуро. Да се освободиш от задължителното и да дадеш воля на своята и нашата креативност. Защото всеки един елемент от този ден заслужава своето внимание и може да се превърне в начин двамата да изразите своя стил, персоналност и най-вече любов.
@@ -30,4 +41,14 @@ image-alt: Организация
   document.getElementById('contacts-link').addEventListener('click', () => {
     window.location.href="{{ site.baseurl }}/contacts";
   });
+
+  const galerry = document.getElementById('gallery');
+  const button = document.getElementById('scroll-button');
+
+  button.addEventListener('click', () => {
+    window.scrollTo({
+      top: galerry.clientTop + galerry.clientHeight,
+      behavior: "smooth"
+    });
+  })
 </script>

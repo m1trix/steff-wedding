@@ -1,0 +1,7 @@
+general:
+  default-size: 1920
+  variants:
+    - max-width: 640
+      size: 640
+    - max-width: 1280
+      size: 1280

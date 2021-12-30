@@ -29,3 +29,7 @@ collections:
   sw-dresses:
     output: true
     permalink: /dresses/:name
+
+  sw-events:
+    output: true
+    permalink: /events/:name

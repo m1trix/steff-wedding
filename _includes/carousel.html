@@ -1,0 +1,49 @@
+{% assign carousel_id = 0 | sw_id %}
+<div class="sw-carousel">
+  <div id="sw-carousel-{{ carousel_id }}">
+    {% for item in include.items %}
+    <div>
+      <div class="sw-carousel-slide">
+        {% include image.html image = item.image config = include.config class = 'sw-carousel-image' %}
+        <p class="sw-carousel-text">{{ item.text }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <button id="sw-carousel-{{ carousel_id }}-prev" class="sw-carousel-arrow left"><</button>
+  <button id="sw-carousel-{{ carousel_id }}-next" class="sw-carousel-arrow right">></button>
+  <div id="sw-carousel-{{ carousel_id }}-dots"></div>
+</div>
+
+<script type="text/javascript">
+  $('#sw-carousel-{{ carousel_id }}').slick({
+    infinite: true,
+    centerMode: true,
+    centerPadding: '2rem',
+    arrows: true,
+    dots: true,
+
+    variablrWidth: false,
+    adaptiveHeight: false,
+    autoplay: false,
+    waitForAnimate: false,
+
+    prevArrow: '#sw-carousel-{{ carousel_id }}-prev',
+    nextArrow: '#sw-carousel-{{ carousel_id }}-next',
+    appendDots: '#sw-carousel-{{ carousel_id }}-dots',
+    dotsClass: 'sw-carousel dots',
+    customPaging: function() {
+      return '';
+    },
+
+    responsive: [
+      {
+        breakpoint: 640,
+        settings: {
+          centerPadding: '0px'
+        }
+      }
+    ]
+  });
+</script>

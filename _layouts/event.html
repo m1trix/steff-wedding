@@ -1,0 +1,33 @@
+---
+layout: page
+title: Събития
+---
+
+<div class="sw-gallery">
+{% assign pictures-640 = site.static_files
+    | where_exp: "item",
+        "
+          item.path contains '/assets/images/events/'
+            and item.path contains page.sw-event-id
+            and item.path contains '-640.jpg'
+        "
+    | map: 'basename'
+%}
+
+{% for picture-640 in pictures-640 %}
+  {% assign path = picture-640
+      | replace: '-640', ''
+      | prepend: '/events/'
+  %}
+  <div>
+    {% include image.html image = path config = site.data.image-config.general class="sw-gallery-image" %}
+  </div>
+{% endfor %}
+</div>
+
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script type="text/javascript">
+  var msnry = new Masonry('.sw-gallery', {
+    itemSelector: '.sw-gallery-image'
+  });
+</script>

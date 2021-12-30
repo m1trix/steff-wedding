@@ -1,0 +1,10 @@
+<picture class="sw-picture">
+  {% for variant in include.config.variants %}
+    <source media="
+      {% if variant.max-width %}(max-width: {{ variant.max-width }}px){% endif %}
+      {% if variant.max-width and variant.max-height%} and {% endif %}
+      {% if variant.max-height %}(max-height: {{ variant.max-height }}px){% endif %}
+    " srcset="{{ site.baseurl }}/assets/images/{{ include.image }}-{{ variant.size }}.jpg">
+  {% endfor %}
+  <img class="{{ include.class }}" src="{{ site.baseurl }}/assets/images/{{ include.image }}{% if include.config.default-size %}-{{ include.config.default-size }}{% endif %}.jpg">
+</picture>

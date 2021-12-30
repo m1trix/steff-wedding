@@ -38,4 +38,32 @@
     fbq('init', '436439281054357');
     fbq('track', 'PageView');
   </script>
+  <!-- Page-specific dependencies -->
+  {% assign dependencies = page.dependencies %}
+  {% unless dependencies %}
+    {% assign dependencies = layout.dependencies %}
+  {% endunless %}
+  {% for dependency in dependencies %}
+    {% if dependency.type == 'js' %}
+      <script
+        src="{{ dependency.url }}"
+        {% if dependency.checksum %}
+        integrity="{{ dependency.checksum }}"
+        crossorigin="anonymous"
+        {% endif %}
+      ></script>
+    {% endif %}
+
+    {% if dependency.type == 'css' %}
+      <link
+        rel="stylesheet"
+        href="{{ dependency.url }}"
+        {% if dependency.checksum %}
+        integrity="{{ dependency.checksum }}"
+        crossorigin="anonymous"
+        {% endif %}
+        referrerpolicy="no-referrer"
+      />
+    {% endif %}
+  {% endfor %}
 </head>

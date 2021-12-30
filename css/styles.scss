@@ -6,6 +6,17 @@
 @import "navigation";
 @import "article";
 
+$SCREEN-PC-1080P: 1920px;
+$SCREEN-PC-720P: 1280px;
+$SCREEN-TABLET: 788px;
+$SCREEN-PHONE: 480px;
+
+@mixin on-screen($screen) {
+  @media screen and (max-width: $screen) {
+    @content;
+  }
+}
+
 @mixin on-pc {
   @media screen and (max-width: $SCREEN-PC) {
     @content;
@@ -40,6 +51,48 @@
 
   will-change: $will-change;
   transition: $transitions;
+}
+
+@mixin overlay-item-hoverless {
+  @include animate($what: background-color color);
+  background-color: #00000088;
+  color: white;
+  font-family: Roboto-Thin;
+}
+
+@mixin overlay-item-hover {
+  background: #{$COLOR-3}80;
+  color: black;
+  cursor: pointer;
+}
+
+@mixin overlay-item-active {
+  color: black;
+  background-color: $COLOR-3;
+}
+
+@mixin overlay-item {
+  @include overlay-item-hoverless();
+  &:hover {
+    @include overlay-item-hover();
+  }
+
+  &:active {
+    @include overlay-item-active();
+  }
+}
+
+@mixin shape-circle($diameter) {
+  border-radius: 50%;
+  width: $diameter;
+  height: $diameter;
+  display: block;
+}
+
+@mixin shape-square($side) {
+  width: $side;
+  height: $side;
+  display: block;
 }
 
 .divider {
@@ -139,16 +192,13 @@
 
     &.text {
       position: absolute;
-      @include text;
-      color: white;
+      @include overlay-item-hoverless();
       padding: 1rem 2rem 1rem 2rem;
       text-align: center;
       width: fit-content;
       height: fit-content;
       width: -moz-fit-content;
       height: -moz-fit-content;
-      background-color: #00000088;
-      @include animate($what: background-color);
     }
 
     &:hover img {
@@ -160,8 +210,7 @@
     }
 
     &:hover &.text {
-      background-color: $TEXT-COLOR;
-      color: black;
+      @include overlay-item-hover();
     }
   }
 
@@ -625,6 +674,178 @@
     color: white;
     @media screen and (max-width: 400px) {
       font-size: 4vw;
+    }
+  }
+}
+
+.sw-carousel {
+  width: 100%;
+  position: relative;
+
+  &.dots {
+    $side: 0.75rem;
+
+    list-style: none;
+    position: absolute;
+    bottom: $side;
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+    padding: 0px;
+
+    & li {
+      @include animate($what: background-color);
+      @include shape-square($side);
+      background-color: transparent;
+      border: 1px solid $COLOR-3;
+      margin-left: #{$side / 2};
+
+      &:hover {
+        background-color: #{$COLOR-3}80;
+        cursor: pointer;
+      }
+
+      &:first-of-type {
+        margin-left: 0px;
+      }
+
+      &.slick-active {
+        background-color: $COLOR-3;
+      }
+    }
+  }
+}
+
+.sw-picture {
+  width: 100%;
+  height: 100%;
+}
+
+.sw-carousel-slide {
+  width: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow: hidden;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.sw-carousel-image {
+  width: 100%;
+  height: calc(100vh - 3rem);
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.1);
+  @include animate(transform);
+
+  .slick-current .sw-carousel-slide:hover & {
+    transform: scale(1);
+  }
+}
+
+.sw-carousel-slide:hover .sw-carousel-text {
+  display: block;
+  text-decoration-color: $COLOR-4;
+  color: $COLOR-4;
+}
+
+.slick-slide:not(.slick-current) .sw-carousel-slide::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  position: absolute;
+  z-index: 1;
+  opacity: 0.7;
+}
+
+.slick-slide.slick-current .sw-carousel-slide {
+  filter: blur(0rem);
+  @include animate($what: filter);
+}
+
+.sw-carousel-text {
+  @include overlay-item-hoverless();
+  @include animate($what: color text-decoration);
+
+  font-size: 1.5rem;
+  text-align: center;
+
+  position: absolute;
+  bottom: 0px;
+  width: calc(100% - 4rem);
+  z-index: 2;
+
+  margin: 0px;
+  padding: 2rem;
+  text-decoration: underline 1px #ffffff00;
+  text-decoration-thickness: 1px;
+  text-decoration-color: #ffffff00;;
+}
+
+.sw-carousel-arrow {
+  $radius: 2.5rem;
+  $diameter: #{2 * $radius};
+
+  @include overlay-item();
+  @include shape-circle($diameter);
+
+  position: absolute;
+  top: calc(50% - #{$radius});
+
+  font-size: $radius;
+  border: 0px;
+
+  @include on-phone() {
+    visibility: hidden;
+  }
+
+  &.right {
+    right: 0.5rem;
+  }
+
+  &.left {
+    left: 0.5rem;
+  }
+}
+
+.sw-gallery {
+  width: calc(100% - 0.5rem);
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.sw-gallery-image {
+  margin-left: 0.5rem;
+  margin-top: 0.5rem;
+  width: calc(100% / 5 - 0.5rem);
+
+  @include on-screen($SCREEN-PC-1080P) {
+    width: calc(100% / 4 - 0.5rem);
+  }
+
+  @include on-screen($SCREEN-PC-720P) {
+    width: calc(100% / 3 - 0.5rem);
+  }
+
+  @include on-screen($SCREEN-TABLET) {
+    width: calc(100% / 2 - 0.5rem);
+  }
+
+  @include on-screen($SCREEN-PHONE) {
+    width: calc(100% / 1 - 0.5rem);
+  }
+
+  & picture {
+    width: 100%;
+
+    & img {
+      width: 100%;
     }
   }
 }
