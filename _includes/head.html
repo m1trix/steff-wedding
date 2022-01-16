@@ -8,12 +8,11 @@
   <meta charset="utf-8">
   <link rel="icon" href="{{ site.baseurl}}/assets/favicon.png">
   <link rel="stylesheet" href="{{ '/css/styles.css' | relative_url }}"></link>
-  <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+  <script src="{{ site.baseurl }}/assets/sw.min.js"></script>
   <script src="{{ site.baseurl }}/assets/js/utils.js"></script>
   <script src="{{ site.baseurl }}/assets/js/sticky.js"></script>
-  <script src="{{ site.baseurl }}/assets/js/cookies.js"></script>
   <script src="{{ site.baseurl }}/assets/js/http.js"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ET036R6Y9G"></script>
+  <script src="https://www.googletagmanager.com/gtag/js?id=G-ET036R6Y9G"></script>
   <script>
     // Init Google Analytics
     window.dataLayer = window.dataLayer || [];
@@ -32,7 +31,7 @@
     }(window, document, 'script',
       'https://connect.facebook.net/en_US/fbevents.js');
 
-    applyConsentSettings();
+    sw.settings.applyConsentSettings();
     gtag('js', new Date());
     gtag('config', 'G-ET036R6Y9G');
     fbq('init', '436439281054357');

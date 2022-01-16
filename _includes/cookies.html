@@ -15,7 +15,7 @@
   const manageCookiesButton = document.getElementById('manage-cookies');
 
   acceptCookiesButton.addEventListener('click', () => {
-    setAnalyticsSettings(true, true);
+    sw.settings.setAnalyticsSettings(true, true);
     hide(disclaimer);
   });
 
@@ -23,7 +23,7 @@
     window.location.href = '{{ site.baseurl }}/cookie-policy'
   });
 
-  if (!getCookieSettings().confirmed) {
+  if (!sw.settings.getCookieSettings().confirmed) {
     setTimeout(() => show(disclaimer), 5000);
   }
 </script>

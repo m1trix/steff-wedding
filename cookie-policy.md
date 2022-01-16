@@ -35,12 +35,12 @@ SteffWedding.com използва бисквитки за да разбере к
   const fbpCookiesButton = document.getElementById('manage-fbp-cookies');
   const saveCookiesButton = document.getElementById('save-cookies');
 
-  const settings = getCookieSettings();
+  const settings = sw.settings.getCookieSettings();
   gaCookiesButton.dataset.active = settings.gtag ? 't' : 'f';
   fbpCookiesButton.dataset.active = settings.fbp ? 't' : 'f';
 
   saveCookiesButton.addEventListener('click', () => {
-    setAnalyticsSettings(
+    sw.settings.setAnalyticsSettings(
       fbpCookiesButton.dataset.active === 't',
       gaCookiesButton.dataset.active === 't'
     );

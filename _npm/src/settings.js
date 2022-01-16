@@ -1,5 +1,7 @@
 'use strict';
 
+const cookies = require('js-cookie');
+
 const COOKIE_OPTIONS = { expires: 365, sameSite: 'Strict' };
 const CONSENT_COOKIE = 'sw_cc';
 const SEPARATOR = ':';
@@ -23,7 +25,7 @@ function itob(i) {
 }
 
 function getCookieSettings() {
-  const settings = Cookies.get(CONSENT_COOKIE);
+  const settings = cookies.get(CONSENT_COOKIE);
   if (!settings) {
     return new CookieSettings(false, false, false);
   }
@@ -40,12 +42,8 @@ function getCookieSettings() {
   return new CookieSettings(itob(parts[1]), itob(parts[2]), itob(parts[3]));
 }
 
-function setAnalyticsSettings(fbp, gtag) {
-  setCookieSettings(new CookieSettings(true, fbp, gtag));
-}
-
 function setCookieSettings(settings) {
-  return Cookies.set(
+  return cookies.set(
     CONSENT_COOKIE,
     [
       LATEST_VERSION,
@@ -55,6 +53,10 @@ function setCookieSettings(settings) {
     ].join(SEPARATOR),
     COOKIE_OPTIONS
   );
+}
+
+function setAnalyticsSettings(fbp, gtag) {
+  setCookieSettings(new CookieSettings(true, fbp, gtag));
 }
 
 function applyConsentSettings() {
@@ -71,3 +73,8 @@ function applyConsentSettings() {
 
 // Auto-update cookie
 setCookieSettings(getCookieSettings());
+
+exports.getCookieSettings = getCookieSettings;
+exports.setCookieSettings = setCookieSettings;
+exports.setAnalyticsSettings = setAnalyticsSettings;
+exports.applyConsentSettings = applyConsentSettings;

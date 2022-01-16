@@ -1,0 +1,37 @@
+{
+  "name": "steff-wedding",
+  "version": "1.0.0",
+  "description": "The 'Steff Wedding' website, baby!",
+  "main": "index.js",
+  "dependencies": {
+    "esbuild": "^0.14.9",
+    "js-cookie": "~3.0.1",
+    "masonry-layout": "~4.2.2",
+    "slick-carousel": "~1.8.1"
+  },
+  "scripts": {
+    "bundle-dev": "esbuild src/index.js --bundle --outfile=sw.min.js --target=es6 --global-name=sw",
+    "bundle": "esbuild src/index.js --bundle --minify --outfile=sw.min.js --target=es6 --global-name=sw",
+    "copy": "cp sw.min.js ../assets/",
+    "build": "npm run bundle && npm run copy",
+    "build-dev": "npm run bundle-dev && npm run copy",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m1trix/steff-wedding.git"
+  },
+  "keywords": [
+    "steff",
+    "wedding",
+    "bridal",
+    "dresses",
+    "organization"
+  ],
+  "author": "teodor.klimentov@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/m1trix/steff-wedding/issues"
+  },
+  "homepage": "https://github.com/m1trix/steff-wedding#readme"
+}
