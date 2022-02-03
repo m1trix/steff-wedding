@@ -12,7 +12,7 @@ sw-dress-colors:
 sw-dress-sizes: от XS до 6XL
 sw-dress-modelSize: M, слонова кост
 sw-dress-price: 900
-sw-dress-description: |-
+sw-dress-description: &desc |-
   Минималистична и елегантна рокля, с която ще се почувстваш като истинска римска принцеса. Лекият шифон обгръща тялото нежно за максимално удобство през цялата вечер, а изчистеният, но стилен дизайн ще впечатли всички присъстващи със своето изящество.  
   
   Възможни са леки промени по дизайна.
@@ -20,5 +20,6 @@ sw-dress-photos:
   - front
   - back
   - close
+description: *desc
 layout: dress
 ---

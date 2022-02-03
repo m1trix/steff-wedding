@@ -9,7 +9,7 @@ sw-dress-colors:
 sw-dress-sizes: от XS до 5XL
 sw-dress-modelSize: M, шампанско
 sw-dress-price: 995
-sw-dress-description: |-
+sw-dress-description: &desc |-
   Визия, която прави комплимент на традиционния сватбен стил, но с лек бохо и винтидж дух. Obsession е от дизайните, към които трудно ще останеш безразлична. Тя се носи гордо и смело, защото кралската й осанка е достатъчна да те зареди със самочувствието и увереността, които заслужаваш. 
 
   Възможни са леки промени по дизайна.
@@ -19,5 +19,6 @@ sw-dress-photos:
   - back
   - detail
   - front-2
+description: *desc
 layout: dress
 ---

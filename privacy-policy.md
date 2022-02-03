@@ -4,6 +4,8 @@ permalink: /privacy-policy
 pageClass: paragraph
 title: Политика за Поверителност
 hideTitle: true
+description: Задължителна информация за правата на лицата по защита на личните данни (Privacy notice)
+sitemap: false
 ---
 
 Задължителна информация за правата на лицата по защита на личните данни (Privacy notice)
