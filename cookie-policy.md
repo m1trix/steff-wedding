@@ -5,6 +5,8 @@ disableCookieDisclaimer: true
 pageClass: paragraph
 title: Политика за Бисквитки
 hideTitle: true
+sitemap: false
+description: Бисквитките са малки късчета информация, които уеб сайтовете съхраняват в браузърите на всеки потребител
 ---
 
 # Какво представляват бисквитките?

@@ -16,5 +16,6 @@ sw-dress-photos:
   - front
   - back
   - close
+description: *desc
 layout: dress
 ---

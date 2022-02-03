@@ -11,7 +11,7 @@ sw-dress-colors:
 sw-dress-sizes: от XS до 6XL
 sw-dress-modelSize: L, руж
 sw-dress-price: 1150
-sw-dress-description: |-
+sw-dress-description: &desc |-
   Изискана и женствена, това е рокля за най-романтичните булки. Стилът на роклята прегръща фигурата за максимално удобство. Горната част е бродирана с флорална дантела, а дългият колан от тюл подчертава талията.
   
   Възможни са леки промени по дизайна.
@@ -19,5 +19,6 @@ sw-dress-photos:
   - front
   - back
   - close
+description: *desc
 layout: dress
 ---

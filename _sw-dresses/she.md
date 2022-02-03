@@ -13,7 +13,7 @@ sw-dress-colors:
 sw-dress-sizes: от XS до XXL
 sw-dress-modelSize: M, слонова кост
 sw-dress-price: 1560
-sw-dress-description: |-
+sw-dress-description: &desc |-
   Минималистична рокля, която впечатлява! Изчистения дизайн синхронира перфектно парижкия шик от миналия век чрез уникалните широки ръкави, за да създаде неповторима и модерна визия. 
   
   Възможни са леки промени по дизайна.
@@ -21,5 +21,6 @@ sw-dress-photos:
   - front
   - back
   - close
+description: *desc
 layout: dress
 ---

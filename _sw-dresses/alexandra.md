@@ -8,7 +8,7 @@ sw-dress-colors:
 sw-dress-sizes: от XS до 5XL
 sw-dress-modelSize: M, слонова кост
 sw-dress-price: 1450
-sw-dress-description: |-
+sw-dress-description: &desc |-
   Рокля в стил бохо с вталена пола от креп, дълъг шлейф и дантелен корсаж. Декориран с нежна дантела от цветя и облицовки, T-shirt ръкава седи удобно по тялото, докато тънката пола от креп обгръща тялото, създавайки зашеметяващ и привлекателен стил в сватбения ден.
   
   Възможни са леки промени по дизайна.
@@ -17,5 +17,6 @@ sw-dress-photos:
   - back
   - close
   - extra
+description: *desc
 layout: dress
 ---

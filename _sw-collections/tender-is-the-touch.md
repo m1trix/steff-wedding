@@ -14,4 +14,5 @@ sw-collection-description: |-
 sw-collection-designer-photo-alt: Михаела Стоянова
 sw-collection-designer-photo: mia-chael
 layout: collection
+description: Колекция Tender is the Touch ексклузивно за Steff Wedding съвместно Mia Chael
 ---

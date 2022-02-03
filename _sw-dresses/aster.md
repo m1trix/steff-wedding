@@ -9,7 +9,7 @@ sw-dress-colors:
 sw-dress-sizes: от XS до 6XL
 sw-dress-modelSize: L, бежав
 sw-dress-price: 1480
-sw-dress-description: |-
+sw-dress-description: &desc |-
   Феерична рокля от две части - нежната тюлена пола с шлейф се премахва, за да открие женствена къса рокля, с която може да завършите вечерта.  
   
   Възможни са леки промени по дизайна.
@@ -17,5 +17,6 @@ sw-dress-photos:
   - front
   - back
   - close
+description: *desc
 layout: dress
 ---

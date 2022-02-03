@@ -11,7 +11,7 @@ sw-dress-colors:
 sw-dress-sizes: от XS до 6XL
 sw-dress-modelSize: M, слонова кост
 sw-dress-price: 1500
-sw-dress-description: |-
+sw-dress-description: &desc |-
   Ефектна, но стилна и семпла рокля с перли, състояща се от две части - вътрешната част е от сатен, а горната - тюл. 
   
   Възможни са леки промени по дизайна.
@@ -19,5 +19,6 @@ sw-dress-photos:
   - front
   - back
   - close
+description: *desc
 layout: dress
 ---

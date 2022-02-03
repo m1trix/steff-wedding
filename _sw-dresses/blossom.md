@@ -11,7 +11,7 @@ sw-dress-colors:
 sw-dress-sizes: от XS до 6XL
 sw-dress-modelSize: S, слонова кост
 sw-dress-price: 1800
-sw-dress-description: |-
+sw-dress-description: &desc |-
   Вдъхновяваща и стилна рокля от сатен и блестящ плат, която няма да остави никого безразличен.  
   
   Възможни са леки промени по дизайна.
@@ -19,5 +19,6 @@ sw-dress-photos:
   - front
   - back
   - close
+description: *desc
 layout: dress
 ---
