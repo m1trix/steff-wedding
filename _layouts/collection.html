@@ -40,11 +40,11 @@ hideTitle: true
   %}
   {% endif %}
   <a class="galery image" href="{{ dress.url }}">
-    <img src="{{ site.baseurl }}/assets/images/dresses/{{ dress.sw-dress-id }}-{{ dress.sw-dress-photos | first }}-640.JPG">
+    <img class="{% if dress.sw-dress-out-of-stock %}out-of-stock{% endif %}" src="{{ site.baseurl }}/assets/images/dresses/{{ dress.sw-dress-id }}-{{ dress.sw-dress-photos | first }}-640.JPG">
     <span class="title">{{ dress.sw-dress-name }}</span>
-    {% if discount %}
+    <!-- {% if discount %} -->
     <div class="discount-tag">До -{{discount}}%</div>
-    {% endif %}
+    <!-- {% endif %} -->
   </a>
   {% endfor %}
 </div>

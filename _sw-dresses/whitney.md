@@ -8,6 +8,7 @@ sw-dress-colors:
 sw-dress-sizes: от XS до 6XL
 sw-dress-modelSize: M, слонова кост
 sw-dress-price: 1390
+sw-dress-out-of-stock: true
 sw-dress-description: &desc |-
   Рокля с 3D дантела и шлейф, която може да се поръча с V-образно деколте отпред или V-образен гръб. Моделът е от две части - вътрешна част от сатен и външна част от тюл с ръчно бродирана дантела и ръкави.  
   

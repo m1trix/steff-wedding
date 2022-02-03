@@ -265,6 +265,10 @@
       @include animate($what: transform, $speed: $animation-speed);
     }
 
+    & .out-of-stock {
+      filter: grayscale(100%);
+    }
+
     & .title {
       $font-coef: 0.07;
       position: absolute;
@@ -567,6 +571,25 @@
 @mixin discount-tag($padding) {
   background-color: $COLOR-5;
   color: white;
+  text-decoration: none;
+  padding: $padding;
+  padding-right: #{$padding * 2};
+  margin-left: $padding;
+  margin-right: $padding;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  overflow: visible;
+  box-shadow: 2px 2px 4px #00000044;
+
+  &::before {
+    content: '●';
+    padding-right: $padding;
+  }
+}
+
+@mixin tag($padding, $bg-color, $color) {
+  background-color: $bg-color;
+  color: $color;
   text-decoration: none;
   padding: $padding;
   padding-right: #{$padding * 2};
