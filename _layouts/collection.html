@@ -40,11 +40,22 @@ hideTitle: true
   %}
   {% endif %}
   <a class="galery image" href="{{ dress.url }}">
-    <img class="{% if dress.sw-dress-out-of-stock %}out-of-stock{% endif %}" src="{{ site.baseurl }}/assets/images/dresses/{{ dress.sw-dress-id }}-{{ dress.sw-dress-photos | first }}-640.JPG">
+    <img src="{{ site.baseurl }}/assets/images/dresses/{{ dress.sw-dress-id }}-{{ dress.sw-dress-photos | first }}-640.JPG">
     <span class="title">{{ dress.sw-dress-name }}</span>
-    <!-- {% if discount %} -->
+    {% if discount %}
     <div class="discount-tag">До -{{discount}}%</div>
-    <!-- {% endif %} -->
+    {% endif %}
+    {%
+      assign out-of-stock = site.data.out-of-stock
+      | where: "collection", dress.sw-dress-collection-id
+      | where: "dress", dress.sw-dress-id
+    %}
+    {{out-of-stock}}
+    {% if out-of-stock %}
+    <div class="out-of-stock-marker">
+      Изчерпана
+    </div>
+    {% endif %}
   </a>
   {% endfor %}
 </div>
