@@ -6,89 +6,36 @@ permalink: /contacts
 layout: page
 ---
 
-<article class="paragraph">
+<!-- Contacts Section -->
+<div class="column">
   <h1>Контакти</h1>
-  <address class="text center">
-    Email: <a href="mailto:simona.klimentova@steffwedding.com">simona.klimentova@steffwedding.com</a><br />
-    Телефон: <a href="tel:+359 887 939 599">+359 887 939 599</a><br /><br>
-    Адрес Бутик: <a id="address-link" href="#">гр. Враца, ул. Димитраки Хаджитошев 5А</a><br />
-    <i>(в близост до ул. Търговска и пл. Христо Ботев)</i><br><br>
-    Адрес Офис: гр. София, ж.к. Манастирски Ливади, бл. 201<br>
-    <i>(само с предварителна уговорка)</i>
+  <address class="text center" style="padding: 0.5rem">
+    <b>Email:</b><br />
+    <a href="mailto:simona.klimentova@steffwedding.com">simona.klimentova@steffwedding.com</a><br /><br />
+
+    <b>Телефон:</b><br />
+    <a href="tel:+359 887 939 599">+359 887 939 599</a><br /><br />
+
+    <b>Адрес Бутик:</b><br />
+    гр. Враца, ул. Димитраки Хаджитошев 5А<br />
+    <i>(в близост до ул. Търговска и пл. Христо Ботев)</i><br><br />
+
+    <b>Адрес Офис:</b><br />
+    гр. София, ж.к. Манастирски Ливади, бл. 201<br />
+    <i>(само с предварителна уговорка)</i><br><br />
+
+    <b>Работно Време:</b><br />
+    <i>Физическият ни бутик е с плаващо работно време поради ангажиментите ни като агенция за твоето събитие. Затова
+    препоръчваме преди да ни посетиш да запишеш своя час в удобно за теб време. Пробите при нас не се заплащат и нямат
+    ограничение.</i>
   </address>
-</article>
+</div>
 
-<div class="divider"></div>
-
-<article class="home description">
-  Физическият ни бутик е с плаващо работно време поради ангажиментите ни като агенция за твоето събитие. Затова
-  препоръчваме преди да ни посетиш да запишеш своя час в удобно за теб време. Пробите при нас не се заплащат и нямат
-  ограничение.
-</article>
-
-<div class="divider"></div>
-
-<div id="map-section" class="column" style="padding-top: 2rem;">
+<!-- Map Section -->
+<div id="map-section" class="column">
   <h1 style="margin: 2rem">Карта</h1>
   <div id="map" class="box borders" style="margin-bottom: 2rem;"></div>
 </div>
-
-<article class="column">
-  <div class="contacts-form">
-    <h1>Форма за Контакти</h1>
-    <span id="contacts-form-error-message" class="contacts-form error">edno gre6ki imam az</span>
-    <span id="contacts-form-success-message" class="contacts-form success"></span>
-    <form id="contacts-form">
-      <label for="contacts-form-name">Име</label>
-      <input name="name" type="text" required oninvalid="this.setCustomValidity('Моля, въведи име')"
-        oninput="this.setCustomValidity('')">
-      <label for="contacts-form-email">Имейл Адрес</label>
-      <input name="email" type="email" required oninvalid="this.setCustomValidity('Моля, въведи имейл адрес')"
-        oninput="this.setCustomValidity('')">
-      <label for="contacts-form-message">Текст</label>
-      <textarea name="message" rows="5" required oninvalid="this.setCustomValidity('Моля, въведи съобщение')"
-        oninput="this.setCustomValidity('')"></textarea>
-      <button type="submit" class="button">Изпращане</button>
-    </form>
-  </div>
-</article>
-
-<script>
-  const errorMessage = document.getElementById('contacts-form-error-message');
-  const successMessage = document.getElementById('contacts-form-success-message');
-  const contactsForm = document.getElementById('contacts-form');
-
-  hide(errorMessage);
-  hide(successMessage);
-
-  contactsForm.addEventListener('submit', event => {
-    event.preventDefault();
-    hide(errorMessage);
-    hide(successMessage);
-    httpPost('https://formspree.io/f/xvovveoy', new FormData(contactsForm))
-      .then(() => {
-        successMessage.innerHTML = 'Формата беше изпратена успешно!';
-        show(successMessage);
-        setTimeout(() => hide(successMessage, 1000), 3000);
-      })
-      .catch(() => {
-        errorMessage.innerHTML = 'Възникна грешка при изпращаненето. Опитай отново или се свържи с нас по някой от другите канали';
-        show(errorMessage);
-      });
-  });
-</script>
-
-<script>
-  const addressLink = document.getElementById('address-link');
-  const section = document.getElementById('map-section');
-  addressLink.addEventListener('click', () => {
-    event.preventDefault();
-    window.scrollTo({
-      top: section.offsetTop,
-      behavior: 'smooth'
-    });
-  });
-</script>
 
 <script>
   const mapElement = document.getElementById('map');
