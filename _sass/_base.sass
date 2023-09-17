@@ -42,7 +42,7 @@ $TEXT-COLUMN-PADDING-PC: 3rem
 $TEXT-COLUMN-PADDING-TAB: 2rem
 $TEXT-COLUMN-PADDING-MOB: 1rem
 
-$WIDESCREEN-RATIO: 16 / 9
+$WIDESCREEN-RATIO: calc(16 / 9)
 
 @function bgurl($name)
   $url: 'http://steffwedding.com/images/#{$name}'
@@ -106,7 +106,7 @@ $FONT_H: #{56rem / 48}
 @mixin layout
   width: 100%
   max-width: $SCREEN-PC
-  margin-left: calc(50% - #{$SCREEN-PC / 2})
+  margin-left: calc(50% - #{$SCREEN-PC} / 2)
 
   @media (max-width: $SCREEN-PC)
     margin: 0px
