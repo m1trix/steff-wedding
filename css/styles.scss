@@ -101,13 +101,12 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
-    transform: none;
     -webkit-transform: translate3d(0, 0, 0); // Bug on Safari
   }
 
-  &.link {
+  @mixin home-link($count) {
     margin: 1rem;
-    width: calc(#{$PAGE-W} / 3 - 2rem);
+    width: calc(#{$PAGE-W} / $count - 2rem);
     height: calc(100vh - 3rem - 2rem);
     float: left;
     overflow: hidden;
@@ -164,6 +163,14 @@
       background-color: $TEXT-COLOR;
       color: black;
     }
+  }
+
+  &.link {
+    @include home-link(2);
+  }
+
+  &.collection-link {
+    @include home-link(3);
   }
 
   &.description {

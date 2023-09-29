@@ -1,6 +1,7 @@
 ---
 sw-dress-id: jacket
-sw-dress-name: Ръчно Бродирано Сако
+sw-dress-name: &name |-
+  Ръчно Бродирано Сако
 sw-dress-collection-id: simplicite
 sw-dress-producer: Amelii
 sw-dress-colors:
@@ -18,4 +19,5 @@ sw-dress-photos:
   - close
 description: *desc
 layout: dress
+customTitle: *name
 ---

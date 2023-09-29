@@ -28,7 +28,7 @@ redirect_from:
       | last
     %}
     {% endif %}
-    <a class="home link" href="{{ col.url }}">
+    <a class="home collection-link" href="{{ col.url }}">
       <picture>
         <source media="(max-height: 899px)" srcset="{{ site.baseurl }}/assets/images/dresses/{{ dress.sw-dress-id }}-{{ dress.sw-dress-photos | first }}-640.JPG">
         <img src="{{ site.baseurl }}/assets/images/dresses/{{ dress.sw-dress-id }}-{{ dress.sw-dress-photos | first }}-1280.JPG">
