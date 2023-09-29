@@ -19,4 +19,5 @@ sw-dress-photos:
   - side-2
 description: *desc
 layout: dress
+customTitle: Élégance
 ---

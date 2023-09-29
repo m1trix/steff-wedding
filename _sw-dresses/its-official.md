@@ -18,4 +18,5 @@ sw-dress-photos:
   - side
 description: *desc
 layout: dress
+customTitle: It's Official
 ---
