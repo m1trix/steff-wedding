@@ -8,7 +8,13 @@ layout: base
 {% include discount.html %}
 <main class="{{ page.pageClass }}">
   {% if page.hideTitle != true %}
-    <h1>{{ page.title }}</h1>
+    <h1>
+      {% if page.customTitle %}
+      {{ page.customTitle }}
+      {% else %}
+      {{ page.title }}
+      {% endif %}
+    </h1>
   {% endif %}
   <section class="layout">
     {{ content }}

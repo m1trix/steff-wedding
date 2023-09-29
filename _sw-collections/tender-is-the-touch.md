@@ -1,6 +1,7 @@
 ---
 sw-collection-id: tender-is-the-touch
 sw-collection-name: Tender is the Touch
+sw-collection-order: 2
 sw-collection-cover: obsession
 sw-collection-swogan: |-
   "Докосване. Може би една от най-нежните и въздействащи думички, когато става въпрос за любов, материя за булченска рокля и цялостно усещане."
