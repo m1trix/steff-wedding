@@ -45,6 +45,17 @@ hideTitle: true
     {% if discount %}
     <div class="discount-tag">До -{{discount}}%</div>
     {% endif %}
+    {%
+      assign out-of-stock = site.data.out-of-stock
+      | where: "collection", dress.sw-dress-collection-id
+      | where: "dress", dress.sw-dress-id
+    %}
+    {{out-of-stock}}
+    {% if out-of-stock %}
+    <div class="out-of-stock-marker">
+      Изчерпана
+    </div>
+    {% endif %}
   </a>
   {% endfor %}
 </div>

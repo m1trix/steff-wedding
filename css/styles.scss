@@ -273,6 +273,10 @@
       @include animate($what: transform, $speed: $animation-speed);
     }
 
+    & .out-of-stock {
+      filter: grayscale(100%);
+    }
+
     & .title {
       $font-coef: 0.07;
       position: absolute;
@@ -588,6 +592,39 @@
   &::before {
     content: '●';
     padding-right: $padding;
+  }
+}
+
+@mixin tag-compact($bg-color, $color) {
+  background-color: $bg-color;
+  color: $color;
+  text-decoration: none;
+  padding: 0.5rem;
+  padding-right: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  overflow: visible;
+  box-shadow: 2px 2px 4px #00000044;
+
+  &::before {
+    content: '●';
+    padding-right: $padding;
+  }
+}
+
+@mixin tag() {
+  position: absolute;
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 0.5rem;
+  right: -0.5rem;
+  font-size: 0.75rem;
+
+  @media screen and (max-width: 400px) {
+    font-size: 4vw;
   }
 }
 
