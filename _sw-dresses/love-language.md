@@ -7,7 +7,7 @@ sw-dress-colors:
   - слонова кост
 sw-dress-sizes: от XS до XXL
 sw-dress-modelSize: M, слонова кост
-sw-dress-price: 2200
+sw-dress-price: 2300
 sw-dress-description: &desc |-
   Очарователна сватбена рокля с флорална дантела в цвят слонова кост с шлейф, фини презрамки и красиво V деколте. За булка, която е стилна и елегантна и уверена в женствеността си.
 sw-dress-photos:
