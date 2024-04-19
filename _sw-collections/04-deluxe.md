@@ -1,9 +1,9 @@
 ---
 sw-collection-id: deluxe
-sw-collection-name: Deluxe
-sw-collection-cover: jacket
-sw-collection-order: 1
+sw-collection-name: &title Deluxe
+sw-collection-cover: alexandra # TODO: Change it!
+
 layout: collection
-customTitle: Deluxe
+customTitle: *title
 permalink: /collections/deluxe
 ---

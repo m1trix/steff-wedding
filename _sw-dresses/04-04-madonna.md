@@ -1,7 +1,7 @@
 ---
-sw-dress-id: inspiranta
+sw-dress-id: madonna
 sw-dress-collection-id: deluxe
-sw-dress-name: Inspiranta
+sw-dress-name: &title Madonna
 sw-dress-producer: Olya Mak
 sw-dress-colors:
   - слонова кост
@@ -17,8 +17,8 @@ sw-dress-photos:
   - back
   - close
 # ===========
+title: *title
 description: *desc
 layout: dress
-permalink: /dresses/inspiranta
-title: Inspiranta
+permalink: /dresses/madonna
 ---

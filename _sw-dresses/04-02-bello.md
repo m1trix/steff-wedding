@@ -1,7 +1,7 @@
 ---
 sw-dress-id: bello
 sw-dress-collection-id: deluxe
-sw-dress-name: Bello
+sw-dress-name: &title Bello
 sw-dress-producer: Aria Bride
 sw-dress-colors:
   - слонова кост
@@ -17,8 +17,8 @@ sw-dress-photos:
   - back
   - close
 # ===========
+title: *title
 description: *desc
 layout: dress
 permalink: /dresses/bello
-title: Bello
 ---

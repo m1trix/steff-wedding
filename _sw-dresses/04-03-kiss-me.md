@@ -1,8 +1,8 @@
 ---
-sw-dress-id: madonna
+sw-dress-id: kiss-me
 sw-dress-collection-id: deluxe
-sw-dress-name: Madonna
-sw-dress-producer: Olya Mak
+sw-dress-name: &title Kiss Me
+sw-dress-producer: Aria Bride
 sw-dress-colors:
   - слонова кост
 sw-dress-sizes: от XS до 5XL
@@ -17,8 +17,8 @@ sw-dress-photos:
   - back
   - close
 # ===========
+title: *title
 description: *desc
 layout: dress
-permalink: /dresses/madonna
-title: Madonna
+permalink: /dresses/kiss-me
 ---

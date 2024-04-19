@@ -1,8 +1,8 @@
 ---
-sw-dress-id: kiss-me
+sw-dress-id: inspiranta
 sw-dress-collection-id: deluxe
-sw-dress-name: Kiss Me
-sw-dress-producer: Aria Bride
+sw-dress-name: &title Inspiranta
+sw-dress-producer: Olya Mak
 sw-dress-colors:
   - слонова кост
 sw-dress-sizes: от XS до 5XL
@@ -17,8 +17,8 @@ sw-dress-photos:
   - back
   - close
 # ===========
+title: *title
 description: *desc
 layout: dress
-permalink: /dresses/kiss-me
-title: Kiss Me
+permalink: /dresses/inspiranta
 ---

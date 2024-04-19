@@ -1,7 +1,7 @@
 ---
 sw-dress-id: vortex-of-love
 sw-dress-collection-id: deluxe
-sw-dress-name: Vortex of Love
+sw-dress-name: &title Vortex of Love
 sw-dress-producer: Amelii
 sw-dress-colors:
   - слонова кост
@@ -17,8 +17,8 @@ sw-dress-photos:
   - back
   - close
 # ===========
+title: &title
 description: *desc
 layout: dress
 permalink: /dresses/vortex-of-love
-title: Vortex of Love
 ---
