@@ -8,7 +8,7 @@ redirect_from:
 
 <main class="layout">
   <div>
-  {% assign all-collections = site.sw-collections | sort: "sw-collection-order" %}
+  {% assign all-collections = site.sw-collections | reverse %}
   {% for col in all-collections %}
     {%
       assign dress = site.sw-dresses
