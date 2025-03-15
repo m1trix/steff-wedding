@@ -14,6 +14,7 @@ dependencies:
   - type: js
     url: https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js
     checksum: sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==
+
 ---
 
 Сватбеният ден е изпълнен с хиляди емоции, а в много случаи и с множество ангажименти, които чакат младоженците. Именно за тях можеш да се довериш на нас - можем да се погрижим за всичко - от поканите, през декорацията, та чак до планирането и организирането на целия ден с всички поддоставчици на услуги като фотографи, DJ, място и др.
