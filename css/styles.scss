@@ -706,7 +706,7 @@ $SCREEN-PHONE: 480px;
       @include shape-square($side);
       background-color: transparent;
       border: 1px solid $COLOR-3;
-      margin-left: #{$side / 2};
+      margin-left: calc($side / 2);
 
       &:hover {
         background-color: #{$COLOR-3}80;
