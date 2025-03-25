@@ -305,8 +305,11 @@
 .dress {
   &.container {
     @include layout;
-    display: flex;
-    flex-direction: row;
+
+    & {
+      display: flex;
+      flex-direction: row;
+    }
 
     @include on-tablet {
       flex-direction: column;
