@@ -1,6 +1,7 @@
 ---
 # Yes
 ---
+@use "sass:color";
 
 @import "base";
 @import "navigation";
@@ -522,7 +523,7 @@
 
   &[data-active='t'] {
     border-color: $COLOR-2;
-    background-color: lighten($COLOR-2, 25%);
+    background-color: color.adjust($COLOR-2, $lightness: 25%);
   }
 
   &::before {
