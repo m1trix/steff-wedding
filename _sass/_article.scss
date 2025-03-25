@@ -1,4 +1,4 @@
-@import "./base.sass";
+@import "./base.scss";
 
 @mixin picture {
   width: calc(#{$PAGE-W} / 3);
