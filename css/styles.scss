@@ -5,6 +5,11 @@
 @use "navigation" as *;
 @use "article" as *;
 
+// These are copied from base.scss as there was an issue with the import and didn't have time to look into it.
+$SCREEN-PC: 1280px;
+$SCREEN-TABLET: 788px;
+$SCREEN-PHONE: 480px;
+
 @mixin on-pc {
   @media screen and (max-width: $SCREEN-PC) {
     @content;
