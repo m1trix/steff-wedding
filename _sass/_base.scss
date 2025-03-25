@@ -60,8 +60,10 @@ $WIDESCREEN-RATIO: calc(16 / 9);
     $transitions: $transitions, $style $ANIMATION-SPEED;
   }
 
-  will-change: $styles;
-  transition: $transitions;
+  & {
+    will-change: $styles;
+    transition: $transitions;
+  }
 }
 
 @mixin on-pc {
@@ -147,17 +149,25 @@ $FONT_H: calc(56rem / 48);
 @mixin paragraph {
   @include text;
   @include animate(padding);
-  color: $TEXT-COLOR;
-  text-align: justify;
-  padding: 1.5rem;
+
+  & {
+    color: $TEXT-COLOR;
+    text-align: justify;
+    padding: 1.5rem;
+  }
 
   @include on-tablet {
     @include animate(padding);
-    padding: 1rem;
+    & {
+      padding: 1rem;
+    }
   }
+
   @include on-phone {
     @include animate(padding);
-    padding: 0.5rem;
+    & {
+      padding: 0.5rem;
+    }
   }
 }
 
@@ -173,16 +183,22 @@ $FONT_H: calc(56rem / 48);
 
 @mixin disclaimer {
   @include paragraph;
-  margin: 2rem;
-  position: relative;
+
+  & {
+    margin: 2rem;
+    position: relative;
+  }
+
   @include animate(margin);
 
   @include on-tablet {
     margin: 1.5rem;
   }
+
   @include on-phone {
     margin: 1rem;
   }
+
   &::after {
     content: '';
     background-color: white;
@@ -226,7 +242,8 @@ input, textarea {
   color: black;
   outline: 3px dotted transparent;
   outline-offset: 0px;
-  @include animate(background-color, outline-color);
+  @include animate(background-color);
+  @include animate(outline-color);
 
   &:focus {
     outline-color: $TEXT-COLOR;
