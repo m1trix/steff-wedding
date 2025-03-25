@@ -1,4 +1,4 @@
-@import "./base.scss";
+@use "base" as *;
 
 $SWOGAN-BAR-PADDING: 1rem;
 $SWOGAN-BAR-HEIGHT: 2 * $SWOGAN-BAR-PADDING + 6rem;

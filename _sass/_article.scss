@@ -1,4 +1,4 @@
-@import "./base.scss";
+@use "base" as *;
 
 @mixin picture {
   width: calc(#{$PAGE-W} / 3);

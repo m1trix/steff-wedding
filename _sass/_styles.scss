@@ -4,8 +4,8 @@
 @use "sass:color";
 
 @use "base" as *;
-@use "navigation" as *;
 @use "article" as *;
+@use "navigation" as *;
 
 @mixin on-pc {
   @media screen and (max-width: $SCREEN-PC) {
