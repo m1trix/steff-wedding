@@ -1,10 +1,11 @@
 ---
 # Yes
 ---
+@use "sass:color";
 
-@import "base";
-@import "navigation";
-@import "article";
+@use "base" as *;
+@use "navigation" as *;
+@use "article" as *;
 
 @mixin on-pc {
   @media screen and (max-width: $SCREEN-PC) {
@@ -304,8 +305,11 @@
 .dress {
   &.container {
     @include layout;
-    display: flex;
-    flex-direction: row;
+
+    & {
+      display: flex;
+      flex-direction: row;
+    }
 
     @include on-tablet {
       flex-direction: column;
@@ -522,7 +526,7 @@
 
   &[data-active='t'] {
     border-color: $COLOR-2;
-    background-color: lighten($COLOR-2, 25%);
+    background-color: color.adjust($COLOR-2, $lightness: 25%);
   }
 
   &::before {
