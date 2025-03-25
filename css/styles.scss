@@ -6,9 +6,37 @@
 @use "article" as *;
 
 // These are copied from base.scss as there was an issue with the import and didn't have time to look into it.
+$COLOR-1: #4b1430;
+$COLOR-1-LT: #721e49;
+$COLOR-1-DK: #300d1f;
+$COLOR-2: #4a6c82;
+$COLOR-2-LT: #8dabbe;
+$COLOR-3: #e5b88c;
+$COLOR-3-DK: #a88057;
+$COLOR-4: #e1d6cd;
+$COLOR-4-LT: #eee9e5;
+$COLOR-5: #d32a00;
+$COLOR-6: #eeebe9;
+$COLOR-7: #db9d5f;
+$COLOR-8: #f9f9f9;
+$COLOR-9: #00700f;
+
+$BACKGROUND-COLOR: $COLOR-6;
+$TEXT-COLOR: $COLOR-7;
+$ERROR-COLOR: $COLOR-5;
+
+$ANIMATION-SPEED: 0.25s;
 $SCREEN-PC: 1280px;
 $SCREEN-TABLET: 788px;
 $SCREEN-PHONE: 480px;
+$PAGE-W: 'min(#{$SCREEN-PC}, 100%)';
+$COLUMN-WIDTH-PC: 50%;
+$COLUMN-WIDTH-MOB: 100%;
+$TEXT-COLUMN-PADDING-PC: 3rem;
+$TEXT-COLUMN-PADDING-TAB: 2rem;
+$TEXT-COLUMN-PADDING-MOB: 1rem;
+
+$WIDESCREEN-RATIO: calc(16 / 9);
 
 @mixin on-pc {
   @media screen and (max-width: $SCREEN-PC) {
