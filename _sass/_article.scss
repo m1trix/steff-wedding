@@ -1,4 +1,4 @@
-@import "./base.sass";
+@use "base" as *;
 
 @mixin picture {
   width: calc(#{$PAGE-W} / 3);
@@ -19,8 +19,11 @@
 .article {
   &.container {
     @include layout;
-    display: flex;
-    flex-direction: row-reverse;
+
+    & {
+      display: flex;
+      flex-direction: row-reverse;
+    }
 
     @include on-phone {
       flex-direction: column;
@@ -40,7 +43,9 @@
 
   &.image-container {
     @include picture;
-    float: right;
+    & {
+      float: right;
+    }
   }
 
   &.text {
