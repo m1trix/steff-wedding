@@ -94,12 +94,10 @@ $SCREEN-PHONE: 480px;
 
 @mixin overlay-item-hover {
   background: #{$COLOR-3}80;
-  color: black;
   cursor: pointer;
 }
 
 @mixin overlay-item-active {
-  color: black;
   background-color: $COLOR-3;
 }
 
@@ -839,7 +837,7 @@ $SCREEN-PHONE: 480px;
 }
 
 .sw-carousel-arrow {
-  $size: 5rem;
+  $size: 4rem;
   @include overlay-item();
   @include square-button($size);
 
