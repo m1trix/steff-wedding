@@ -19,11 +19,12 @@ dependencies:
 </p>
 
 <div class="vbox center">
-  <button id="scroll-button" class="button">Напред</button>
-  <br/><br/>
+  <button id="scroll-1" class="button">Напред</button>
 </div>
 
-<section id="gallery">
+<div class="divider"></div>
+
+<section id="gallery-1">
   {%
     assign carousel_items = site.sw-events
     | where: 'sw-event-type', 'wedding'
@@ -33,12 +34,13 @@ dependencies:
 </section>
 
 <div class="vbox center">
-  <br/><br/>
-  <button id="scroll-button" class="button">Напред</button>
-  <br/><br/>
+  <br/>
+  <button id="scroll-2" class="button">Напред</button>
 </div>
 
-<section id="gallery">
+<div class="divider"></div>
+
+<section id="gallery-2">
   {%
     assign carousel_items = site.sw-events
     | where_exp: 'item', 'item["sw-event-type"] != "wedding"'
@@ -53,16 +55,20 @@ dependencies:
 
 <script>
   document.getElementById('contacts-link').addEventListener('click', () => {
-    window.location.href="{{ site.baseurl }}/contacts";
+    window.location.href='{{ site.baseurl }}/contacts';
   });
 
-  const galerry = document.getElementById('gallery');
-  const button = document.getElementById('scroll-button');
+  document.getElementById('scroll-1').addEventListener('click', () => {
+    const gallery1 = document.getElementById('gallery-1');
+    gallery1.scrollIntoView({
+      behavior: 'smooth'
+    });
+  })
 
-  button.addEventListener('click', () => {
-    window.scrollTo({
-      top: galerry.clientTop + galerry.clientHeight,
-      behavior: "smooth"
+  document.getElementById('scroll-2').addEventListener('click', () => {
+    const gallery2 = document.getElementById('gallery-2');
+    gallery2.scrollIntoView({
+      behavior: 'smooth'
     });
   })
 </script>

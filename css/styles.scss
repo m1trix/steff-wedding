@@ -29,7 +29,7 @@ $ANIMATION-SPEED: 0.25s;
 $SCREEN-PC: 1280px;
 $SCREEN-TABLET: 788px;
 $SCREEN-PHONE: 480px;
-$PAGE-W: 'min(#{$SCREEN-PC}, 100%)';
+$PAGE-W: min(#{$SCREEN-PC}, 100%);
 $COLUMN-WIDTH-PC: 50%;
 $COLUMN-WIDTH-MOB: 100%;
 $TEXT-COLUMN-PADDING-PC: 3rem;
@@ -187,6 +187,7 @@ $SCREEN-PHONE: 480px;
     object-fit: cover;
     object-position: center;
     -webkit-transform: translate3d(0, 0, 0); // Bug on Safari
+    transform: translate3d(0, 0, 0);
   }
 
   @mixin home-link($count) {
@@ -721,6 +722,28 @@ $SCREEN-PHONE: 480px;
   }
 }
 
+@mixin square-button($side) {
+  @include animate($what: 'background-color');
+  @include animate($what: 'color');
+  @include shape-square($side);
+
+  border: 1px solid $COLOR-3;
+  color: $COLOR-3;
+
+  &:hover {
+    background-color: #{$COLOR-3}80;
+    cursor: pointer;
+  }
+
+  &:first-of-type {
+    margin-left: 0px;
+  }
+
+  &.slick-active {
+    background-color: $COLOR-3;
+  }
+}
+
 .sw-carousel {
   width: 100%;
   position: relative;
@@ -737,24 +760,8 @@ $SCREEN-PHONE: 480px;
     padding: 0px;
 
     & li {
-      @include animate($what: background-color);
-      @include shape-square($side);
-      background-color: transparent;
-      border: 1px solid $COLOR-3;
+      @include square-button($side);
       margin-left: calc($side / 2);
-
-      &:hover {
-        background-color: #{$COLOR-3}80;
-        cursor: pointer;
-      }
-
-      &:first-of-type {
-        margin-left: 0px;
-      }
-
-      &.slick-active {
-        background-color: $COLOR-3;
-      }
     }
   }
 }
@@ -832,17 +839,13 @@ $SCREEN-PHONE: 480px;
 }
 
 .sw-carousel-arrow {
-  $radius: 2.5rem;
-  $diameter: #{2 * $radius};
-
+  $size: 5rem;
   @include overlay-item();
-  @include shape-circle($diameter);
+  @include square-button($size);
 
   position: absolute;
-  top: calc(50% - #{$radius});
-
-  font-size: $radius;
-  border: 0px;
+  top: calc(50% - #{$size} / 2);
+  font-size: calc($size / 4 * 3);
 
   @include on-phone() {
     visibility: hidden;
