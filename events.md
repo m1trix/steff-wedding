@@ -1,5 +1,6 @@
 ---
 title: Събития
+hideTitle: true
 layout: page
 permalink: /events
 dependencies:
