@@ -43,6 +43,8 @@ $SCREEN-PC-720P: 1280px;
 $SCREEN-TABLET: 788px;
 $SCREEN-PHONE: 480px;
 
+$HOME-LINK-PADDING: 0.5rem;
+
 @mixin on-screen($screen) {
   @media screen and (max-width: $screen) {
     @content;
@@ -135,6 +137,11 @@ $SCREEN-PHONE: 480px;
   margin: 1rem;
 }
 
+.home-link-container {
+  width: calc(100% - 2 * #{$HOME-LINK-PADDING});
+  padding: $HOME-LINK-PADDING;
+}
+
 .home {
   &.intro {
     display: flex;
@@ -189,9 +196,9 @@ $SCREEN-PHONE: 480px;
   }
 
   @mixin home-link($count) {
-    margin: 1rem;
-    width: calc(#{$PAGE-W} / #{$count} - 2rem);
-    height: calc(100vh - 3rem - 2rem);
+    margin: $HOME-LINK-PADDING;
+    width: calc((100% - $count * 2 * $HOME-LINK-PADDING) / #{$count});
+    height: calc(90vh - 3rem - 2rem);
     float: left;
     overflow: hidden;
     display: flex;
@@ -200,7 +207,7 @@ $SCREEN-PHONE: 480px;
     justify-content: center;
 
     @include on-phone {
-      width: calc(100% - 2rem);
+      width: calc(100% - 2 * $HOME-LINK-PADDING);
       height: calc((100vh - 3rem) / 2 - 1rem);
     }
 
