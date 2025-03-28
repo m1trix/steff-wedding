@@ -19,12 +19,12 @@ SteffWedding.com използва бисквитки за да разбере к
 Според регламента за защита на личните данни на Европейския Съюз (GDPR) SteffWedding.com има нужда от изричното съгласие на всеки отделен потребител за да съхранява бисквитки.
 
 <div class="vbox center">
-  <div class="vbox">
-    <div class="hbox">
+  <div class="vbox" style="align-items: center">
+    <div class="hbox" style="width: 12rem; justify-content: right">
       <div class="text">Google Analytics:</div>
       <button id="manage-ga-cookies" class="toggle" onclick="this.dataset.active = this.dataset.active === 't' ? 'f' : 't'"></button>
     </div>
-    <div class="hbox">
+    <div class="hbox" style="width: 12rem; justify-content: right">
       <div class="text">Facebook Pixel:</div>
       <button id="manage-fbp-cookies" class="toggle" onclick="this.dataset.active = this.dataset.active === 't' ? 'f' : 't'"></button>
     </div>
