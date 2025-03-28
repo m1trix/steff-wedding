@@ -6,7 +6,7 @@ redirect_from:
   - /dresses
 ---
 
-<main class="layout">
+<main class="layout home-link-container">
   <div>
   {% assign all-collections = site.sw-collections | reverse %}
   {% for col in all-collections %}

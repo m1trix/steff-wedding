@@ -1,10 +1,44 @@
 ---
 # Yes
 ---
+@use "base" as *;
+@use "navigation" as *;
+@use "article" as *;
 
-@import "base";
-@import "navigation";
-@import "article";
+// These are copied from base.scss as there was an issue with the import and didn't have time to look into it.
+$COLOR-1: #4b1430;
+$COLOR-1-LT: #721e49;
+$COLOR-1-DK: #300d1f;
+$COLOR-2: #4a6c82;
+$COLOR-2-LT: #8dabbe;
+$COLOR-3: #e5b88c;
+$COLOR-3-DK: #a88057;
+$COLOR-4: #e1d6cd;
+$COLOR-4-LT: #eee9e5;
+$COLOR-5: #d32a00;
+$COLOR-6: #eeebe9;
+$COLOR-7: #db9d5f;
+$COLOR-8: #f9f9f9;
+$COLOR-9: #00700f;
+
+$BACKGROUND-COLOR: $COLOR-6;
+$TEXT-COLOR: $COLOR-7;
+$ERROR-COLOR: $COLOR-5;
+
+$ANIMATION-SPEED: 0.25s;
+$SCREEN-PC: 1280px;
+$SCREEN-TABLET: 788px;
+$SCREEN-PHONE: 480px;
+$PAGE-W: 'min(#{$SCREEN-PC}, 100%)';
+$COLUMN-WIDTH-PC: 50%;
+$COLUMN-WIDTH-MOB: 100%;
+$TEXT-COLUMN-PADDING-PC: 3rem;
+$TEXT-COLUMN-PADDING-TAB: 2rem;
+$TEXT-COLUMN-PADDING-MOB: 1rem;
+
+$WIDESCREEN-RATIO: calc(16 / 9);
+
+$HOME-LINK-PADDING: 0.5rem;
 
 @mixin on-pc {
   @media screen and (max-width: $SCREEN-PC) {
@@ -50,6 +84,11 @@
   width: calc(100% - 2rem);
   height: 3rem;
   margin: 1rem;
+}
+
+.home-link-container {
+  width: calc(100% - 2 * #{$HOME-LINK-PADDING});
+  padding: $HOME-LINK-PADDING;
 }
 
 .home {
@@ -105,9 +144,9 @@
   }
 
   @mixin home-link($count) {
-    margin: 1rem;
-    width: calc(#{$PAGE-W} / #{$count} - 2rem);
-    height: calc(100vh - 3rem - 2rem);
+    margin: $HOME-LINK-PADDING;
+    width: calc((100% - $count * 2 * $HOME-LINK-PADDING) / #{$count});
+    height: calc(90vh - 3rem - 2rem);
     float: left;
     overflow: hidden;
     display: flex;
@@ -116,7 +155,7 @@
     justify-content: center;
 
     @include on-phone {
-      width: calc(100% - 2rem);
+      width: calc(100% - 2 * $HOME-LINK-PADDING);
       height: calc((100vh - 3rem) / 2 - 1rem);
     }
 
@@ -304,8 +343,11 @@
 .dress {
   &.container {
     @include layout;
-    display: flex;
-    flex-direction: row;
+
+    & {
+      display: flex;
+      flex-direction: row;
+    }
 
     @include on-tablet {
       flex-direction: column;
@@ -522,7 +564,7 @@
 
   &[data-active='t'] {
     border-color: $COLOR-2;
-    background-color: lighten($COLOR-2, 25%);
+    background-color: $COLOR-2-LT;
   }
 
   &::before {

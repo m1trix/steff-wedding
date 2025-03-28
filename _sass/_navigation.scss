@@ -1,4 +1,4 @@
-@import "./base.sass";
+@use "base" as *;
 
 $SWOGAN-BAR-PADDING: 1rem;
 $SWOGAN-BAR-HEIGHT: 2 * $SWOGAN-BAR-PADDING + 6rem;
@@ -77,7 +77,10 @@ $SWOGAN-BAR-HEIGHT: 2 * $SWOGAN-BAR-PADDING + 6rem;
       outline-color: transparent;
       text-decoration: none;
       @include animate(outline-color);
-      white-space: nowrap;
+
+      & {
+        white-space: nowrap;
+      }
 
       @include on-tablet() {
         width: unset;
