@@ -38,6 +38,8 @@ $TEXT-COLUMN-PADDING-MOB: 1rem;
 
 $WIDESCREEN-RATIO: calc(16 / 9);
 
+$HOME-LINK-PADDING: 0.5rem;
+
 @mixin on-pc {
   @media screen and (max-width: $SCREEN-PC) {
     @content;
@@ -82,6 +84,11 @@ $WIDESCREEN-RATIO: calc(16 / 9);
   width: calc(100% - 2rem);
   height: 3rem;
   margin: 1rem;
+}
+
+.home-link-container {
+  width: calc(100% - 2 * #{$HOME-LINK-PADDING});
+  padding: $HOME-LINK-PADDING;
 }
 
 .home {
@@ -137,9 +144,9 @@ $WIDESCREEN-RATIO: calc(16 / 9);
   }
 
   @mixin home-link($count) {
-    margin: 1rem;
-    width: calc(#{$PAGE-W} / #{$count} - 2rem);
-    height: calc(100vh - 3rem - 2rem);
+    margin: $HOME-LINK-PADDING;
+    width: calc((100% - $count * 2 * $HOME-LINK-PADDING) / #{$count});
+    height: calc(90vh - 3rem - 2rem);
     float: left;
     overflow: hidden;
     display: flex;
@@ -148,7 +155,7 @@ $WIDESCREEN-RATIO: calc(16 / 9);
     justify-content: center;
 
     @include on-phone {
-      width: calc(100% - 2rem);
+      width: calc(100% - 2 * $HOME-LINK-PADDING);
       height: calc((100vh - 3rem) / 2 - 1rem);
     }
 
