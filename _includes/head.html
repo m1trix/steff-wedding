@@ -4,10 +4,15 @@
   </title>
   {% seo title=false %}
 
+  {% if page.sw-dress-photos %}
+  <meta property="og:image" content="{{ site.baseurl }}/assets/images/dresses/{{ page.sw-dress-id }}-{{ page.sw-dress-photos[0] }}-1280.JPG">
+  {% endif %}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
+
   <link rel="icon" href="{{ site.baseurl}}/assets/favicon.png">
   <link rel="stylesheet" href="{{ '/css/styles.css' | relative_url }}"></link>
+
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
   <script src="{{ site.baseurl }}/assets/js/utils.js"></script>
   <script src="{{ site.baseurl }}/assets/js/sticky.js"></script>
