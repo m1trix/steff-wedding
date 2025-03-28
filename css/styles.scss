@@ -611,8 +611,8 @@ $HOME-LINK-PADDING: 0.5rem;
   }
 
   &[data-active='t'] {
-    border-color: $COLOR-2;
-    background-color: $COLOR-2-LT;
+    border-color: $COLOR-3-DK;
+    background-color: $COLOR-3;
   }
 
   &::before {
@@ -629,7 +629,7 @@ $HOME-LINK-PADDING: 0.5rem;
 
   &[data-active='t']::before {
     transform: translateX(1.25rem);
-    background-color: $COLOR-2;
+    background-color: $COLOR-3-DK;
   }
 }
 
