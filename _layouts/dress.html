@@ -8,23 +8,23 @@ title: Рокли
 <div class="dress container">
   <article id="dress-text" class="dress text">
     {{ page.sw-dress-description | newline_to_br }}
+    <p class="text center">
+      <b>Колекция</b><br />
+      <a class="link" href="{{ collection.url }}">{{ collection.sw-collection-name }}</a>
+    </p>
+    {% if page.sw-dress-designer %}
+    <p class="text center">
+      <b>Дизайнер</b><br />
+      {{ page.sw-dress-designer }}
+    </p>
+    {% endif %}
+    {% if page.sw-dress-producer %}
+    <p class="text center">
+      <b>Производител</b><br />
+      {{ page.sw-dress-producer }}
+    </p>
+    {% endif %}
     <div class="dress details">
-      <p class="text center">
-        <b>Колекция</b><br />
-        <a class="link" href="{{ collection.url }}">{{ collection.sw-collection-name }}</a>
-      </p>
-      {% if page.sw-dress-designer %}
-      <p class="text center">
-        <b>Дизайнер</b><br />
-        {{ page.sw-dress-designer }}
-      </p>
-      {% endif %}
-      {% if page.sw-dress-producer %}
-      <p class="text center">
-        <b>Производител</b><br />
-        {{ page.sw-dress-producer }}
-      </p>
-      {% endif %}
       <p class="text center">
         <b>Размери</b><br />
         {{ page.sw-dress-sizes }}
