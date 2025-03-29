@@ -354,6 +354,11 @@ $HOME-LINK-PADDING: 0.5rem;
     }
   }
 
+  &.details {
+    position: sticky;
+    top: 4rem;
+  }
+
   &.text {
     $padding: 1rem;
     padding: $padding;
