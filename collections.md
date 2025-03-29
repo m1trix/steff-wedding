@@ -33,7 +33,7 @@ redirect_from:
         <source media="(max-height: 899px)" srcset="{{ site.baseurl }}/assets/images/dresses/{{ dress.sw-dress-id }}-{{ dress.sw-dress-photos | first }}-640.JPG">
         <img src="{{ site.baseurl }}/assets/images/dresses/{{ dress.sw-dress-id }}-{{ dress.sw-dress-photos | first }}-1280.JPG">
       </picture>
-      <div class="home link text">{{ col.sw-collection-name }}</div>
+      <div class="home collection-link text">{{ col.sw-collection-name }}</div>
       {% if discount %}
       <div class="discount-tag">
         Отстъпки до {{discount}}%
