@@ -91,6 +91,20 @@ $HOME-LINK-PADDING: 0.5rem;
   padding: $HOME-LINK-PADDING;
 }
 
+@mixin home-link-text {
+  @include text;
+  position: absolute;
+  color: white;
+  padding: 1rem 2rem 1rem 2rem;
+  text-align: center;
+  width: fit-content;
+  height: fit-content;
+  width: -moz-fit-content;
+  height: -moz-fit-content;
+  background-color: #00000088;
+  @include animate($what: background-color);
+}
+
 .home {
   &.intro {
     display: flex;
@@ -141,6 +155,7 @@ $HOME-LINK-PADDING: 0.5rem;
     object-fit: cover;
     object-position: center;
     -webkit-transform: translate3d(0, 0, 0); // Bug on Safari
+    transform: translate3d(0, 0, 0);
   }
 
   @mixin home-link($count) {
@@ -177,17 +192,7 @@ $HOME-LINK-PADDING: 0.5rem;
     }
 
     &.text {
-      position: absolute;
-      @include text;
-      color: white;
-      padding: 1rem 2rem 1rem 2rem;
-      text-align: center;
-      width: fit-content;
-      height: fit-content;
-      width: -moz-fit-content;
-      height: -moz-fit-content;
-      background-color: #00000088;
-      @include animate($what: background-color);
+      @include home-link-text;
     }
 
     &:hover img {
@@ -210,6 +215,15 @@ $HOME-LINK-PADDING: 0.5rem;
 
   &.collection-link {
     @include home-link(3);
+
+    &.text {
+      @include home-link-text;
+    }
+
+    &:hover &.text {
+      background-color: $TEXT-COLOR;
+      color: black;
+    }
   }
 
   &.description {
