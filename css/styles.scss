@@ -40,6 +40,11 @@ $WIDESCREEN-RATIO: calc(16 / 9);
 
 $HOME-LINK-PADDING: 0.5rem;
 
+*::selection {
+  color: white;
+  background-color: $COLOR-3;
+}
+
 @mixin on-pc {
   @media screen and (max-width: $SCREEN-PC) {
     @content;
