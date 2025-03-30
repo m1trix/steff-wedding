@@ -45,6 +45,11 @@ $SCREEN-PHONE: 480px;
 
 $HOME-LINK-PADDING: 0.5rem;
 
+*::selection {
+  color: white;
+  background-color: $COLOR-3;
+}
+
 @mixin on-screen($screen) {
   @media screen and (max-width: $screen) {
     @content;
@@ -142,6 +147,22 @@ $HOME-LINK-PADDING: 0.5rem;
   padding: $HOME-LINK-PADDING;
 }
 
+
+@mixin home-link-text {
+  @include text;
+  @include overlay-item-hoverless;
+  position: absolute;
+  color: white;
+  padding: 1rem 2rem 1rem 2rem;
+  text-align: center;
+  width: fit-content;
+  height: fit-content;
+  width: -moz-fit-content;
+  height: -moz-fit-content;
+  background-color: #00000088;
+  @include animate($what: background-color);
+}
+
 .home {
   &.intro {
     display: flex;
@@ -229,14 +250,7 @@ $HOME-LINK-PADDING: 0.5rem;
     }
 
     &.text {
-      position: absolute;
-      @include overlay-item-hoverless();
-      padding: 1rem 2rem 1rem 2rem;
-      text-align: center;
-      width: fit-content;
-      height: fit-content;
-      width: -moz-fit-content;
-      height: -moz-fit-content;
+      @include home-link-text;
     }
 
     &:hover img {
@@ -258,6 +272,15 @@ $HOME-LINK-PADDING: 0.5rem;
 
   &.collection-link {
     @include home-link(3);
+
+    &.text {
+      @include home-link-text;
+    }
+
+    &:hover &.text {
+      background-color: $TEXT-COLOR;
+      color: black;
+    }
   }
 
   &.description {
@@ -400,6 +423,11 @@ $HOME-LINK-PADDING: 0.5rem;
     @include on-tablet {
       flex-direction: column;
     }
+  }
+
+  &.details {
+    position: sticky;
+    top: 4rem;
   }
 
   &.text {
