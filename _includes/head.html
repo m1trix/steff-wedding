@@ -5,19 +5,19 @@
   {% seo title=false %}
 
   {% if page.sw-dress-photos %}
-  <meta property="og:image" content="{{ site.baseurl }}/assets/images/dresses/{{ page.sw-dress-id }}-{{ page.sw-dress-photos[0] }}-1280.JPG">
+  <meta property="og:image" content="{{ '/assets/images/dresses/' | append: page.sw-dress-id | append: '-' | append: page.sw-dress-photos[0] | append: '-1280.JPG' | absolute_url }}">
   {% endif %}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
 
-  <link rel="icon" href="{{ site.baseurl}}/assets/favicon.png">
-  <link rel="stylesheet" href="{{ '/css/styles.css' | relative_url }}"></link>
+  <link rel="icon" href="{{ '/assets/favicon.png' | absolute_url }}">
+  <link rel="stylesheet" href="{{ '/css/styles.css' | absolute_url }}"></link>
 
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
-  <script src="{{ site.baseurl }}/assets/js/utils.js"></script>
-  <script src="{{ site.baseurl }}/assets/js/sticky.js"></script>
-  <script src="{{ site.baseurl }}/assets/js/cookies.js"></script>
-  <script src="{{ site.baseurl }}/assets/js/http.js"></script>
+  <script src="{{ '/assets/js/utils.js' | absolute_url }}"></script>
+  <script src="{{ '/assets/js/sticky.js' | absolute_url }}"></script>
+  <script src="{{ '/assets/js/cookies.js' | absolute_url }}"></script>
+  <script src="{{ '/assets/js/http.js' | absolute_url }}"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ET036R6Y9G"></script>
   <script>
     // Init Google Analytics

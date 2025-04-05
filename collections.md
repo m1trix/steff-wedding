@@ -28,10 +28,15 @@ redirect_from:
       | last
     %}
     {% endif %}
-    <a class="home collection-link" href="{{ col.url }}">
+    <a class="home collection-link" href="{{ col.url | absolute_url }}">
       <picture>
-        <source media="(max-height: 899px)" srcset="{{ site.baseurl }}/assets/images/dresses/{{ dress.sw-dress-id }}-{{ dress.sw-dress-photos | first }}-640.JPG">
-        <img src="{{ site.baseurl }}/assets/images/dresses/{{ dress.sw-dress-id }}-{{ dress.sw-dress-photos | first }}-1280.JPG">
+        <source
+          media="(max-height: 899px)"
+          srcset="{{ '/assets/images/dresses/' | append: dress.sw-dress-id | append: '-' | append: dress.sw-dress-photos[0] | append: '-1280.JPG' | absolute_url }}"
+        >
+        <img
+          src="{{ '/assets/images/dresses/' | append: dress.sw-dress-id | append: '-' | append: dress.sw-dress-photos[0] | append: '-1280.JPG' }}"
+        >
       </picture>
       <div class="home collection-link text">{{ col.sw-collection-name }}</div>
       {% if discount %}

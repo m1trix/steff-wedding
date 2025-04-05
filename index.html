@@ -4,13 +4,13 @@ navStuck: true
 ---
 
 <div id="home-intro" class="home intro">
-  <img class="home logo" src="{{ site.baseurl }}/assets/logo.svg">
+  <img class="home logo" src="{{ '/assets/logo.svg' | absolute_url }}">
   <p class="home swogan">Осмели се да мечтаеш за нея!</p>
   <picture>
-    <source media="(max-width: 640px) and (max-height: 449px)" srcset="{{ site.baseurl }}/assets/images/banner-640.jpg">
-    <source media="(max-width: 1280px) and (max-height: 899px)" srcset="{{ site.baseurl }}/assets/images/banner-1280.jpg">
-    <source media="(max-width: 1920px) and (max-height: 1348px)" srcset="{{ site.baseurl }}/assets/images/banner-1920.jpg">
-    <img class="home cover" src="{{ site.baseurl }}/assets/images/banner.jpg">
+    <source media="(max-width: 640px) and (max-height: 449px)" srcset="{{ '/assets/images/banner-640.jpg' | absolute_url }}">
+    <source media="(max-width: 1280px) and (max-height: 899px)" srcset="{{ '/assets/images/banner-1280.jpg' | absolute_url }}">
+    <source media="(max-width: 1920px) and (max-height: 1348px)" srcset="{{ '/assets/images/banner-1920.jpg' | absolute_url }}">
+    <img class="home cover" src="{{ '/assets/images/banner.jpg' | absolute_url }}">
   </picture>
   <button id="scroll-button" class="button">Напред</button>
 </div>
@@ -46,10 +46,10 @@ navStuck: true
       | last
     %}
     {% endif %}
-    <a class="home link" href="{{ site.baseurl }}/collections">
+    <a class="home link" href="{{ '/collections' | absolute_url }}">
       <picture>
-        <source media="(max-with: 1280px)" srcset="{{ site.baseurl }}/assets/images/dresses/jacket-close-2-640.JPG">
-        <img src="{{ site.baseurl }}/assets/images/dresses/jacket-close-2-1280.JPG">
+        <source media="(max-with: 1280px)" srcset="{{ '/assets/images/dresses/jacket-close-2-640.JPG' | absolute_url }}">
+        <img src="{{ '/assets/images/dresses/jacket-close-2-1280.JPG' | absolute_url }}">
       </picture>
       <div class="home link text">Колекции</div>
       {% if discount %}
@@ -57,11 +57,11 @@ navStuck: true
       {% endif %}
     </a>
 
-    <a class="home link" href="{{ site.baseurl }}/organize">
+    <a class="home link" href="{{ '/organize' | absolute_url }}">
       <picture>
-        <source media="(max-width: 1280px)" srcset="{{ site.baseurl }}/assets/images/organize-640.jpg">
-        <source media="(max-width: 2560px)" srcset="{{ site.baseurl }}/assets/images/organize-1280.jpg">
-        <img src="{{ site.baseurl }}/assets/images/organize-1920.jpg">
+        <source media="(max-width: 1280px)" srcset="{{ '/assets/images/organize-640.jpg' | absolute_url }}">
+        <source media="(max-width: 2560px)" srcset="{{ '/assets/images/organize-1280.jpg' | absolute_url }}">
+        <img src="{{ '/assets/images/organize-1920.jpg' | absolute_url }}">
       </picture>
       <div class="home link text">Организация</div>
     </a>
@@ -77,6 +77,6 @@ navStuck: true
 {% include background.html %}
 <script>
   document.getElementById('contacts-link').addEventListener('click', () => {
-    window.location.href = "{{ site.baseurl }}/contacts";
+    window.location.href = "{{ '/contacts' | absolute_url }}";
   });
 </script>

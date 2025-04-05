@@ -30,6 +30,6 @@ description: Свържи се с нас, за да ни разкажеш как
 
 <script>
   document.getElementById('contacts-link').addEventListener('click', () => {
-    window.location.href="{{ site.baseurl }}/contacts";
+    window.location.href="{{ '/contacts' | absolute_url }}";
   });
 </script>
