@@ -1,14 +1,14 @@
 <footer class="footer container">
   <p class="footer social">
     <a href="https://www.facebook.com/Steff.Wedding/" target="_blank"><img
-        src="{{ site.baseurl }}/assets/images/facebook-icon.svg" style="height: 1.5rem"></a>
+        src="{{ '/assets/images/facebook-icon.svg' | absolute_url }}" style="height: 1.5rem"></a>
     <a href="https://www.instagram.com/steff.wedding/" target="_blank"><img
-        src="{{ site.baseurl }}/assets/images/instagram-icon.svg" style="height: 1.5rem"></a>
+        src="{{ '/assets/images/instagram-icon.svg' | absolute_url }}" style="height: 1.5rem"></a>
   </p>
   <div class="footer sites hbox center">
-    <a href="{{ site.baseurl }}/privacy-policy">Политика за Поверителност</a>
-    <div> | <a href="{{ site.baseurl }}/cookie-policy">Политика за Бисквитки</a></div>
-    <div> | <a href="{{ site.baseurl }}/contacts">Контакти</a></div>
+    <a href="{{ '/privacy-policy' | absolute_url }}">Политика за Поверителност</a>
+    <div> | <a href="{{ '/cookie-policy' | absolute_url }}">Политика за Бисквитки</a></div>
+    <div> | <a href="{{ '/contacts' | absolute_url }}">Контакти</a></div>
   </div>
   <p class="footer text">&copy; 2021-{{ site.time | date: '%Y' }} Steff Wedding</p>
 </footer>

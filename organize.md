@@ -40,7 +40,7 @@ dependencies:
 
 <script>
   document.getElementById('contacts-link').addEventListener('click', () => {
-    window.location.href="{{ site.baseurl }}/contacts";
+    window.location.href="{{ '/contacts' | absolute_url }}";
   });
 
   const galerry = document.getElementById('gallery');
