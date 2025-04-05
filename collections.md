@@ -32,10 +32,10 @@ redirect_from:
       <picture>
         <source
           media="(max-height: 899px)"
-          srcset="{{ '/assets/images/dresses/' | append: dress.sw-dress-id | append: '-' | append: dress.sw-dress-photos[0] | append: '-1280.JPG' | absolute_url }}"
+          srcset="{{ '/assets/images/dresses/' | append: dress.sw-dress-id | append: '-' | append: dress.sw-dress-photos[0] | append: '-640.JPG' | absolute_url }}"
         >
         <img
-          src="{{ '/assets/images/dresses/' | append: dress.sw-dress-id | append: '-' | append: dress.sw-dress-photos[0] | append: '-1280.JPG' }}"
+          src="{{ '/assets/images/dresses/' | append: dress.sw-dress-id | append: '-' | append: dress.sw-dress-photos[0] | append: '-1280.JPG' | absolute_url }}"
         >
       </picture>
       <div class="home collection-link text">{{ col.sw-collection-name }}</div>
