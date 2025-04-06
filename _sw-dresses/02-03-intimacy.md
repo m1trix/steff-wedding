@@ -22,5 +22,6 @@ sw-dress-photos:
 title: *title
 description: *desc
 layout: dress
+image: /assets/images/dresses/intimacy-cover-1280.JPG
 permalink: /dresses/intimacy
 ---

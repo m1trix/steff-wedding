@@ -23,5 +23,6 @@ sw-dress-photos:
 title: *title
 description: *desc
 layout: dress
+image: /assets/images/dresses/virtue-cover-1280.JPG
 permalink: /dresses/virtue
 ---

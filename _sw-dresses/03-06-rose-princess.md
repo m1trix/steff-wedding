@@ -20,5 +20,6 @@ sw-dress-photos:
 title: *title
 description: *desc
 layout: dress
+image: /assets/images/dresses/rose-princess-front-1280.JPG
 permalink: /dresses/rose-princess
 ---

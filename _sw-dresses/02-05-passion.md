@@ -22,5 +22,6 @@ sw-dress-photos:
 title: *title
 description: *desc
 layout: dress
+image: /assets/images/dresses/passion-cover-1280.JPG
 permalink: /dresses/passion
 ---

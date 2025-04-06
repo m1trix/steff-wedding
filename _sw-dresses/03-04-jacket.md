@@ -19,5 +19,6 @@ sw-dress-photos:
 title: *title
 description: *desc
 layout: dress
+image: /assets/images/dresses/jacket-close-2-1280.JPG
 permalink: /dresses/jacket
 ---

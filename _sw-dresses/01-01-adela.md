@@ -20,5 +20,6 @@ sw-dress-photos:
 layout: dress
 title: *title
 description: *desc
+image: /assets/images/dresses/adela-front-1280.JPG
 permalink: /dresses/adela
 ---

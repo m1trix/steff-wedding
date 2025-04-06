@@ -25,5 +25,6 @@ sw-dress-photos:
 title: *title
 description: *desc
 layout: dress
+image: /assets/images/dresses/delicate-leaf-charm-front-1280.JPG
 permalink: /dresses/delicate-leaf-charm
 ---
