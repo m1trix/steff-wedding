@@ -23,5 +23,6 @@ sw-dress-photos:
 title: *title
 description: *desc
 layout: dress
+image: /assets/images/dresses/dementer-front-1280.JPG
 permalink: /dresses/dementer
 ---

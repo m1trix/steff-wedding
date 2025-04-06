@@ -1,12 +1,5 @@
 <head>
-  <title>
-    {% if page.title %}{{ page.title }} | {% endif %}{% if layout.title %}{{ layout.title }} | {% endif %}{{ site.title }} | {{ site.tagline }}
-  </title>
-  {% seo title=false %}
-
-  {% if page.sw-dress-photos %}
-  <meta property="og:image" content="{{ '/assets/images/dresses/' | append: page.sw-dress-id | append: '-' | append: page.sw-dress-photos[0] | append: '-1280.JPG' | absolute_url }}">
-  {% endif %}
+  {% seo %}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
 

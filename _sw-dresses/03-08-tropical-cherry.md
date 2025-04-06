@@ -21,5 +21,6 @@ sw-dress-photos:
 title: *title
 description: *desc
 layout: dress
+image: /assets/images/dresses/tropical-cherry-front-1280.JPG
 permalink: /dresses/tropical-cherry
 ---

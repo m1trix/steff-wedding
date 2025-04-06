@@ -2,7 +2,7 @@
 sw-collection-id: tender-is-the-touch
 sw-collection-name: &title Tender is the Touch
 sw-collection-cover: obsession
-sw-collection-swogan: |-
+sw-collection-swogan: &swogan |-
   "Докосване. Може би една от най-нежните и въздействащи думички, когато става въпрос за любов, материя за булченска рокля и цялостно усещане."
     - Mia Chael
 sw-collection-description: |-
@@ -16,6 +16,9 @@ sw-collection-designer-photo: mia-chael
 
 layout: collection
 customTitle: *title
+title: *title
+tagline: *swogan
 description: Колекция Tender is the Touch ексклузивно за Steff Wedding съвместно Mia Chael
+image: /assets/images/dresses/obsession-front-1280.JPG
 permalink: /collections/tender-is-the-touch
 ---
