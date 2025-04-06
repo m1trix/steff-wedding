@@ -1,14 +1,5 @@
 <head>
-  {% seo
-    title=page.title
-    tagline=page.swogan
-    description=page.description
-    logo='/assets/logo.svg'
-  %}
-
-  {% if page.sw-dress-photos %}
-  <meta property="og:image" content="{{ '/assets/images/dresses/' | append: page.sw-dress-id | append: '-' | append: page.sw-dress-photos[0] | append: '-1280.JPG' | absolute_url }}">
-  {% endif %}
+  {% seo %}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
 

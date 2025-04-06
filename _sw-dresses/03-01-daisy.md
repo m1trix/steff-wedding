@@ -21,5 +21,6 @@ title: *title
 description: *desc
 layout: dress
 permalink: /dresses/daisy
+image: /assets/images/dresses/daisy-head-1280.JPG
 title: Daisy
 ---

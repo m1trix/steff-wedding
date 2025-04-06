@@ -19,5 +19,6 @@ sw-dress-photos:
 title: *title
 description: *desc
 layout: dress
+image: /assets/images/dresses/its-official-head-1280.JPG
 permalink: /dresses/its-official
 ---

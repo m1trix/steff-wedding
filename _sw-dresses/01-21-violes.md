@@ -21,5 +21,6 @@ sw-dress-photos:
 title: *title
 description: *desc
 layout: dress
+image: /assets/images/dresses/violes-front-1280.JPG
 permalink: /dresses/violes
 ---

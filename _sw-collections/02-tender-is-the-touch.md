@@ -19,5 +19,6 @@ customTitle: *title
 title: *title
 tagline: *swogan
 description: Колекция Tender is the Touch ексклузивно за Steff Wedding съвместно Mia Chael
+image: /assets/images/dresses/obsession-front-1280.JPG
 permalink: /collections/tender-is-the-touch
 ---
