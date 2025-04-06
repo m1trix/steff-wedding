@@ -1,8 +1,10 @@
 <head>
-  <title>
-    {% if page.title %}{{ page.title }} | {% endif %}{% if layout.title %}{{ layout.title }} | {% endif %}{{ site.title }} | {{ site.tagline }}
-  </title>
-  {% seo title=false %}
+  {% seo
+    title=page.title
+    tagline=page.swogan
+    description=page.description
+    logo='/assets/logo.svg'
+  %}
 
   {% if page.sw-dress-photos %}
   <meta property="og:image" content="{{ '/assets/images/dresses/' | append: page.sw-dress-id | append: '-' | append: page.sw-dress-photos[0] | append: '-1280.JPG' | absolute_url }}">

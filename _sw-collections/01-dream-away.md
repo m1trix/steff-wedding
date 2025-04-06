@@ -5,6 +5,7 @@ sw-collection-cover: magnificent
 
 layout: collection
 customTitle: *title
+title: *title
 description: Специална селекция от луксозни бутикови рокли в бохо, винтидж и ръстик стил
 permalink: /collections/dream-away
 ---

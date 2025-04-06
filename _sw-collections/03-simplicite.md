@@ -5,5 +5,6 @@ sw-collection-cover: jacket
 
 layout: collection
 customTitle: *title
+title: *title
 permalink: /collections/simplicite
 ---
