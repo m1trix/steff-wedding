@@ -29,6 +29,7 @@ SteffWedding.com използва бисквитки за да разбере к
       <button id="manage-fbp-cookies" class="toggle" onclick="this.dataset.active = this.dataset.active === 't' ? 'f' : 't'"></button>
     </div>
     <button id="save-cookies" class="button">Запази</button>
+    <div id="save-message" style="visibility: hidden; opacity: 0; transition: opacity 0.25s ease;">Настройките са запазени успешно!</div>
   </div>
 </div>
 
@@ -36,6 +37,7 @@ SteffWedding.com използва бисквитки за да разбере к
   const gaCookiesButton = document.getElementById('manage-ga-cookies');
   const fbpCookiesButton = document.getElementById('manage-fbp-cookies');
   const saveCookiesButton = document.getElementById('save-cookies');
+  const saveMessage = document.getElementById('save-message');
 
   const settings = getCookieSettings();
   gaCookiesButton.dataset.active = settings.gtag ? 't' : 'f';
@@ -46,5 +48,12 @@ SteffWedding.com използва бисквитки за да разбере к
       fbpCookiesButton.dataset.active === 't',
       gaCookiesButton.dataset.active === 't'
     );
+
+    saveMessage.style.visibility = 'visible';
+    saveMessage.style.opacity = '1';
+    setTimeout(() => {
+      saveMessage.style.visibility = 'hidden';
+      saveMessage.style.opacity = '0';
+    }, 3000);
   });
 </script>
