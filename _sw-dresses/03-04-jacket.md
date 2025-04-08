@@ -6,7 +6,7 @@ sw-dress-producer: Amelii
 sw-dress-colors:
   - слонова кост
 sw-dress-sizes: от XS до XXL
-sw-dress-modelSize: M, слонова кост
+sw-dress-model-size: M, слонова кост
 sw-dress-price: 460
 sw-dress-description: &desc |-
   Сако с изцяло ръчна бродерия и обемни ръкави.

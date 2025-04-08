@@ -7,7 +7,7 @@ sw-dress-producer: Steff Wedding
 sw-dress-colors:
   - по желание
 sw-dress-sizes: от XS до 5XL
-sw-dress-modelSize: M, шампанско
+sw-dress-model-size: M, шампанско
 sw-dress-price: 1290
 sw-dress-description: &desc |-
   Визия, която прави комплимент на традиционния сватбен стил, но с лек бохо и винтидж дух. Obsession е от дизайните, към които трудно ще останеш безразлична. Тя се носи гордо и смело, защото кралската й осанка е достатъчна да те зареди със самочувствието и увереността, които заслужаваш. 

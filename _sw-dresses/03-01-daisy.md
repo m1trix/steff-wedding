@@ -6,7 +6,7 @@ sw-dress-producer: Iryna Kotapska
 sw-dress-colors:
   - слонова кост
 sw-dress-sizes: от XS до 5XL
-sw-dress-modelSize: M, слонова кост
+sw-dress-model-size: M, слонова кост
 sw-dress-price: 2200
 sw-dress-description: &desc |-
   Елегантен шик, облян в блясък. Тази рокля в стил Гетсби и кройка тип „русалка“ ще те облече в истински лукс. Описваща женствените ти извивки, роклята ще омагьоса всички погледи!

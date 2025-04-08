@@ -6,7 +6,7 @@ sw-dress-producer: Iryna Kotapska
 sw-dress-colors:
   - слонова кост
 sw-dress-sizes: от XS до 5XL
-sw-dress-modelSize: S, слонова кост
+sw-dress-model-size: S, слонова кост
 sw-dress-price: 1250
 sw-dress-description: &desc |-
   Рокля по тялото с тънки презрамки и предизвикателна линия. Изцяло от сатен, този модел прегръща тялото, за да удовлетвори мечтите на булката, която иска да се отличи със собствен стил, шик визия и непокорство.

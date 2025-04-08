@@ -11,7 +11,7 @@ sw-dress-colors:
   - тъмно кафяв
   - сив
 sw-dress-sizes: от XS до XXL
-sw-dress-modelSize: L, бежав
+sw-dress-model-size: L, бежав
 sw-dress-price: 2350
 sw-dress-description: &desc |-
   Деликатна рокля, акцентираща върху богата 3-D дантелата, която съчетава идеално винтидж и бохо стила. Изяществото на дизайна се завършва от впечатляващ шлейф. 
