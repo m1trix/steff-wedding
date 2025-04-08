@@ -1,0 +1,25 @@
+---
+sw-dress-id: emily
+sw-dress-name: &title Emily
+sw-dress-collection-id: dream-away
+sw-dress-producer: Aria Bride
+sw-dress-colors:
+  - слонова кост
+sw-dress-sizes: от XS до 5XL
+sw-dress-model-size: M, слонова кост
+sw-dress-price: 1890
+sw-dress-description: &desc |-
+  Този стил е идеалният баланс между бохо елементите и съвременния лукс. Мекият корсаж с V-образно деколте е изработен от блестяща материя и украсен с прозрачна подплата с пайети. 3D цветна дантела с перли е разпръсната около корсажа и линията на талията. Ефирна пола от тюл създава обемна A-силуетна линия. Тънки презрамки с изящни перли галят раменете до гърба на роклята, завършен с цип.  
+  
+  Възможни са леки промени по дизайна.
+sw-dress-photos:
+  - front
+  - back
+  - close
+
+title: *title
+description: *desc
+layout: dress
+image: /assets/images/dresses/emily-front-1280.JPG
+permalink: /dresses/emily
+---

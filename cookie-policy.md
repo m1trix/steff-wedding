@@ -5,6 +5,8 @@ disableCookieDisclaimer: true
 pageClass: paragraph
 title: Политика за Бисквитки
 hideTitle: true
+sitemap: false
+description: Бисквитките са малки късчета информация, които уеб сайтовете съхраняват в браузърите на всеки потребител
 ---
 
 # Какво представляват бисквитките?
@@ -17,16 +19,17 @@ SteffWedding.com използва бисквитки за да разбере к
 Според регламента за защита на личните данни на Европейския Съюз (GDPR) SteffWedding.com има нужда от изричното съгласие на всеки отделен потребител за да съхранява бисквитки.
 
 <div class="vbox center">
-  <div class="vbox">
-    <div class="hbox">
+  <div class="vbox" style="align-items: center">
+    <div class="hbox" style="width: 12rem; justify-content: right">
       <div class="text">Google Analytics:</div>
       <button id="manage-ga-cookies" class="toggle" onclick="this.dataset.active = this.dataset.active === 't' ? 'f' : 't'"></button>
     </div>
-    <div class="hbox">
+    <div class="hbox" style="width: 12rem; justify-content: right">
       <div class="text">Facebook Pixel:</div>
       <button id="manage-fbp-cookies" class="toggle" onclick="this.dataset.active = this.dataset.active === 't' ? 'f' : 't'"></button>
     </div>
     <button id="save-cookies" class="button">Запази</button>
+    <div id="save-message" style="visibility: hidden; opacity: 0; transition: opacity 0.25s ease;">Настройките са запазени успешно!</div>
   </div>
 </div>
 
@@ -34,6 +37,7 @@ SteffWedding.com използва бисквитки за да разбере к
   const gaCookiesButton = document.getElementById('manage-ga-cookies');
   const fbpCookiesButton = document.getElementById('manage-fbp-cookies');
   const saveCookiesButton = document.getElementById('save-cookies');
+  const saveMessage = document.getElementById('save-message');
 
   const settings = sw.settings.getCookieSettings();
   gaCookiesButton.dataset.active = settings.gtag ? 't' : 'f';
@@ -44,5 +48,12 @@ SteffWedding.com използва бисквитки за да разбере к
       fbpCookiesButton.dataset.active === 't',
       gaCookiesButton.dataset.active === 't'
     );
+
+    saveMessage.style.visibility = 'visible';
+    saveMessage.style.opacity = '1';
+    setTimeout(() => {
+      saveMessage.style.visibility = 'hidden';
+      saveMessage.style.opacity = '0';
+    }, 3000);
   });
 </script>

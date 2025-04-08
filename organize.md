@@ -4,6 +4,7 @@ layout: article
 permalink: /organize
 image: organize
 image-alt: Организация
+description: Свържи се с нас, за да ни разкажеш каква сватба си представяте и заедно ще направим така, че вашата любов и енергия да струят от всеки елемент в деня
 dependencies:
   - type: css
     url: https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css
@@ -39,7 +40,7 @@ dependencies:
 
 <script>
   document.getElementById('contacts-link').addEventListener('click', () => {
-    window.location.href="{{ site.baseurl }}/contacts";
+    window.location.href="{{ '/contacts' | absolute_url }}";
   });
 
   const galerry = document.getElementById('gallery');

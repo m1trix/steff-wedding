@@ -10,7 +10,7 @@ title: Рокли
     {{ page.sw-dress-description | newline_to_br }}
     <p class="text center">
       <b>Колекция</b><br />
-      <a class="link" href="{{ collection.url }}">{{ collection.sw-collection-name }}</a>
+      <a class="link" href="{{ collection.url | absolute_url }}">{{ collection.sw-collection-name }}</a>
     </p>
     {% if page.sw-dress-designer %}
     <p class="text center">
@@ -24,122 +24,130 @@ title: Рокли
       {{ page.sw-dress-producer }}
     </p>
     {% endif %}
-    <p class="text center">
-      <b>Размери</b><br />
-      {{ page.sw-dress-sizes }}
-    </p>
-    <p class="text center">
-      <b>Цветове</b><br />
-      {{ page.sw-dress-colors | join: ', '}}
-    </p>
-    <p class="text center">
-      <b>Модел на снимките</b><br />
-      {{ page.sw-dress-modelSize }}
-    </p>
-    <p class="text center">
-      <b>Цена</b><br />
-      {% if site.data.offer %}
-      {%
-        assign allDiscounts = site.data.offer.discounts
-        | where_exp: "item",
-          "
-            item.collections == '*'
-            or item.collections == page.sw-dress-collection-id
-            or item.collections contains page.sw-dress-collection-id
-          "
-        | where_exp: "item",
-          "
-            item.dresses == '*'
-            or item.dresses == page.sw-dress-id
-            or item.dresses contains page.sw-dress-id
-          "
-      %}
+    <div class="dress details">
+      <p class="text center">
+        <b>Размери</b><br />
+        {{ page.sw-dress-sizes }}
+      </p>
+      <p class="text center">
+        <b>Цветове</b><br />
+        {{ page.sw-dress-colors | join: ', '}}
+      </p>
+      <p class="text center">
+        <b>Модел на снимките</b><br />
+        {{ page.sw-dress-model-size }}
+      </p>
+      <p class="text center">
+        <b>Цена</b><br />
+        {% if site.data.offer %}
+        {%
+          assign allDiscounts = site.data.offer.discounts
+          | where_exp: "item",
+            "
+              item.collections == '*'
+              or item.collections == page.sw-dress-collection-id
+              or item.collections contains page.sw-dress-collection-id
+            "
+          | where_exp: "item",
+            "
+              item.dresses == '*'
+              or item.dresses == page.sw-dress-id
+              or item.dresses contains page.sw-dress-id
+            "
+        %}
 
-      {%
-        assign newDiscount = allDiscounts
-        | where_exp: "item",
-          "
-            item.types == '*'
-            or item.types == 'new'
-            or item.types contains 'new'
-          "
-        | sort: "amount"
-        | map: "amount"
-        | last
-      %}
+        {%
+          assign newDiscount = allDiscounts
+          | where_exp: "item",
+            "
+              item.types == '*'
+              or item.types == 'new'
+              or item.types contains 'new'
+            "
+          | sort: "amount"
+          | map: "amount"
+          | last
+        %}
 
-      {%
-        assign sampleDiscount = allDiscounts
-        | where_exp: "item",
-          "
-            item.types == '*'
-            or item.types == 'sample'
-            or item.types contains 'sample'
-          "
-        | sort: "amount"
-        | map: "amount"
-        | last
-      %}
-      {% endif %}
-
-      {% if newDiscount or sampleDiscount %}
-      <span><s>{{ page.sw-dress-price }} лв</s></span>
-      <div class="vbox center">
-        {% if newDiscount and sampleDiscount and newDiscount >= sampleDiscount %}
-          {%
-            assign newPrice = 100
-            | minus: newDiscount
-            | divided_by: 100.0
-            | times: page.sw-dress-price
-            | floor
-          %}
-        <div class="hbox center">
-          <div class="discount-tag-compact">-{{ newDiscount }}%</div>
-          <div>за нова рокля: {{ newPrice }} лв</div>
-        </div>
+        {%
+          assign sampleDiscount = allDiscounts
+          | where_exp: "item",
+            "
+              item.types == '*'
+              or item.types == 'sample'
+              or item.types contains 'sample'
+            "
+          | sort: "amount"
+          | map: "amount"
+          | last
+        %}
         {% endif %}
 
-        {% if sampleDiscount %}
-          {%
-            assign newPrice = 100
-            | minus: sampleDiscount
-            | divided_by: 100.0
-            | times: page.sw-dress-price
-            | floor
-          %}
-        <div class="hbox center">
-          <div class="discount-tag-compact">-{{ sampleDiscount }}%</div>
-          <div>за мостра: {{ newPrice }} лв</div>
-        </div>
-        {% endif %}
+        {% if newDiscount or sampleDiscount %}
+        <span><s>{{ page.sw-dress-price }} лв</s></span>
+        <div class="vbox center">
+          {% if newDiscount and sampleDiscount and newDiscount >= sampleDiscount %}
+            {%
+              assign newPrice = 100
+              | minus: newDiscount
+              | divided_by: 100.0
+              | times: page.sw-dress-price
+              | floor
+            %}
+          <div class="hbox center">
+            <div class="discount-tag-compact">-{{ newDiscount }}%</div>
+            <div>за нова рокля: {{ newPrice }} лв</div>
+          </div>
+          {% endif %}
 
-        {% if newDiscount and newDiscount < sampleDiscount or sampleDiscount == nil %}
-          {%
-            assign newPrice = 100
-            | minus: newDiscount
-            | divided_by: 100.0
-            | times: page.sw-dress-price
-            | floor
-          %}
-        <div class="hbox center">
-          <div class="discount-tag-compact">-{{ newDiscount }}%</div>
-          <div>за нова рокля: {{ newPrice }} лв</div>
+          {% if sampleDiscount %}
+            {%
+              assign newPrice = 100
+              | minus: sampleDiscount
+              | divided_by: 100.0
+              | times: page.sw-dress-price
+              | floor
+            %}
+          <div class="hbox center">
+            <div class="discount-tag-compact">-{{ sampleDiscount }}%</div>
+            <div>за мостра: {{ newPrice }} лв</div>
+          </div>
+          {% endif %}
+
+          {% if newDiscount and newDiscount < sampleDiscount or sampleDiscount == nil %}
+            {%
+              assign newPrice = 100
+              | minus: newDiscount
+              | divided_by: 100.0
+              | times: page.sw-dress-price
+              | floor
+            %}
+          <div class="hbox center">
+            <div class="discount-tag-compact">-{{ newDiscount }}%</div>
+            <div>за нова рокля: {{ newPrice }} лв</div>
+          </div>
+          {% endif %}
         </div>
+        {% else %}
+        <span>{{ page.sw-dress-price }} лв</span>
         {% endif %}
-      </div>
-      {% else %}
-      <span>{{ page.sw-dress-price }} лв</span>
-      {% endif %}
-    </p>
+      </p>
+    </div>
   </article>
   <div class="dress images">
     {% for photo in page.sw-dress-photos %}
     <picture>
-      <source media="(max-width: 640px)"
-        srcset="{{ site.baseurl }}/assets/images/dresses/{{ page.sw-dress-id }}-{{ photo }}-640.JPG">
-      <source media="(min-width: 788px) and (max-width: 960px)"
-        srcset="{{ site.baseurl }}/assets/images/dresses/{{ page.sw-dress-id }}-{{ photo }}-640.JPG">
-      <img src="{{ site.baseurl }}/assets/images/dresses/{{ page.sw-dress-id }}-{{ photo }}-1280.JPG">
+      <source
+        media="(max-width: 640px)"
+        srcset="{{ '/assets/images/dresses/' | append: page.sw-dress-id | append: '-' | append: photo | append: '-640.JPG' | absolute_url }}"
+      >
+      <source
+        media="(min-width: 788px) and (max-width: 960px)"
+        srcset="{{ '/assets/images/dresses/' | append: page.sw-dress-id | append: '-' | append: photo | append: '-640.JPG' | absolute_url }}"
+      >
+      <img
+        src="{{ '/assets/images/dresses/' | append: page.sw-dress-id | append: '-' | append: photo | append: '-1280.JPG' | absolute_url }}"
+      >
     </picture>
     {% endfor %}
   </div>

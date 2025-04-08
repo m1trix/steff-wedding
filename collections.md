@@ -6,9 +6,10 @@ redirect_from:
   - /dresses
 ---
 
-<main class="layout">
+<main class="layout home-link-container">
   <div>
-  {% for col in site.sw-collections %}
+  {% assign all-collections = site.sw-collections | reverse %}
+  {% for col in all-collections %}
     {%
       assign dress = site.sw-dresses
       | find: 'sw-dress-id', col.sw-collection-cover
@@ -27,12 +28,17 @@ redirect_from:
       | last
     %}
     {% endif %}
-    <a class="home link" href="{{ col.url }}">
+    <a class="home collection-link" href="{{ col.url | absolute_url }}">
       <picture>
-        <source media="(max-height: 899px)" srcset="{{ site.baseurl }}/assets/images/dresses/{{ dress.sw-dress-id }}-{{ dress.sw-dress-photos | first }}-640.JPG">
-        <img src="{{ site.baseurl }}/assets/images/dresses/{{ dress.sw-dress-id }}-{{ dress.sw-dress-photos | first }}-1280.JPG">
+        <source
+          media="(max-height: 899px)"
+          srcset="{{ '/assets/images/dresses/' | append: dress.sw-dress-id | append: '-' | append: dress.sw-dress-photos[0] | append: '-640.JPG' | absolute_url }}"
+        >
+        <img
+          src="{{ '/assets/images/dresses/' | append: dress.sw-dress-id | append: '-' | append: dress.sw-dress-photos[0] | append: '-1280.JPG' | absolute_url }}"
+        >
       </picture>
-      <div class="home link text">{{ col.sw-collection-name }}</div>
+      <div class="home collection-link text">{{ col.sw-collection-name }}</div>
       {% if discount %}
       <div class="discount-tag">
         Отстъпки до {{discount}}%
