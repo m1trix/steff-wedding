@@ -7,7 +7,7 @@ sw-dress-colors:
   - слонова кост
   - бежав
 sw-dress-sizes: от XS до 6XL
-sw-dress-modelSize: L, бежав
+sw-dress-model-size: L, бежав
 sw-dress-price: 1660
 sw-dress-description: &desc |-
   Феерична рокля от две части - нежната тюлена пола с шлейф се премахва, за да открие женствена къса рокля, с която може да завършите вечерта.  

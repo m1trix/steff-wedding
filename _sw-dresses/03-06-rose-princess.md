@@ -6,7 +6,7 @@ sw-dress-producer: Iryna Kotapska
 sw-dress-colors:
   - слонова кост
 sw-dress-sizes: от XS до 5XL
-sw-dress-modelSize: M, слонова кост
+sw-dress-model-size: M, слонова кост
 sw-dress-price: 1680
 sw-dress-description: &desc |-
   Традиционен модел рокля с щипка розова закачка и нежен колан. Този уникален модел с корсет ще удовлетвори мечтите на всяко момиче, което иска да се види като истинска принцеса на сватбения си ден!
