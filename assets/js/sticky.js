@@ -18,11 +18,11 @@ class StickyElement {
     this.original = original;
     this.query = query;
     this.classes = classes;
-    this.updateState();
-
     this.isStuck = false;
     this.state = {};
     this.replacement = undefined;
+
+    this.updateState();
   }
 
   updateState() {
@@ -39,7 +39,6 @@ class StickyElement {
 }
 
 class StickService {
-
   constructor() {
     this._aElements = [];
     window.addEventListener('scroll', () => this._onChange());
