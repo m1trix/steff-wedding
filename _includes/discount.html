@@ -1,6 +1,6 @@
 {% if site.data.offer %}
 <div class="discount-banner">
   {{ site.data.offer.description | newline_to_br }}
-  <a href="{{ '/collections' | absolute_url }}">към колекции</a>
+  <a href="{{ '/collections' | relative_url }}">към колекции</a>
 </div>
 {% endif %}

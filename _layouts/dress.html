@@ -10,7 +10,7 @@ title: Рокли
     {{ page.sw-dress-description | newline_to_br }}
     <p class="text center">
       <b>Колекция</b><br />
-      <a class="link" href="{{ collection.url | absolute_url }}">{{ collection.sw-collection-name }}</a>
+      <a class="link" href="{{ collection.url | relative_url }}">{{ collection.sw-collection-name }}</a>
     </p>
     {% if page.sw-dress-designer %}
     <p class="text center">
@@ -139,14 +139,14 @@ title: Рокли
     <picture>
       <source
         media="(max-width: 640px)"
-        srcset="{{ '/assets/images/dresses/' | append: page.sw-dress-id | append: '-' | append: photo | append: '-640.JPG' | absolute_url }}"
+        srcset="{{ '/assets/images/dresses/' | append: page.sw-dress-id | append: '-' | append: photo | append: '-640.JPG' | relative_url }}"
       >
       <source
         media="(min-width: 788px) and (max-width: 960px)"
-        srcset="{{ '/assets/images/dresses/' | append: page.sw-dress-id | append: '-' | append: photo | append: '-640.JPG' | absolute_url }}"
+        srcset="{{ '/assets/images/dresses/' | append: page.sw-dress-id | append: '-' | append: photo | append: '-640.JPG' | relative_url }}"
       >
       <img
-        src="{{ '/assets/images/dresses/' | append: page.sw-dress-id | append: '-' | append: photo | append: '-1280.JPG' | absolute_url }}"
+        src="{{ '/assets/images/dresses/' | append: page.sw-dress-id | append: '-' | append: photo | append: '-1280.JPG' | relative_url }}"
       >
     </picture>
     {% endfor %}
