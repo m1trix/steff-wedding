@@ -16,6 +16,7 @@ plugins:
   - jekyll-redirect-from
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-minifier
 
 sass:
   sass_dir: _sass
@@ -29,3 +30,10 @@ collections:
   sw-dresses:
     output: true
     permalink: /dresses/:name
+
+jekyll-minifier:
+  compress_css: true
+  compress_javascript: true
+  compress_json: true
+  uglifier_args:
+    harmony: true
