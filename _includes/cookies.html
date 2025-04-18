@@ -20,7 +20,7 @@
   });
 
   manageCookiesButton.addEventListener('click', () => {
-    window.location.href = "{{ 'cookie-policy' | absolute_url }}"
+    window.location.href = "{{ 'cookie-policy' | relative_url }}"
   });
 
   if (!getCookieSettings().confirmed) {

@@ -82,7 +82,7 @@ $HOME-LINK-PADDING: 0.5rem;
 }
 
 .divider {
-  background-image: url("{{ '/assets/divider.svg' | absolute_url }}");
+  background-image: url("{{ '/assets/divider.svg' | relative_url }}");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -547,7 +547,7 @@ $HOME-LINK-PADDING: 0.5rem;
 
     &::before {
       content: '';
-      background-image: url('{{ icon-path | absolute_url }}');
+      background-image: url('{{ icon-path | relative_url }}');
       background-size: contain;
       background-repeat: no-repeat;
       height: 1.5rem;
