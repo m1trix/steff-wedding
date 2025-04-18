@@ -39,8 +39,8 @@ hideTitle: true
     | last
   %}
   {% endif %}
-  <a class="galery image" href="{{ dress.url | absolute_url }}">
-    <img src="{{ '/assets/images/dresses/' | append: dress.sw-dress-id | append: '-' | append: dress.sw-dress-photos[0] | append: '-640.JPG' | absolute_url }}">
+  <a class="galery image" href="{{ dress.url | relative_url }}">
+    <img src="{{ '/assets/images/dresses/' | append: dress.sw-dress-id | append: '-' | append: dress.sw-dress-photos[0] | append: '-640.JPG' | relative_url }}">
     <span class="title">{{ dress.sw-dress-name }}</span>
     {% if discount %}
     <div class="discount-tag">До -{{discount}}%</div>
@@ -56,11 +56,11 @@ hideTitle: true
   <div class="article image-container">
     <picture>
       <source media="(max-width: 1920px) and (max-height: 982px)"
-        srcset="{{ '/assets/images/' | append: page.sw-collection-designer-photo | append: '-640.JPG' | absolute_url }}">
+        srcset="{{ '/assets/images/' | append: page.sw-collection-designer-photo | append: '-640.JPG' | relative_url }}">
       <source media="(max-width: 2560px) and (max-height: 1964px)"
-        srcset="{{ '/assets/images/' | append: page.sw-collection-designer-photo | append: '-1280.JPG' | absolute_url }}">
+        srcset="{{ '/assets/images/' | append: page.sw-collection-designer-photo | append: '-1280.JPG' | relative_url }}">
       <img id="article-image" class="article image"
-        src="{{ '/assets/images/' | append: page.sw-collection-designer-photo | append: '-1920.JPG' | absolute_url }}"
+        src="{{ '/assets/images/' | append: page.sw-collection-designer-photo | append: '-1920.JPG' | relative_url }}"
         alt="{{ page.sw-collection-designer-photo-alt }}" title="{{ page.sw-collection-designer-photo-alt }}">
     </picture>
   </div>

@@ -1,16 +1,16 @@
 <div class="swogan">
   <div class="swogan bar">
-    <img class="swogan logo" src="{{ '/assets/images/logo-white.svg' | absolute_url }}">
+    <img class="swogan logo" src="{{ '/assets/images/logo-white.svg' | relative_url }}">
     <div class="swogan content">
       <p class="swogan text">Осмели се да мечтаеш за нея!</p>
       {% include navigation.html %}
     </div>
     <div id="nav-color" class="swogan color"></div>
     <picture>
-      <source media="(max-width: 640px)" srcset="{{ '/assets/images/banner-640.jpg' | absolute_url }}">
-      <source media="(max-width: 1280px)" srcset="{{ '/assets/images/banner-1280.jpg' | absolute_url }}">
-      <source media="(max-width: 1920px)" srcset="{{ '/assets/images/banner-1920.jpg' | absolute_url }}">
-      <img class="swogan cover" src="{{ '/assets/images/banner.jpg' | absolute_url }}"></img>
+      <source media="(max-width: 640px)" srcset="{{ '/assets/images/banner-640.jpg' | relative_url }}">
+      <source media="(max-width: 1280px)" srcset="{{ '/assets/images/banner-1280.jpg' | relative_url }}">
+      <source media="(max-width: 1920px)" srcset="{{ '/assets/images/banner-1920.jpg' | relative_url }}">
+      <img class="swogan cover" src="{{ '/assets/images/banner.jpg' | relative_url }}"></img>
     </picture>
   </div>
 </div>
