@@ -1,15 +1,6 @@
 'use strict';
 
 class State {
-
-  offsetTop;
-  offsetHeight;
-  stylePosition;
-  styleTop;
-  styleLeft;
-  styleZIndex;
-  styleMarginTop;
-
   constructor(offsetTop, offsetHeight, stylePosition, styleTop, styleLeft, styleZIndex, styleMarginTop) {
     this.offsetTop = offsetTop;
     this.offsetHeight = offsetHeight;
@@ -22,20 +13,16 @@ class State {
 }
 
 class StickyElement {
-  id;
-  original;
-  query;
-  classes;
-  isStuck = false;
-  state = {};
-  replacement;
-
   constructor(id, original, query, classes) {
     this.id = id;
     this.original = original;
     this.query = query;
     this.classes = classes;
     this.updateState();
+
+    this.isStuck = false;
+    this.state = {};
+    this.replacement = undefined;
   }
 
   updateState() {
@@ -53,9 +40,8 @@ class StickyElement {
 
 class StickService {
 
-  _aElements = [];
-
   constructor() {
+    this._aElements = [];
     window.addEventListener('scroll', () => this._onChange());
     window.addEventListener('resize', () => this._onResize());
   }
