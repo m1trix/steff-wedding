@@ -270,7 +270,9 @@ $HOME-LINK-PADDING: 0.5rem;
 
   &.image {
     @function width($parts) {
-      @return calc(100% / #{$parts} - #{2 * $padding});
+      // Note: This is a nasty workaround to avoid an issue on Firefox. There is some off-by-one problem that -1px solves ...
+      // We lose up-to 4 pixels, but at least it works everywhere ...
+      @return calc(100% / #{$parts} - #{2 * $padding} - 1px);
     }
 
     @function height($parts) {
