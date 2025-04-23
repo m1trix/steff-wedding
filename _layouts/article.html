@@ -8,7 +8,7 @@ layout: page
       id="article-image"
       class="article image"
       src="{{ '/assets/images/' | append: page.image | append: '-640.jpg' | relative_url }}"
-      hd-src="{{ '/assets/images/' | append: page.image | append: '-1920.jpg' | relative_url }}"
+      lazy-src="{{ '/assets/images/' | append: page.image | append: '-1920.jpg' | relative_url }}"
       alt="{{ page.image-alt }}"
       title="{{ page.image-alt }}"
     >

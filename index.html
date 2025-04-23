@@ -9,7 +9,7 @@ navStuck: true
   <img
     class="home cover"
     src="{{ '/assets/images/banner-1280.jpg' | relative_url }}"
-    hd-src="{{ '/assets/images/banner.jpg' | relative_url }}"
+    lazy-src="{{ '/assets/images/banner.jpg' | relative_url }}"
   >
   <button id="scroll-button" class="button">Напред</button>
 </div>
@@ -48,7 +48,7 @@ navStuck: true
     <a class="home link" href="{{ '/collections' | relative_url }}">
       <img
         src="{{ '/assets/images/dresses/jacket-close-2-640.JPG' | relative_url }}""
-        hd-src="{{ '/assets/images/dresses/jacket-close-2-1920.JPG' | relative_url }}"
+        lazy-src="{{ '/assets/images/dresses/jacket-close-2-1920.JPG' | relative_url }}"
       >
       <div class="home link text">Колекции</div>
       {% if discount %}
@@ -59,7 +59,7 @@ navStuck: true
     <a class="home link" href="{{ '/organize' | relative_url }}">
       <img
         src="{{ '/assets/images/organize-640.jpg' | relative_url }}"
-        hd-src="{{ '/assets/images/organize-1920.jpg' | relative_url }}"
+        lazy-src="{{ '/assets/images/organize-1920.jpg' | relative_url }}"
       >
       <div class="home link text">Организация</div>
     </a>
