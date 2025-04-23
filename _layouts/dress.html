@@ -137,8 +137,9 @@ title: Рокли
   <div class="dress images">
     {% for photo in page.sw-dress-photos %}
     <img
+      loading="lazy"
       src="{{ '/assets/images/dresses/' | append: page.sw-dress-id | append: '-' | append: photo | append: '-640.JPG' | relative_url }}"
-      lazy-src="{{ '/assets/images/dresses/' | append: page.sw-dress-id | append: '-' | append: photo | append: '-1920.JPG' | relative_url }}"
+      lazy-src="{{ '/assets/images/dresses/' | append: page.sw-dress-id | append: '-' | append: photo | append: '-1280.JPG' | relative_url }}"
     >
     {% endfor %}
   </div>

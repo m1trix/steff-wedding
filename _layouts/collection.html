@@ -41,8 +41,9 @@ hideTitle: true
   {% endif %}
   <a class="galery image" href="{{ dress.url | relative_url }}">
     <img
+      loading="lazy"
       src="{{ '/assets/images/dresses/' | append: dress.sw-dress-id | append: '-' | append: dress.sw-dress-photos[0] | append: '-640.JPG' | relative_url }}"
-      lazy-src="{{ '/assets/images/dresses/' | append: dress.sw-dress-id | append: '-' | append: dress.sw-dress-photos[0] | append: '-1920.JPG' | relative_url }}"\
+      lazy-src="{{ '/assets/images/dresses/' | append: dress.sw-dress-id | append: '-' | append: dress.sw-dress-photos[0] | append: '-1280.JPG' | relative_url }}"
       alt="{{ dress.sw-dress-name }}"
       title="{{ dress.sw-dress-name }}"
     >
@@ -61,6 +62,7 @@ hideTitle: true
   <div class="article image-container">
     <img
       id="article-image"
+      loading="lazy"
       class="article image"
       src="{{ '/assets/images/' | append: page.sw-collection-designer-photo | append: '-640.JPG' | relative_url }}"
       lazy-src="{{ '/assets/images/' | append: page.sw-collection-designer-photo | append: '-1920.JPG' | relative_url }}"

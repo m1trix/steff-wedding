@@ -4,9 +4,10 @@ navStuck: true
 ---
 
 <div id="home-intro" class="home intro">
-  <img class="home logo" src="{{ '/assets/logo.svg' | relative_url }}">
+  <img loading="lazy" class="home logo" src="{{ '/assets/logo.svg' | relative_url }}">
   <p class="home swogan">Осмели се да мечтаеш за нея!</p>
   <img
+    loading="lazy"
     class="home cover"
     src="{{ '/assets/images/banner-1280.jpg' | relative_url }}"
     lazy-src="{{ '/assets/images/banner.jpg' | relative_url }}"
@@ -47,6 +48,7 @@ navStuck: true
     {% endif %}
     <a class="home link" href="{{ '/collections' | relative_url }}">
       <img
+        loading="lazy"
         src="{{ '/assets/images/dresses/jacket-close-2-640.JPG' | relative_url }}""
         lazy-src="{{ '/assets/images/dresses/jacket-close-2-1920.JPG' | relative_url }}"
       >
@@ -58,6 +60,7 @@ navStuck: true
 
     <a class="home link" href="{{ '/organize' | relative_url }}">
       <img
+        loading="lazy"
         src="{{ '/assets/images/organize-640.jpg' | relative_url }}"
         lazy-src="{{ '/assets/images/organize-1920.jpg' | relative_url }}"
       >
