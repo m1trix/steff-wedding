@@ -1,0 +1,14 @@
+<script>
+    const loadImages = (image) => {
+        image.setAttribute("src", image.getAttribute("lazy-src"));
+        image.onload = () => {
+            image.removeAttribute("lazy-src");
+        };
+    };
+
+    window.addEventListener("load", () => {
+        document.querySelectorAll("img[lazy-src]").forEach((img) => {
+            loadImages(img);
+        });
+    });
+</script>

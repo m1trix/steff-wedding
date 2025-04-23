@@ -29,15 +29,12 @@ redirect_from:
     %}
     {% endif %}
     <a class="home collection-link" href="{{ col.url | relative_url }}">
-      <picture>
-        <source
-          media="(max-height: 899px)"
-          srcset="{{ '/assets/images/dresses/' | append: dress.sw-dress-id | append: '-' | append: dress.sw-dress-photos[0] | append: '-640.JPG' | relative_url }}"
-        >
-        <img
-          src="{{ '/assets/images/dresses/' | append: dress.sw-dress-id | append: '-' | append: dress.sw-dress-photos[0] | append: '-1280.JPG' | relative_url }}"
-        >
-      </picture>
+      <img
+        loading="lazy"
+        src="{{ '/assets/images/dresses/' | append: dress.sw-dress-id | append: '-' | append: dress.sw-dress-photos[0] | append: '-640.JPG' | relative_url }}"
+        lazy-src="{{ '/assets/images/dresses/' | append: dress.sw-dress-id | append: '-' | append: dress.sw-dress-photos[0] | append: '-1280.JPG' | relative_url }}"
+        alt="{{ dress.sw-dress-name }}"
+      >
       <div class="home collection-link text">{{ col.sw-collection-name }}</div>
       {% if discount %}
       <div class="discount-tag">
