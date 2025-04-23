@@ -1,0 +1,15 @@
+<script>
+    console.log("Lazy loading images");
+    const loadImages = (image) => {
+        image.setAttribute("src", image.getAttribute("hd-src"));
+        image.onload = () => {
+            image.removeAttribute("hd-src");
+        };
+    };
+
+    window.addEventListener("load", () => {
+        document.querySelectorAll("img[hd-src]").forEach((img) => {
+            loadImages(img);
+        });
+    });
+</script>

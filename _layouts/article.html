@@ -4,34 +4,17 @@ layout: page
 
 <div class="article container">
   <div class="article image-container">
-    <picture>
-      <source
-        media="(max-width: 1920px) and (max-height: 753px)"
-        srcset="{{ '/assets/images/' | append: page.image | append: '-640.jpg' | relative_url }}"
-      >
-      <source
-        media="(max-width: 3840px) and (max-height: 1507px)"
-        srcset="{{ '/assets/images/' | append: page.image | append: '-1280.jpg' | relative_url }}"
-      >
-      <img
-        id="article-image"
-        class="article image"
-        src="{{ '/assets/images/' | append: page.image | append: '-1920.jpg' | relative_url }}"
-        alt="{{ page.image-alt }}"
-        title="{{ page.image-alt }}"
-      >
-    </picture>
+    <img
+      id="article-image"
+      class="article image"
+      src="{{ '/assets/images/' | append: page.image | append: '-640.jpg' | relative_url }}"
+      hd-src="{{ '/assets/images/' | append: page.image | append: '-1920.jpg' | relative_url }}"
+      alt="{{ page.image-alt }}"
+      title="{{ page.image-alt }}"
+    >
   </div>
 
   <article class="article text">
     {{ content }}
   </article>
 </div>
-
-<!-- <script>
-  window.StickService.register(
-    document.getElementById('article-image'),
-    [],
-    '(min-width: 481px)'
-  );
-</script> -->

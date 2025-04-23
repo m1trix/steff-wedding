@@ -6,12 +6,11 @@
       {% include navigation.html %}
     </div>
     <div id="nav-color" class="swogan color"></div>
-    <picture>
-      <source media="(max-width: 640px)" srcset="{{ '/assets/images/banner-640.jpg' | relative_url }}">
-      <source media="(max-width: 1280px)" srcset="{{ '/assets/images/banner-1280.jpg' | relative_url }}">
-      <source media="(max-width: 1920px)" srcset="{{ '/assets/images/banner-1920.jpg' | relative_url }}">
-      <img class="swogan cover" src="{{ '/assets/images/banner.jpg' | relative_url }}"></img>
-    </picture>
+    <img
+      class="swogan cover"
+      src="{{ '/assets/images/banner-640.jpg' | relative_url }}"
+      hd-src="{{ '/assets/images/banner.jpg' | relative_url }}"
+    >
   </div>
 </div>
 

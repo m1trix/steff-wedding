@@ -136,19 +136,10 @@ title: Рокли
   </article>
   <div class="dress images">
     {% for photo in page.sw-dress-photos %}
-    <picture>
-      <source
-        media="(max-width: 640px)"
-        srcset="{{ '/assets/images/dresses/' | append: page.sw-dress-id | append: '-' | append: photo | append: '-640.JPG' | relative_url }}"
-      >
-      <source
-        media="(min-width: 788px) and (max-width: 960px)"
-        srcset="{{ '/assets/images/dresses/' | append: page.sw-dress-id | append: '-' | append: photo | append: '-640.JPG' | relative_url }}"
-      >
-      <img
-        src="{{ '/assets/images/dresses/' | append: page.sw-dress-id | append: '-' | append: photo | append: '-1280.JPG' | relative_url }}"
-      >
-    </picture>
+    <img
+      src="{{ '/assets/images/dresses/' | append: page.sw-dress-id | append: '-' | append: photo | append: '-640.JPG' | relative_url }}"
+      hd-src="{{ '/assets/images/dresses/' | append: page.sw-dress-id | append: '-' | append: photo | append: '-1920.JPG' | relative_url }}"
+    >
     {% endfor %}
   </div>
 </div>
