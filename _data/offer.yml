@@ -2,7 +2,7 @@ description: >
   -25% за избрани мостри и -5% при поръчка на нова рокля,
   само в периода от 28.08 до 15.10!
 discounts:
-- amount: 5
+- amount: 25
   types: new
   collections: '*'
   dresses: '*'
