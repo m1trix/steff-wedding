@@ -19,7 +19,7 @@ hideTitle: true
 
 <div class="galery container">
   {% for dress in dresses %}
-  {% if side.data.offer %}
+  {% if site.data.offer %}
   {%
     assign discount = site.data.offer.discounts
     | where_exp: "item",
