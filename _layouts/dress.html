@@ -83,23 +83,29 @@ title: Рокли
           %}
         {% endif %}
 
+        {% assign originalPrice = page.sw-dress-price %}
+        {%
+          assign newDressPrice = 100
+          | minus: newDressDiscount
+          | divided_by: 100.0
+          | times: originalPrice
+          | floor
+        %}
+        {%
+          assign sampleDressPrice = 100
+          | minus: sampleDressDiscount
+          | divided_by: 100.0
+          | times: originalPrice
+          | floor
+        %}
+
+        {% if newDressDiscount or sampleDressDiscount %}
         <span><s>{{ page.sw-dress-price }} лв</s></span>
+        {% else %}
+        <span>{{ page.sw-dress-price }} лв</span>
+        {% endif %}
+
         <div class="vbox center">
-          {% assign originalPrice = page.sw-dress-price %}
-          {%
-            assign newDressPrice = 100
-            | minus: newDressDiscount
-            | divided_by: 100.0
-            | times: originalPrice
-            | floor
-          %}
-          {%
-            assign sampleDressPrice = 100
-            | minus: sampleDressDiscount
-            | divided_by: 100.0
-            | times: originalPrice
-            | floor
-          %}
           {% if newDressDiscount and sampleDressDiscount %}
             {% if newDressDiscount == sampleDressDiscount %}
               <div class="hbox center">
