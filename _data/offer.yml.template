@@ -1,0 +1,34 @@
+# How to use the offers feature:
+# 1. Copy this file to _data/offer.yml
+# 2. Edit the new file to set the discounts.
+#
+# File structure:
+# - description: A description that will be shown on all pages of the website.
+# - discounts: A list of discounts that will be applied to the dresses and shown in each respective dress page.
+#   - amount: The discount amount in percent.
+#   - types: The type of discount. Can be either 'sample' or 'new'.
+#   - collections: The collection name. Can be '*' to apply to all collections.
+#   - dresses: A list of dress names. Can be '*' to apply to all dresses.
+#
+# Multuple discounts might apply for the same dress. The website will automatically choose the one with the highest discount.
+# Example:
+description: >
+  -25% за избрани мостри и -5% при поръчка на нова рокля,
+  само в периода от 28.08 до 15.10!
+discounts:
+- amount: 5
+  types: new
+  collections: '*'
+  dresses: '*'
+
+- amount: 25
+  types: sample
+  collections: dream-away
+  dresses:
+    - adela
+    - roberta
+    - nika
+    - vanilla
+    - thalia
+    - dementer
+    - magnificent

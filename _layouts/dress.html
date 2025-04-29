@@ -40,97 +40,109 @@ title: Рокли
       <p class="text center">
         <b>Цена</b><br />
         {% if site.data.offer %}
-        {%
-          assign allDiscounts = site.data.offer.discounts
-          | where_exp: "item",
-            "
-              item.collections == '*'
-              or item.collections == page.sw-dress-collection-id
-              or item.collections contains page.sw-dress-collection-id
-            "
-          | where_exp: "item",
-            "
-              item.dresses == '*'
-              or item.dresses == page.sw-dress-id
-              or item.dresses contains page.sw-dress-id
-            "
-        %}
+          {%
+            assign allDiscounts = site.data.offer.discounts
+            | where_exp: "item",
+              "
+                item.collections == '*'
+                or item.collections == page.sw-dress-collection-id
+                or item.collections contains page.sw-dress-collection-id
+              "
+            | where_exp: "item",
+              "
+                item.dresses == '*'
+                or item.dresses == page.sw-dress-id
+                or item.dresses contains page.sw-dress-id
+              "
+          %}
 
-        {%
-          assign newDiscount = allDiscounts
-          | where_exp: "item",
-            "
-              item.types == '*'
-              or item.types == 'new'
-              or item.types contains 'new'
-            "
-          | sort: "amount"
-          | map: "amount"
-          | last
-        %}
+          {%
+            assign newDressDiscount = allDiscounts
+            | where_exp: "item",
+              "
+                item.types == '*'
+                or item.types == 'new'
+                or item.types contains 'new'
+              "
+            | sort: "amount"
+            | map: "amount"
+            | last
+          %}
 
-        {%
-          assign sampleDiscount = allDiscounts
-          | where_exp: "item",
-            "
-              item.types == '*'
-              or item.types == 'sample'
-              or item.types contains 'sample'
-            "
-          | sort: "amount"
-          | map: "amount"
-          | last
-        %}
+          {%
+            assign sampleDressDiscount = allDiscounts
+            | where_exp: "item",
+              "
+                item.types == '*'
+                or item.types == 'sample'
+                or item.types contains 'sample'
+              "
+            | sort: "amount"
+            | map: "amount"
+            | last
+          %}
         {% endif %}
 
-        {% if newDiscount or sampleDiscount %}
+        {% assign originalPrice = page.sw-dress-price %}
+        {%
+          assign newDressPrice = 100
+          | minus: newDressDiscount
+          | divided_by: 100.0
+          | times: originalPrice
+          | floor
+        %}
+        {%
+          assign sampleDressPrice = 100
+          | minus: sampleDressDiscount
+          | divided_by: 100.0
+          | times: originalPrice
+          | floor
+        %}
+
+        {% if newDressDiscount or sampleDressDiscount %}
         <span><s>{{ page.sw-dress-price }} лв</s></span>
-        <div class="vbox center">
-          {% if newDiscount and sampleDiscount and newDiscount >= sampleDiscount %}
-            {%
-              assign newPrice = 100
-              | minus: newDiscount
-              | divided_by: 100.0
-              | times: page.sw-dress-price
-              | floor
-            %}
-          <div class="hbox center">
-            <div class="discount-tag-compact">-{{ newDiscount }}%</div>
-            <div>за нова рокля: {{ newPrice }} лв</div>
-          </div>
-          {% endif %}
-
-          {% if sampleDiscount %}
-            {%
-              assign newPrice = 100
-              | minus: sampleDiscount
-              | divided_by: 100.0
-              | times: page.sw-dress-price
-              | floor
-            %}
-          <div class="hbox center">
-            <div class="discount-tag-compact">-{{ sampleDiscount }}%</div>
-            <div>за мостра: {{ newPrice }} лв</div>
-          </div>
-          {% endif %}
-
-          {% if newDiscount and newDiscount < sampleDiscount or sampleDiscount == nil %}
-            {%
-              assign newPrice = 100
-              | minus: newDiscount
-              | divided_by: 100.0
-              | times: page.sw-dress-price
-              | floor
-            %}
-          <div class="hbox center">
-            <div class="discount-tag-compact">-{{ newDiscount }}%</div>
-            <div>за нова рокля: {{ newPrice }} лв</div>
-          </div>
-          {% endif %}
-        </div>
         {% else %}
         <span>{{ page.sw-dress-price }} лв</span>
         {% endif %}
+
+        <div class="vbox center">
+          {% if newDressDiscount and sampleDressDiscount %}
+            {% if newDressDiscount == sampleDressDiscount %}
+              <div class="hbox center">
+                <div>за нова рокля или мостра:</div>
+                <div>{{ newDressPrice }} лв <div class="discount-tag-compact">-{{ newDressDiscount }}%</div></div>
+              </div>
+            {% elsif newDressDiscount >= sampleDressDiscount %}
+              <div class="hbox center">
+                <div>за нова рокля:</div>
+                <div>{{ newDressPrice }} лв <div class="discount-tag-compact">-{{ newDressDiscount }}%</div></div>
+              </div>
+              <div class="hbox center">
+                <div>за мостра:</div>
+                <div>{{ sampleDressPrice }} лв <div class="discount-tag-compact">-{{ sampleDressDiscount }}%</div></div>
+              </div>
+            {% else %}
+              <div class="hbox center">
+                <div>за мостра:</div>
+                <div>{{ sampleDressPrice }} лв <div class="discount-tag-compact">-{{ sampleDressDiscount }}%</div></div>
+              </div>
+              <div class="hbox center">
+                <div>за нова рокля:</div>
+                <div>{{ newDressPrice }} лв <div class="discount-tag-compact">-{{ newDressDiscount }}%</div></div>
+              </div>
+            {% endif %}
+          {% elsif newDressDiscount %}
+            <div class="hbox center">
+              <div>за нова рокля:</div>
+              <div>{{ newDressPrice }} лв <div class="discount-tag-compact">-{{ newDressDiscount }}%</div></div>
+            </div>
+          {% elsif sampleDressDiscount %}
+            <div class="hbox center">
+              <div>за мостра:</div>
+              <div>{{ sampleDressPrice }} лв <div class="discount-tag-compact">-{{ sampleDressDiscount }}%</div></div>
+            </div>
+          {% endif %}
+        </div>
       </p>
     </div>
   </article>
