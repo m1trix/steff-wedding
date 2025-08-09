@@ -1,0 +1,11 @@
+<script type="text/javascript">
+  console.log(window.location.pathname);
+  let currentPath = window.location.pathname;
+  let unavailablePaths = ['/dresses', '/collections', '/organize', '/about'];
+
+  if (currentPath == '/' || !!unavailablePaths.find((path) => window.location.pathname.startsWith(path))) {
+    console.log(`Redirecting from ${window.location.pathname} to /coming-soon ...`);
+    // If the user is on the homepage, redirect to the coming soon page
+    window.location.href = "{{ '/coming-soon' | relative_url }}";
+  }
+</script>
