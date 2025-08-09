@@ -61,7 +61,7 @@ $SWOGAN-BAR-HEIGHT: 2 * $SWOGAN-BAR-PADDING + 6rem;
     & a {
       $side-margin: 2px;
       $padding: 1rem;
-      $width: 10rem;
+      $width: 6rem;
       font-size: 1rem;
       color: white;
       padding: $padding;
@@ -70,7 +70,7 @@ $SWOGAN-BAR-HEIGHT: 2 * $SWOGAN-BAR-PADDING + 6rem;
       display: inline-block;
       text-align: center;
       font-family: $font;
-      width: 6em;
+      min-width: #{$width};
       transition: height #{$ANIMATION-SPEED};
       position: relative;
       outline: 3px dotted transparent;
